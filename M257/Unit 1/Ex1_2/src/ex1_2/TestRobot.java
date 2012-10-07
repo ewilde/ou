@@ -36,14 +36,19 @@ public class TestRobot
 
       // Add method invocations here to do the following:
       //    Move the Robot named artoo one position North
+      artoo.moveNorth();
 
       //    Move the Robot named deetoo one position East and then one position South
+      deetoo.moveEast();
+      deetoo.moveSouth();
 
       //    Move the Robot named meetoo to the position with x and y coordinates
       //    5 and 3 respectively
+      meetoo.moveTo(5, 3);
 
       // Add code here to display new current position of each robot
-
-
+      System.out.println("artoo is now at " + artoo.getPosition());
+      System.out.println("deetoo is now at " + deetoo.getPosition());
+      System.out.println("meetoo is now at " + meetoo.getPosition());
    }
 }

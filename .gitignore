@@ -4,3 +4,10 @@
 *.jar
 *.war
 *.ear
+
+#netbeans ignore personal stuff
+nbproject/
+
+#build files
+[Bb]uild/
+nbbuild/

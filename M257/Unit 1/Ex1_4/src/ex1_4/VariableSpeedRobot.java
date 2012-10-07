@@ -32,22 +32,22 @@ public class VariableSpeedRobot extends SpeedRobot
    // specified by the argument 'theSpeed'
    public void moveNorth(int theSpeed)
    {
-      // add your code here
+      this.setY(this.getY() + theSpeed);
    }
 
    public void moveSouth(int theSpeed)
    {
-      // add your code here
+      this.setY(this.getY() - theSpeed);
    }
 
    public void moveEast(int theSpeed)
    {
-      // add your code here
+      this.setX(this.getX() + theSpeed);
    }
 
    public void moveWest(int theSpeed)
    {
-      // add your code here
+      this.setX(this.getX() - theSpeed);
    }
 
 }

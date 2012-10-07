@@ -40,20 +40,30 @@ public class TestRobot
       // Display the initial state of the magic robot
       // - both its position and whether it is visible or not
       // - note you can print out a boolean value directly (as true or false)
+      System.out.println("Magic robot position: " + gandalf.getPosition());
+      System.out.println("Magic robot visibility: " + gandalf.isVisible());
 
       // Make the magic robot visible
+      gandalf.makeVisible();
 
       // Move the magic robot 2 places to the North
+      gandalf.moveNorth();
+      gandalf.moveNorth();
 
       // Display the new state of the magic robot
       // - both its position and whether it is visible or not
+      System.out.println("Magic robot position: " + gandalf.getPosition());
+      System.out.println("Magic robot visibility: " + gandalf.isVisible());
 
       // Make the magic robot invisible
+      gandalf.makeInvisible();
 
       // Move the magic robot to position x=3, y=3
+      gandalf.moveTo(3, 3);
 
       // Display the new state of the magic robot
       // - both its position and whether it is visible or not
-
+      System.out.println("Magic robot position: " + gandalf.getPosition());
+      System.out.println("Magic robot visibility: " + gandalf.isVisible());
    }
 }

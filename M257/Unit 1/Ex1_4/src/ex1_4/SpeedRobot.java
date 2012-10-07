@@ -40,24 +40,27 @@ public class SpeedRobot extends Robot
    // Each is a new version, OVERRIDING the inherited method of the same name
    // Each method should move the robot by the number of grid squares
    // specified by the instance variable 'speed' (see above)
+   @Override
    public void moveNorth()
    {
-      // add your code here
+       this.setY(this.getY() + this.getSpeed());
    }
 
+   @Override
    public void moveSouth()
    {
-      // add your code here
-
+      this.setY(this.getY() - this.getSpeed());
    }
 
+   @Override
    public void moveEast()
    {
-      // add your code here
+      this.setX(this.getX() + this.getSpeed());
    }
 
+   @Override
    public void moveWest()
    {
-      // add your code here
+      this.setX(this.getX() - this.getSpeed());
    }
 }
