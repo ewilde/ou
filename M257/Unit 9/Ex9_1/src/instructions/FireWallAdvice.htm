@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<title>Firewalls advice</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Firewalls and network programming. </h1>
+
+<p>In the activities for this unit you will be asked to do some programming exercises for
+client-server systems. </p>
+
+<p> However, as part of the <i> safe
+computing </i>initiative, you will have been advised to install a 'firewall' on
+your machine, which protects it against potentially foreign programs executing
+on your machine. For the activities in this unit, you need to make sure that
+the settings of your firewall are such that the <i >java.exe</i> and <i> javaw.exe</i>
+ are treated as <i>trusted</i> and thus allowed to inspect the
+local machine. If you don't treat them as trusted, then none of the activities
+will work, and it will be very difficult to work out why this is so, as no
+clear error messages will be given!</p>
+
+
+<h2 >Setting java.exe and javaw.exe as trusted programs</h2>
+
+<p>Depending on the firewall you have installed, when starting NetBeans you may see a window or dialogue box from your firewall asking whether you want to allow java.exe to access the Internet. 
+</p>
+
+<p>If you refuse access at this point, or at subsequent points,
+you may find that your client server application does not behave as it should,
+and that you receive the following error message: </p>
+
+<pre >Received an IO exception java.net.ConnectException: Connection refused:
+no further information</pre>
+
+<p>You are advised to click <em>Yes </em> when presented with this type of dialogue box when running the Client Server activities. </p>
+
+<p>If you do not see the type of dialogue box described above, then it may be that some time ago you had answered <em>No </em> to such a box, and had asked it to remember your answer! </p>
+<p>You should be able to check the settings for the programs on your machine, by running your firewall program and selecting the necessary option from your firewall program's menu. You will usually find a listing of blocked progams under a section such as 'Program Control', 'Blocked Programs' or 'Rules'. </p>
+<p>With many firewall programs you can left-click on the <em>name </em> of a blocked program and see details about the program together with options to adjust the settings to Allow or Block. </p>
+<p>Depending on your firewall you may need to navigate to some of the programs to check their settings. The location of java.exe and javaw.exe can vary but typically they will be in a folder called: </p>
+
+<pre>C:\Program Files\Java\jdk1.5.n_nn\bin</pre>
+
+<p>where <span class="PA">n_nn</span> is the version number of the JDK you are using with NetBeans.</p>
+<p>Firewall programs vary greatly and the above information is only meant as general guidance. If you encounter problems with allowing or blocking programs within your firewall, consult your firewall's help section in the first instance and if after that you still encounter difficulties visit the Open University's Computing Helpdesk website at <a href="http://www.open.ac.uk/computing-helpdesk" target="_blank">http://www.open.ac.uk/computing-helpdesk </a> where you can gain further assistance. </p>
+</body>
+
+</html>

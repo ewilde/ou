@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+<title>Activity 4.6 - Writing a user-defined exception class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.6 - Writing a user-defined exception class</h1>
+
+<h2>Topic</h2>
+
+<p>Here we extend the previous
+activity to employ a user-defined exception class.</p>
+
+<h2>Materials</h2>
+
+<p>In addition to the Solution
+document, the project for this activity contains three classes:</p>
+
+<ul>
+<li>
+<span class="PA">Read_a_Sonnet</span>, which you will need to modify; </li>
+
+<li>
+<span class="PA">FileFormatException</span>, which is incomplete; 
+</li>
+
+<li>
+<span class="PA">Main</span>, which contains test code for the
+activity.
+</li>
+</ul>
+
+<p>In addition, there is a
+text file, <span class="PA">sonnet1.txt</span>, which can be found in the project folder. This contains a well-known
+sonnet (a fourteen-line poem) by William Shakespeare.</p>
+
+<h2>Task</h2>
+
+<p>The <span class="PA">run</span> method of the class <span class="PA">Read_a_Sonnet</span> will read the first fourteen lines
+of the file <span class="PA">sonnet1.txt</span> and will print them out one by one. The <span class="PA">main</span> method should handle any exceptions
+of type <span class="PA">IOException</span> that may occur.</p>
+
+<h2>Instructions</h2>
+
+<ol>
+<li>
+Run
+the project and check that it displays the fourteen-line poem correctly.
+</li>
+
+<li>
+Open the class <span class="PA">FileFormatException</span>, and complete the definition of this
+user-defined exception class. 
+</li>
+
+<li>
+In class <span class="PA">Read_a_Sonnet</span>, make appropriate changes so that the relevant methods throw and handle
+a <span class="PA">FileFormatException</span>, rather than an <span class="PA">EOFException</span>, if the file does not have enough
+lines. 
+</li>
+
+<li>
+Check that your modified classes work both for a file with at least the required
+number of lines (14) and for a shorter file (edit the text file in the IDE). 
+</li>
+</ol>
+
+
+</body>
+
+</html>

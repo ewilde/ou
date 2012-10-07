@@ -1,0 +1,103 @@
+<html>
+<head>
+
+
+<title>Activity 7.5 - Experimenting with animation</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 7.5 - Experimenting with animation</h1>
+<h2>Topic </h2>
+<p>In this activity we experiment with animation. </p>
+<h2>Materials </h2>
+<p>We have provided two classes: </p>
+<ul>
+  <li><span class="PA">Logo</span>, which represents an Open University logo resembling a small-scale
+  version of the second logo seen in Activity 7.3. However this version of
+  <span class="PA">Logo</span>
+  has added methods which make it move: </li><ul>
+  <li><span class="PA">goToPosition(int x, int y)</span> moves the logo to (x,y); </li>
+  <li><span class="PA">right()</span> moves the logo one pixel to the right; </li>
+  <li><span class="PA">left()</span> moves the logo one pixel to the left; </li>
+  <li><span class="PA">up()</span> moves the logo one pixel upward; </li>
+  <li><span class="PA">down()</span> moves the logo one pixel downward; </li></ul>
+  <li><span class="PA">StarrySky</span> which is a panel providing a background of "stars". </li>
+</ul>
+<p>Here we see the logo against the night-sky backdrop. </p>
+<p><img border=0 width=400 height=400
+src="Activity7.5_files/image001.png"
+alt = "  A window representing a black sky filled with stars and with a small OU logo in it."></p>
+<h2>Tasks </h2>
+<ol>
+<li><p>Write a program that will cause a logo to fly round, describing the four sides of a
+square of size 200 x 200 and return to its original position. </p></li>
+<li><p>Write a program that will make the logo follow a figure-of eight path.
+Each leg represents a movement of 50 pixels horizontally and 50 vertically.</p>
+<p><img width=70 height=140 src="Activity7.5_files/image003.png"
+alt = "A diagram showing the figure of eight path that the logo will follow.
+The motion is clockwise in the top half of the 8 and anti-clockwise in the bottom half of the 8." >
+</p>
+</li>
+<li><p>Write a program that will create two separate windows with moving logos
+in. </p></li></ol>
+<h2>Instructions </h2>
+
+<p>Open the classes <span class="PA">Logo</span> and <span class="PA">StarrySky</span> and inspect the constructors to see what
+arguments are required. </p>
+<p>Carry out the following steps to complete the first task: </p>
+<ol>
+<li><p>Add a new class <span class="PA">FlyingLogo</span> to the current project <span class="PA">Ex7_5. FlyingLogo</span> should extend <span class="PA">JFrame</span>. The frame width and
+height should be 400, and the location should be (100,100). </p></li>
+<li><p>Add two instance variables which will reference a <span class="PA">Logo</span> instance and a
+<span class="PA">StarrySky</span> instance respectively. Initialise these with a <span class="PA">Logo</span> object, and a
+<span class="PA">StarrySky</span> object with 200 stars and the same width and height as your frame. </p></li>
+<li><p>Complete the <span class="PA">FlyingLogo</span> constructor so that it: </p>
+<ul>
+  <li>sets the title, frame size, location etc. in the usual way; </li>
+  <li>adds the <span class="PA">StarrySky</span> object to the content pane;
+  </li>
+  <li>moves the logo to (100,100). </li><p></p>
+</ul>
+<li><p>Write a <span class="PA">paint</span> method which overrides the inherited one and is
+responsible for first painting the frame, then the logo. </p></li>
+<li><p>Write a <span class="PA">squareMove()</span> method that will
+use <span class="PA">for</span> loops to send the logo: </p>
+<ul>
+  <li>200 steps to the right; </li>
+  <li>200 steps down; </li>
+  <li>200 steps to the left; </li>
+  <li>200 steps up. </li>
+</ul>
+<p>Each step should include a call to <span class="PA">Thread.sleep()</span>, to provide a suitable
+delay while the system repaints the window. Use the class
+<span class="PA">MovingBall</span> as discussed in the Unit as a guide
+to how this is done. </p></li>
+<li><p>Now add a class <span class="PA">FlyingLogoTest</span> with a <span class="PA">main()</span> method which will instantiate a <span class="PA">FlyingLogo</span>
+object with title "Open in space", make it visible and invoke <span class="PA">squareMove</span> on
+it. </p></li>
+<li><p>Run the program setting <span class="PA">ex7_5.FlyingLogoTest</span> as the main class.</p></li></ol>
+<p>In order to carry out the second task: </p>
+<ol>
+<li><p>Add a method <span class="PA">figureOfEight()</span> to <span class="PA">FlyingLogo</span>. Change
+<span class="PA">FlyingLogoTest</span> so it invokes this method instead of <span class="PA">squareMove()</span>. </p>
+</li></ol>
+<p>In order to carry out the third task: </p>
+<ol><li><p>In class <span class="PA">FlyingLogoTest</span>, create another instance of
+class <span class="PA">FlyingLogo</span>, named  <span class="PA">world2</span>.
+Before making this frame visible, make sure that it is located at position (500,100)
+using the appropriate accessor method.
+ </p></li>
+<li><p>In <span class="PA">FlyingLogoTest</span> set both frames to visible, then invoke the
+ <span class="PA">figureOfEight()</span> method on each of
+them in turn. Observe what happens. The second logo does not set off until the
+first logo has finished moving. This is because the program only has a single
+thread of execution - it can only do one task at once. In the next unit we shall
+see how to make them both move at the same time. </p></li></ol>
+<p>For our sample solution, see classes <span class="PA">FlyingLogo</span> and <span class="PA">FlyingLogoTest</span> in the Solution file. </p>
+
+</body>
+
+</html>

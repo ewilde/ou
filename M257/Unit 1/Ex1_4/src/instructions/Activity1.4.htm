@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+<title>Activity 1.4 - Robot world - inheritance, overriding and overloading</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 1.4 - Robot world - inheritance, overriding and overloading </h1>
+
+<h2>Topic </h2>
+
+<p>This exercise allows you to test all the various robot classes that inherit
+from the simple <span class="PA">Robot</span> class, discussed in the course
+text. It also displays the robot movement graphically on a grid. </p>
+
+<h2>Materials </h2>
+
+<p>In addition to the Solution document, the project for this exercise contains
+six classes: </p>
+
+<ul><li><span class="PA">Robot</span>, which is complete; </li>
+
+<li><span class="PA">MagicRobot</span>, which inherits from <span class="PA">Robot</span>, and is also complete;</li>
+
+<li><span class="PA">SpeedRobot</span>, which inherits from <span class="PA">Robot</span>, and is incomplete;</li>
+
+<li><span class="PA">VariableSpeedRobot</span>, which inherits from <span class="PA">SpeedRobot</span>, and is
+also incomplete; </li>
+
+<li><span class="PA">TestRobot</span>, which is complete; </li>
+
+<li><span class="PA">Grid</span>, which is responsible for the graphical display of
+the grid containing the various robots. </li>
+</ul>
+
+<p>This represents the most complex set of classes we have seen so far. Realistic
+large commercial systems may contain hundreds or even thousands of classes. </p>
+
+<h2>Task </h2>
+
+<p>In the test class <span class="PA">TestRobot</span>,
+we have provided code to create the various robot objects and to invoke some of
+their methods. The program should compile and run already but some kinds of
+robots will not behave properly. You are to complete the classes <span class="PA">SpeedRobot</span> and <span class="PA">VariableSpeedRobot</span>. </p>
+
+<h2>Instructions </h2>
+
+<ol>
+ <li>Complete the code for the four methods of the <span class="PA">SpeedRobot</span> class, <span class="PA">moveNorth, moveSouth, moveEast</span> and <span class="PA">moveWest</span>, which
+     override the corresponding methods in the <span class="PA">Robot</span> class.</li>
+ <li>Complete the code for the four methods of the <span class="PA">VariableSpeedRobot</span> class, <span class="PA">moveNorth, moveSouth, moveEast</span> and <span class="PA">moveWest</span>, which
+     overload the corresponding methods in the <span class="PA">SpeedRobot</span>
+     class.</li>
+ <li>Build and run the project and check that both
+     the text output and graphical output are as you would expect, given the
+     statements in the <span class="PA">main</span> method of the <span class="PA">TestRobot</span> class.</li>
+</ol>
+
+
+</body>
+
+</html>

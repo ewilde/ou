@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+
+<title>Activity 7.2 - Constructing a window capable of knowing when the mouse is over it</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 7.2 - Constructing a window capable of knowing when the mouse is over it</h1>
+<h2>Topic </h2>
+<p>In this activity we use a mouse listener and a key listener. </p>
+<h2>Task </h2>
+<p>You are asked to write an application which will display a window capable of
+detecting when the mouse pointer is over it. </p>
+<p>The window should be a frame of dimensions 400 by 100, located at (100, 100),
+on which is placed a <span class="PA">JTextField</span> field. The frame title should be "Mouse sensor". When
+the program is first run the text field should show the message "Waiting for
+mouse activity". </p>
+
+<img border=0 width=400 height=100
+src="Activity7.2_files/image001.png"
+alt = "A small window showing the text &quot;Waiting for mouse activity.&quot;">
+<p>A mouse listener is attached to the text field. If the mouse pointer moves
+over the text field (mouse entered) the listener should cause the message to
+change. </p>
+
+<img border=0 width=400 height=100
+src="Activity7.2_files/image002.png"
+alt = "A small window showing the text &quot;I sense the presence of a mouse.&quot;">
+
+<p>If the mouse pointer leaves the text field (mouse exited) the listener should
+recognise this. </p>
+
+<img border=0 width=400 height=100
+src="Activity7.2_files/image003.png"
+alt = "A small window showing the text &quot;That mouse has gone now.
+Press Enter to reset this window.&quot;"
+>
+
+<p>A key listener is also attached to the text field. When Enter is pressed this
+listener should reset the message. </p>
+
+<p><img border=0 width=400 height=100
+src="Activity7.2_files/image004.png"
+alt = "A small window showing the text &quot;Waiting for mouse activity.&quot;"
+>
+<h2>Instructions </h2>
+<ol>
+
+<li>Create a new project called <span class="PA">MyEx7_2</span> in the Unit 7 folder. In the New Java Application wizard name the Main Class <span class="PA">myex7_2.MouseSensorTest</span>.
+<li>Taking the class
+<span class="PA">KeyFrame</span> from the unit as a guide, write a new class <span class="PA">MouseSensor</span> which defines a frame that will
+behave as described above. You may wish to look at the example of <span class="PA">NewMouser </span>for guidance. </li>
+
+<li>Complete the main class <span class="PA">MouseSensorTest</span> so it creates an instance of <span class="PA">MouseSensor</span> and makes it visible. Compile and test your program.</li>
+
+<li>For our sample solution see the Solution file. </li>
+</ol>
+</body>
+
+</html>

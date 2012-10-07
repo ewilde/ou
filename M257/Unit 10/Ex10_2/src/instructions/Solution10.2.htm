@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Discussion of Activity 10.2 - Programming an applet</title>
+
+
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+<body>
+<h1>Discussion of Activity 10.2 - Programming an applet</h1>
+
+<p>If this applet does not run at all, or behaves oddly, see the discussion for Activity 10.1
+which has some suggestions for basic things that might be wrong.  The following comments apply
+to the corresponding numbered instructions in the Activity 10.2 document.<p>
+
+<ol>
+  <li><p>You may get some odd effects if you made the applet window very large or very small.
+  Otherwise this should be fairly straightforward.  If the robot image does not appear, but
+  the game otherwise works, check that you have specified the <span class="PA">images</span> folder and the file name
+  correctly in the second argument of the <span class="PA">getImage</span> method.</p>
+
+
+  <li><p>If you changed the size of the applet window in the previous task, things
+  may or may not work as you expect when viewing using a browser.  This is because the maximum
+  size of the applet window is set by the <span class="PA">APPLET</span> tag in the web page.</p>
+
+  <li><p>To make the class act as a <span class="PA">MouseListener</span>, you need to modify the class header as follows:</p>
+  <pre>
+  public class SpotTheRobot extends Applet implements MouseListener
+  </pre>
+
+  <p>You then need to delete the inner class <span class="PA">MouseTrap</span> and implement the
+  five methods of the <span class="PA">MouseListener</span> interface as methods of class <span class="PA">SpotTheRobot</span>:</p>
+
+  <pre>
+  public void mouseEntered(MouseEvent e) {}
+  public void mouseExited(MouseEvent e) {}
+  public void mousePressed(MouseEvent e) {}
+  public void mouseReleased(MouseEvent e) {}
+
+  public void mouseClicked(MouseEvent e)
+  {
+     mouseXPosition = e.getX();
+     mouseYPosition = e.getY();
+     repaint();  // invokes the applet paint method
+  }
+  </pre>
+
+<p>As you can see, the four unused methods have empty method bodies and the
+   <span class="PA">mouseClicked</span> method is defined in exactly the same way as before.
+  </p>
+
+  <p>Finally, you need to change the code in the <span class="PA">init</span> method
+  so that the applet itself is the listener, rather than the <span class="PA">MouseTrap</span> object as before.
+  To do this, you delete the following line:<p>
+
+  <pre>
+     this.addMouseListener(new MouseTrap());
+  </pre>
+  <p>And replace it with the following code:<p>
+
+  <pre>
+     this.addMouseListener(this);
+  </pre>
+
+  <p>Making the applet listen for mouse clicks may seem a little odd, but this technique is
+  sometimes used and it is useful to be familiar with this idea. As far as the Java
+  system is concerned, the listener can be almost anything as long as it
+  implements the necessary methods for the <span class="PA">MouseListener</span> interface.
+   </li>
+</ol>
+
+

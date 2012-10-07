@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Discussion of Activity 8.1 - Running the hare and the tortoise
+race</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 8.1 - Running the hare and the tortoise race</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">Hare</span>:</p>
+<pre>public class Hare extends Thread<br>{<br>   public void run()<br>   {<br>      for (int i = 1; i &lt;= 50000000; i++)<br>      {<br>         if (i % 1000000 == 0)<br>         {<br>            System.out.print("H ");<br>         }<br>      }<br>   }<br>}<br></pre>
+<p>Code for class <span class="PA">Tortoise</span>:</p>
+<pre>public class Tortoise extends Thread<br>{<br>   public void run()<br>   {<br>      for (int i = 1; i &lt;= 50000000; i++)<br>      {<br>         if (i % 1000000 == 0)<br>         {<br>            System.out.print("T ");<br>         }<br>      }<br>   }<br>}<br></pre>
+<p>Code for running the race <span class="PA">ThreadRace1</span>:</p>
+<pre>public class ThreadRace1<br>{<br>   public static void main(String[] args)<br>   {<br>      Hare h = new Hare();<br>      Tortoise t = new Tortoise();<br>      System.out.print("They're off! ");<br>      h.start();<br>      t.start();<br>   }<br>}<br></pre>
+<h2>Note</h2>
+<p>Scroll the output window to the right to see the winner. <br>
+</p>
+<p>You may need to run your code several times to see a change in the
+winner. If you don't ever see a change in the winner, you might<br>
+try adding a 0 to the number of iterations and to the remainder
+expression.<br>
+</p>
+<br>
+</body>
+</html>

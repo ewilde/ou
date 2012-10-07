@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 1.1 - Executing some simple assignment statements</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 1.1 - Executing some simple assignment statements </h1>
+
+<h2>Sample solutions </h2>
+
+<ol><li><p>You should get three compilation errors indicating that variables <span class="PA">x</span>, <span class="PA"> y</span> and <span class="PA">z</span> <span class="PA">&quot;might not have been initialized&quot;</span> and therefore their values cannot be displayed by the <span class="PA">System.out.println</span> statements.</p>
+    <p>This is an example of a situation where Java does not initialize variables to a default value. To correct these errors, you need to explicitly assign an initial value to each variable (as in the next task). </p></li>
+    <li>You should have added something like this
+<pre>
+x = 23;
+y = 333;
+z = 99;
+</pre>
+        <p>Note that it is important to use lower case names for <span class="PA">x</span>, <span class="PA">y</span> and <span class="PA">z</span>, as that is how they have been declared (since Java is case-sensitive).</p>
+        <p>We could also have carried out declaration and initialization in one statement as follows:</p>
+<pre>
+int x = 23;
+int y = 333;
+int z = 99;
+</pre>
+        <p>The output should be: </p>
+<pre>
+After initialization:
+x contains 23
+y contains 333
+z contains 99
+</pre>
+     </li>
+      <li>You should have added something like this
+<pre>
+x = x + 12;
+y = y - 100;
+z = x * y;
+System.out.println(&quot;After further calculations:&quot;);
+System.out.println(&quot;x contains &quot; + x );
+System.out.println(&quot;y contains &quot; + y );
+System.out.println(&quot;z contains &quot; + z );
+</pre>
+      <p>The output should be: </p>
+<pre>
+After initialization:
+x contains 23
+y contains 333
+z contains 99
+After further calculations:
+x contains 35
+y contains 233
+z contains 8155
+</pre>
+    </li>
+
+</ol>
+
+</body>
+
+</html>

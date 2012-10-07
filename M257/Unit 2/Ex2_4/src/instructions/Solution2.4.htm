@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.4 - Understanding relational and logical operators</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.4 - Understanding relational and logical operators</h1>
+<p>Here are our example solutions. Notice that we only changed one operator
+in each expression, but there are other solutions.</p>
+
+<table border="1" width = '85%' cellpadding = '4'>
+<col width = '38%'><col width = '38%'><col width = '24%'>
+  <tr>
+    <th>Original Expression</th>
+    <th> New Expression</th>
+    <th> Actual Change</th>
+
+  </tr>
+  <tr>
+    <td >p = (A &lt; C) &amp;&amp; D;</td>
+    <td >p = (A &gt; C) &amp;&amp; D;</td>
+    <td >// change the &lt; to &gt;</td>
+  </tr>
+  <tr>
+    <td >q = (A != B + C) || (B == C);</td>
+    <td >q = (A == B + C) || (B == C);</td>
+    <td >// change != to ==</td>
+  </tr>
+  <tr>
+    <td >r = (4 &lt; C) &amp;&amp; (A != 16);</td>
+    <td >r = (4 &lt;= C) &amp;&amp; (A != 16);</td>
+    <td >// change &lt; to &lt;=</td>
+  </tr>
+  <tr>
+    <td >s = !D &amp;&amp; ((A != B) &amp;&amp; (4 &gt;= C));</td>
+    <td >s = !D || ((A != B) &amp;&amp; (4 &gt;= C));</td>
+    <td >// change the first &amp;&amp; to ||</td>
+  </tr>
+  <tr>
+    <td >t = !((A != B) &amp;&amp; (B &gt; C));</td>
+    <td >t = !((A != B) &amp;&amp; (B &lt; C));   </td>
+    <td >// change &gt; to &lt;</td>
+  </tr>
+  <tr>
+    <td >u = p &amp;&amp; ((B == (A - C)) || !D);</td>
+    <td >u = p || ((B == (A - C)) || !D);    </td>
+    <td >// change &amp;&amp; to ||</td>
+  </tr>
+</table>
+<p>The last expression only evaluates to <span class="PA">true</span> if you you have set <span class="PA">p</span> to <span class="PA">true</span>
+earlier, as required by the activity.</p>
+
+</body>
+
+</html>

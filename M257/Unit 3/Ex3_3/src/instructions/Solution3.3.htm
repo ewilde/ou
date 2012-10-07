@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 3.3 - Writing a toString method</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 3.3 - Writing a <span class="PA">toString</span> method</h1>
+<p>
+Here is an example solution:</p>
+<pre>
+public String toString()
+{
+   return ("This is a room identifier object for " + blockName +
+      " " + roomNumber + ".");
+}</pre>
+<p>You could also build up a string in the following manner:</p>
+<pre>
+public String toString()
+{
+   String result;
+   result = "This is a room identifier object for " + blockName;
+   result = result + " " + roomNumber + ".";
+   return result;
+}</pre>
+<p>You may find it easier to read the longer version of this method.</p>
+<p>The correct behaviour of a <span class="PA">toString</span> method depends on how we intend to use it. In this case we did not specify carefully what it should return, so
+variations on the above are perfectly acceptable.
+</p>
+
+
+</body>
+
+</html>

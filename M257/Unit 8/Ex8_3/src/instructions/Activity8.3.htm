@@ -1,0 +1,103 @@
+<html>
+
+<head>
+
+<title>Activity 8.3 - Testing concurrent animation</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 8.3 - Testing concurrent animation</h1>
+<h2>Topic </h2>
+<p>In this activity we alter the program created in Activity 7.5 so
+that two animations run concurrently. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains four classes: </p>
+<ul>
+  <li><span class="PA">Logo</span>; </li>
+  <li><span class="PA">StarrySky</span>; </li>
+  <li><span class="PA">FlyingLogo</span>; </li>
+  <li><span class="PA">FlyingLogoTest</span>. </li>
+</ul>
+
+<h2>Task </h2>
+<p>When running this project it produces a pair of frames, arranged
+side by side, containing animated logos. </p>
+<p>The logo in the left-hand frame performs a series of movements, then halts,
+whereupon the logo in the right-hand frame sets off and executes the same
+sequence of manoeuvres. </p>
+<p>If you inspect the <span class="PA">main</span> method in <span class="PA">FlyingLogoTest</span>
+you will see that the
+motion of each logo consists of an invocation of method <span class="PA">squareMove</span>, followed
+by an invocation of <span class="PA">figureOfEight</span>. </p>
+<p>As the program stands, the two logos are both animated one after another by
+the same thread of execution. The task is to reorganise it so that the two logos
+will move at the same time on two separate threads executing concurrently. </p>
+<h2>Instructions </h2>
+<p>Compile and run the
+program, setting <span class="PA">ex8_3.FlyingLogoTest</span> as the main class. You should see two frames
+with logos in. The logo in the left-hand frame will set off and move in a
+square, then a figure eight, and finally stop. Only at that point will the logo
+in the right-hand frame begin moving. </p>
+<p>You need to make the changes described below, in sequence, testing each
+alteration where indicated. </p>
+<ol>
+<li><p>In class <span class="PA">FlyingLogo</span> modify the constructor
+<span class="PA">FlyingLogo(String title)</span> so that it
+takes two <span class="PA">int</span>
+arguments and uses them to set the location of the <span class="PA">FlyingLogo</span>
+frame. The
+signature of the constructor should now be <span class="PA">FlyingLogo(String, int, int)</span>.</p>
+<p>Alter <span class="PA">main()</span> so that it constructs two <span class="PA">FlyingLogo</span> instances, one located at
+(100,100), the other at (500,100), like this: </p>
+<pre>
+FlyingLogo world = new FlyingLogo("Open in space",100,100);
+world.setVisible(true);
+FlyingLogo world2 = new FlyingLogo("Open in space",500,100);
+world2.setVisible(true);</pre>
+
+<p>Recompile and execute the program. At this stage it should still run exactly
+as before. </p></li>
+<li>
+<p>The next step is to make the <span class="PA">FlyingLogo</span> frames responsible for displaying
+themselves. Delete the two invocations <span class="PA">setVisible(true)</span> that
+appear in the <span class="PA">main</span> method of <span class="PA">FlyingLogoTest</span>
+and simply add <span class="PA">setVisible(true)</span> to the
+<span class="PA">FlyingLogo</span> constructor, making sure it is
+the last statement in the constructor. </p>
+<p>This version of the program should still produce the same result as
+previously. Test it before going on to the next stage. </p></li>
+<li><p>In the <span class="PA">main</span> method of <span class="PA">FlyingLogoTest</span>
+there are invocations of two methods on each <span class="PA">FlyingLogo</span> object,
+e.g. </p>
+<pre>
+world.squareMove();
+world.figureOfEight();
+</pre>
+<p>The next step is to delete these invocations and add a <span class="PA">public void run()</span>
+method to <span class="PA">FlyingLogo</span> which will call the two methods concerned (now the
+invocation will be on <span class="PA">this</span>, so for example the first call in <span class="PA">run()</span> will take the
+form <span class="PA">this.squareMove()</span>, or if we prefer just <span class="PA">squareMove()</span>, since Java lets us
+omit <span class="PA">this</span>.) </p></li>
+<li><p>In order to test what you have done so far you can temporarily insert the
+calls </p>
+<pre>
+world.run();
+world2.run();</pre>
+<p>into <span class="PA">main()</span>. If the program is now executed it should behave exactly as
+before. All being well, you can then remove these lines and proceed to the final
+stage. </p></li>
+<li><p>Alter the declaration of <span class="PA">FlyingLogo</span> to </p>
+<p class="PA">public class FlyingLogo extends JFrame implements Runnable </p>
+<p>Now in <span class="PA">main()</span> write code which will create two threads <span class="PA">t1</span> and <span class="PA">t2</span> with <span class="PA">world</span>
+and <span class="PA">world2</span> as arguments, and start these threads. </p>
+<p>Run the program. The logos should now move concurrently! </p>
+</li>
+</ol>
+
+</body>
+
+</html>

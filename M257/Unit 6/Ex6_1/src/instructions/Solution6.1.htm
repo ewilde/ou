@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 6.1 - Constructing a frame with buttons using BorderLayout</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 6.1 - Constructing a frame with buttons using <span class="PA">BorderLayout</span></h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">FrameDemo1</span>:</p>
+<pre>import java.awt.*;
+import javax.swing.*;
+public class FrameDemo1 extends JFrame
+{
+   private JButton t;
+   private JButton b;
+   private JButton l;
+   private JButton r;
+   public FrameDemo1(String title)
+   {
+      setTitle(title);
+      setSize(210,297);
+      setLocation(200,200);
+      // Create the buttons.
+      t = new JButton("Top");
+      b = new JButton("Bottom");
+      l = new JButton("Left");
+      r = new JButton("Right");
+      // Add the buttons to the content pane.
+      Container cp = getContentPane();
+      cp.add(t,BorderLayout.NORTH);
+      cp.add(b,BorderLayout.SOUTH);
+      cp.add(l,BorderLayout.WEST);
+      cp.add(r,BorderLayout.EAST);
+   }
+}</pre>
+<p>Code for class <span class="PA">FrameDemo1Test</span>:</p>
+<pre>public class FrameDemo1Test
+{
+   public static void main(String[] args)
+   {
+      FrameDemo1 fd1 = new FrameDemo1("A4 Page");
+      fd1.setVisible(true);
+   }
+}</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 7.2 - Constructing a window capable of knowing when the mouse is over it</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 7.2 - Constructing a window capable of knowing when the mouse is over it</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">MouseSensor</span>:</p>
+<pre>
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+ 
+public class MouseSensor extends JFrame
+{
+   private JTextField messageBox;
+   private String waitingMessage;
+
+   public MouseSensor(String title)
+   {
+      // Configure frame.
+      super(title);
+      setSize(400,100);
+      setLocation(100,100);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      waitingMessage = "Waiting for mouse activity.";
+      // Create message box.
+      messageBox = new JTextField(waitingMessage);
+      // Add watchers.
+      messageBox.addMouseListener(new MouseWatcher());
+      messageBox.addKeyListener(new WatchKey());
+
+      // Add message box to content pane.
+      Container cp = getContentPane();
+      cp.add(messageBox);
+   }
+
+   private class MouseWatcher extends MouseAdapter
+   {
+      public void mouseEntered(MouseEvent e)
+      {
+         messageBox.setText("I sense the presence of a mouse.");
+      }
+
+      public void mouseExited(MouseEvent e)
+      {
+         messageBox.setText("That mouse has gone now." + 
+            " Press Enter to reset this window.");
+      }
+   }
+
+   private class WatchKey extends KeyAdapter
+   {
+      public void keyPressed(KeyEvent e)
+      {
+         if (e.getKeyCode() == KeyEvent.VK_ENTER)
+         {
+            messageBox.setText(waitingMessage);
+         }
+      }
+   }
+} 
+</pre>
+<p>Code for class <span class="PA">MouseSensorTest</span>:</p>
+<pre>
+public class MouseSensorTest
+{
+   public static void main(String[] args)
+   {
+      MouseSensor ms = new MouseSensor("Mouse sensor");
+      ms.setVisible(true);
+   }
+}
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+<title>Activity 9.6 - Putting the simple client and server together</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.6 - Putting the simple client and server together</h1>
+<h2>Topic </h2>
+<p>
+In this activity we try out the simple server discussed in section 7.1 of Unit 9,
+using the client code discussed in section 7.2.  This is similar to Activity 9.5
+except that we are using our own client code instead of the <span class="PA">telnet</span> client.
+</p>
+
+<h2>Materials </h2>
+<p>For this activity there are two separate projects, <span class="PA">Ex9_6Server</span> and <span class="PA">Ex9_6Client</span>.
+The instructions for this activity and the Solution document can be accessed
+from both projects.</p>
+<p><b>You should start from the server project if you have not already done this.</b>
+</p>
+
+<p>In addition to the Solution document, the server project
+for this activity contains two classes, which are complete: </p>
+<ul>
+  <li><span class="PA">HelloServer;</span></li>
+  <li><span class="PA">TestHelloServer</span> which runs the server.</li>
+</ul>
+
+<p>In addition to the Solution document, the client project also contains
+two classes, which are complete: </p>
+<ul>
+  <li><span class="PA">HelloClient;</span></li>
+  <li><span class="PA">TestHelloClient</span> which runs the client.</li>
+</ul>
+
+<h2>Important - before you start</h2>
+<p>In this and the activities that follow you must ensure that no server processes are still running from a previous activity. Otherwise two server processes may compete for the same port, causing an exception.</p>
+
+<p>Open the NetBeans Runtime window and expand the <span class="PA">Processes</span> node. Right-click on any running processes, then select <span class="PA">Terminate Process</span>.</p>
+
+
+<h2>Task</h2>
+<p>To run a server program and then a client program on the same machine, and to observe the communication between
+these two programs.
+</p>
+
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>Open the project <span class="PA">Ex9_6Server</span> and run it, to start up the server.  You should get a message indicating that the
+server is starting up.  The server is set to listen on port 3000.</p>
+<p>Note that if you have a firewall running you may be asked if you want to allow
+<span class="PA">javaw.exe</span> to act as a server. </p>
+</li>
+<li>
+<p>Open the project <span class="PA">Ex9_6Client</span>, set it as the main project,
+ and run it.  For this activity
+you do not need to be connected to the internet, since both the client and the
+server are running on the same computer.  In this case, the client does not have
+a user interface as all it does is connect to the server, receive and display
+a message, and then terminate.
+</p>
+
+<p>You should see a reply from the server.
+The connection between the client and the server should then be closed and both
+programs will terminate.
+</p>
+</li>
+<li>
+<p>If you want to try again, you have to run the server project again to restart the server
+and then run the client project again, as before.</p>
+</li>
+
+</ol>
+
+
+</body>
+
+</html>

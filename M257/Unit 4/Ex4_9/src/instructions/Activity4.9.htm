@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+<title>Activity 4.9 - Processing a CSV file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.9 - Processing a CSV file</h1>
+<h2>Topic </h2>
+<p>In this activity we read lines from a text file and process them using a
+<span class="PA">StringTokenizer</span>, writing the results to a second text file. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains two classes: </p>
+<ul>
+  <li> <span class="PA">CSVProcessor</span>. This class is partially written, but the portion of its <span class="PA">run</span>
+method which uses the <span class="PA">StringTokenizer</span> is incomplete. </li>
+  <li> <span class="PA">Main</span>, which, as usual, contains test code. </li>
+</ul>
+<p>There is also a text file <span class="PA">sample3.txt</span> containing details of six imaginary
+students. This file is in the project folder.</p>
+<h2>Task </h2>
+<p>Open University Tutors can download a file of details for the students they
+are currently tutoring in a format known as Comma Separated Value (csv). This is
+a text file that simply stores each set of details as a line of text delimited
+by commas, e.g. </p>
+<pre>P1111111,Black,Olga,O,Mrs,13 Seaside Street,Bigtown,Barset,BT1 1AA </pre>
+<p>The real-life application has more items than this but for the purposes of this
+activity we shall only be concerned with these first nine, so the format of each
+student record is:</p>
+<pre>PI,Surname,Forenames,Initials,Title,Addr1,Addr2,Addr3,Postcode </pre>
+<p>Though it is a simple format, csv has the great advantage of being very
+flexible. It allows the file to be imported into many different programs, such
+as spreadsheets and word processors. </p>
+<p>In this activity you are asked to complete the task of writing a program
+which will read a csv file line by line, break it up into its constituent parts
+with the help of a <span class="PA">StringTokenizer</span>, and from these parts assemble an address in
+the format shown by the following example: </p>
+<pre>
+Mrs O Black
+13 Seaside Street
+Bigtown
+Barset
+BT1 1AA </pre>
+<p>This will need to incorporate newline characters in the appropriate places.
+</p>
+<p>We can summarise the algorithm for processing the csv file as follows: </p>
+<pre>
+Read the input file line by line until a null line is reached.
+For each line:
+   As long as there are more tokens:
+      Get the next token and store it in an array.
+   Construct the address using the stored values from the array.
+   Write the address to the output file.
+</pre>
+<h2>Instructions </h2>
+
+<p>Use the File|Open File... option to open the input file <span class="PA">sample3.txt</span> from the project folder. You will find
+it contains details of six fictitious students.</p>
+
+<p>In the class <span class="PA">CSVProcessor</span> you
+will find locations numbered 1 to 5 at which code is missing. Read the
+instructions there and fill in the missing code.</p>
+
+<p>Run the project. You can find
+out if your solution is correct by opening the output file <span class="PA">sample4.txt</span> in the project
+folder. This should contain six addresses formatted as specified above.  </p>
+
+<h2>Notes </h2>
+
+<p>The new line character is not the same on every platform and so <span class="PA">&quot;\n&quot;</span> may not produce the desired effect. Instead you could use
+ </p>
+
+<pre>String newline = System.getProperty(&quot;line.separator&quot;);</pre>
+
+<p>Then wherever you would have typed <span class="PA">&quot;\n&quot;</span> you put <span class="PA">newline</span> instead.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+
+<title>Activity 6.4 - Constructing a frame containing a range of Swing components</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 6.4 - Constructing a frame containing a range of Swing components</h1>
+<h2>Topic </h2>
+<p>In this activity we run a series of sample programs which illustrate a range
+of different visual components. </p>
+<h2>Materials </h2>
+<p>We have provided in this project a base class <span class="PA">SwingClass</span> that extends
+<span class="PA">JFrame</span> and a main class <span class="PA">SwingClassTest</span> that creates an instance of <span class="PA">SwingClass</span>
+and makes it visible. </p>
+<p>In addition the Solution file contains code for the following classes: </p>
+<ul>
+  <li> <span class="PA">SwingClass2</span> which extends <span class="PA">SwingClass</span>;
+  </li>
+  <li> <span class="PA">SwingClass3</span> which extends <span class="PA">SwingClass2</span>;
+  </li>
+  <li> <span class="PA">SwingClass4</span> which extends <span class="PA">SwingClass3</span>.
+  </li>
+</ul>
+<p>where each successive class adds extra features to the previous one, and a class: </p>
+<ul><li><span class="PA">MyCanvas</span> which is used by <span class="PA">SwingClass3.</span></li></ul>
+<h2>Instructions </h2>
+<ol>
+  <li><p>Run the project, setting <span class="PA">ex6_4.SwingClassTest</span> as
+  the main class if prompted. You should see an empty window with the title 'User interface'.
+ </p> </li>
+<li><p>Now add the class <span class="PA">SwingClass2</span> to the project, in the same package as the existing classes. Right-click on the package icon <span class="PA">ex6_4</span> and choose <span class="PA">New|Java Class...</span>, name the new class <span class="PA">SwingClass2</span>, then copy the code for the class from the Solutions file. When you paste the code into <span class="PA">SwingClass2</span>, make sure that you do not accidentally overwrite the package declaration
+<pre>package ex6_4;</pre>
+which needs to be the first line in the class.</p></li>
+
+<li><p>Read the source code for <span class="PA">SwingClass2</span>. You will see that it extends the
+ base class <span class="PA">SwingClass</span>, adding a menu bar. </p>
+<p>In order to see the modified interface you will need to modify <span class="PA">SwingClassTest</span>.
+Open this class and look for the line </p>
+<pre>SwingClass testFrame = new SwingClass(); </pre>
+<p>Edit this to </p>
+<pre>SwingClass testFrame = new SwingClass2(); </pre>
+<p>Note particularly that the variable <span class="PA">testFrame</span> is still of type <span class="PA">SwingClass</span>,
+although it is now made to reference an instance of the subclass <span class="PA">SwingClass2</span>.
+</p>
+<p>The variable <span class="PA">testFrame</span> is being used polymorphically. This works because an
+instance of a subclass can always be used where an instance of the parent class
+is expected. The subclass object will always be capable of responding to the
+same methods as an object of the parent class, although it may override them to
+add modified behaviour. This is exactly what happens here. When the <span class="PA">setVisible</span> method
+is invoked the <span class="PA">SwingClass2</span> object displayed shows the original interface but
+with a menu bar added. </p>
+<p>Run the project again to see the modified interface.</p></li>
+<li><p>Now add <span class="PA">SwingClass3</span> and <span class="PA">MyCanvas</span> to the project, following the same instructions as for <span class="PA">SwingClass2</span>. If you examine the code for <span class="PA">SwingClass3</span> you will see that it further extends the user interface by including a text and a drawing area.</p>
+<p>Change the code in <span class="PA">SwingClassTest</span> so that this time an object of class
+<span class="PA">SwingClass3</span> is assigned to the polymorphic variable <span class="PA">testFrame</span>.
+  </p>
+  <p>Run the program to see the frame with the new features added.
+  </p>
+</li>
+<li><p> Finally add <span class="PA">SwingClass4</span>. Change <span class="PA">SwingClassTest</span> so
+that this time it makes use of a <span class="PA">SwingClass4</span> object. Run the project to see the final result, with menu bar, text area, drawing area, text field,  button, checkbox and drop
+down list. </p></li>
+</ol>
+<h2>Notes</h2>
+  <p>If you experiment you will find that the interface elements 'work', in the
+sense that they provide feedback if we manipulate them. For example the drop
+down list does drop down, the check box can be checked, you can type in the text
+area and so on. However this is as far as it goes at present, since we have not
+yet written any code to detect these actions and respond appropriately. How this
+is done will be covered in the next unit. </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 8.5 - Testing locks and objects</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 8.5 - Testing locks and objects</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">TestThread</span>:</p>
+<pre>
+public class TestThread extends Thread
+{
+   int threadID;
+   BankAccount account;
+
+   public TestThread(int tid, BankAccount ba)
+   {
+      threadID = tid;
+      account = ba;
+   }
+
+   public void run()
+   {
+      for (int i = 0; i &lt; 5; i++)
+      {
+         account.accessBalance(threadID);
+      }
+   }
+}
+</pre>
+
+<p>Code for running the classes <span class="PA">Main</span>:</p>
+<pre>
+public class Main
+{
+   public static void main(String[] args)
+   {
+      BankAccount ba1 = new BankAccount();
+      BankAccount ba2 = new BankAccount();
+      TestThread tt1 = new TestThread(1,ba1);
+      TestThread tt2 = new TestThread(2,ba2);
+      tt1.start();
+      tt2.start();
+   }
+}
+</pre>
+
+
+
+</body>
+
+</html>

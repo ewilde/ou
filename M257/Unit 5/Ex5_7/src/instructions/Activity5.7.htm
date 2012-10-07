@@ -1,0 +1,82 @@
+<html>
+<head>
+
+<title>Activity 5.7 - Using a LinkedList</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 5.7 - Using a <span class=PA>LinkedList</span></h1>
+<h2>Topic </h2>
+<p>This activity uses a linked list to implement a stack data structure.</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project for the activity contains the
+following items: </p>
+<ul>
+  <li>a class <span class=PA>LinkedStack</span> which is in skeleton form;</li>
+<li>an interface called <span class=PA>Stack</span>;</li>
+  <li>a class <span class=PA>StackTest</span> for testing the code. </li>
+</ul>
+<h2>Background </h2>
+<p>The data structure called a <b>stack</b> is fundamental in computing. Stacks
+are last-in-first-out structures. You can think of one as being like a pile of
+plates. The plates can only be added to, or removed from, the top of the
+structure. </p>
+<p>Traditionally, the operation to add an item to the top is called <span class=PA>push</span>, and
+the one to remove the top item is called <span class=PA>pop</span>. </p>
+
+<img width=291 height=200 src="Activity5.7_files/image1b.gif"
+alt="An image of two piles of plates. Removing a plate from the top is labelled as 'pop',whereas adding a plate to the top of the pile is labelled as 'push' ">
+
+<p>We also have an operation <span class=PA>peek</span>, which sneaks a look at the top item but does
+not remove it, and <span class=PA>isEmpty</span>, which returns the value <span class=PA>true</span> if the stack has no
+items in it. The <span class=PA>isEmpty</span> operation is there so that clients wanting to use the
+stack can check that it is not empty before they try to pop something off it!
+</p>
+<p>The reason for the importance of stacks is that they model the situation
+where a system is in the middle of one task when it discovers that it needs to
+divert to a second one. </p>
+<p>To deal with this, the original job is pushed on a stack. Later, when the
+second task is complete, the original one is popped from the stack and resumes
+at the point where it left off. </p>
+<p>Of course the second task might be interrupted by a third one, and so on. But
+eventually a task will complete, and then the previous one can resume, then the
+one before that, and so on all back down the chain. There might be further
+interruptions along the way, but in the end all the jobs will be popped back off
+the stack again, in the reverse order to the one that they were pushed on in,
+and execution will be complete. </p>
+<p>A typical situation where a task will be pushed on a stack is where one
+method invocation causes another to be invoked. The position reached by the
+first method will be placed on a stack before the second method invoked. When
+the second call returns the first method will be popped from the stack and
+continue execution from the point at which it stopped previously. </p>
+<h2>Task </h2>
+<p>As a first step towards implementing a stack in Java we have defined an
+interface which contains abstract methods corresponding to these four
+operations. </p>
+
+<pre>
+public interface Stack
+{
+   public void push(Object o);
+   // Adds an item to the top of the stack.
+
+   public Object pop();
+   // Removes an item from the top of the stack.
+
+   public Object peek();
+   // Returns the item on the top of the stack,
+   // but does not remove it.
+
+   public boolean isEmpty();
+   // Answers true if the stack is empty.
+}</pre>
+
+<p>This could be implemented in many different ways. For example, it would be
+possible to use an array, or an array list. You are asked to write an
+implementation of this class using a linked list, which is a particularly
+suitable structure to base a stack on. </p>
+<h2>Instructions </h2>
+<p>Complete <span class=PA>LinkedStack</span> where indicated by comments. The elements of the stack should be of type <span class=PA>Object</span>.</p>
+<p>Run the project and check that the output is as you expected.</p>
+</body>
+</html>

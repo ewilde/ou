@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+<title>Activity 8.6 - Running the greedy consumers</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 8.6 - Running the greedy consumers</h1>
+<h2>Topic </h2>
+<p>This activity uses the methods <span class="PA">wait()</span> and <span class="PA">notifyAll()</span> which all classes inherit
+from <span class="PA">Object</span>. </p>
+<h2>Materials </h2>
+<p><p>In addition to the Solution document, the project
+for this activity contains three classes: </p>
+<ul>
+  <li> <span class="PA">SweetJar;</span> </li>
+   <li> <span class="PA">Consumer;</span></li>
+  <li> <span class="PA">Main.</span></li>
+  </ul>
+
+  <h2>Task </h2>
+   <p> Class <span class="PA">SweetJar</span> models a container for sweets and has: </p>
+  <ul>
+  <li>A data field <span class="PA">int numberOfSweets</span> that keeps track of the number of sweets
+currently in the jar; </li>
+  <li>A public method <span class="PA">eatSweet</span> which allows another object (i.e. a consumer) to eat a
+sweet from the jar. </li></ul></p>
+  <p>Class  <span class="PA">Consumer</span> extends <span class="PA">Thread</span> and models a greedy sweet lover who will
+just keep eating sweets as long as any are left in the jar. </p>
+  <p>Class <span class="PA">Main</span> creates a jar with 20 sweets in, then creates two consumer
+threads and sets them executing. These consumer threads will compete with one
+another, each attempting to grab as many as possible of the 20 sweets. </p>
+
+
+
+<p>In its current form, the program allows the running thread to go on gobbling
+up sweets one after another, and possibly consume them all before the other
+thread can even get a look in. </p>
+<p>The objective is to amend the class <span class="PA">SweetJar</span> so that the two threads must
+take turns to eat just one sweet at a time, thus ensuring a fair distribution.
+</p>
+<h2>Instructions </h2>
+
+<p>Run the program. </p>
+<p>Notice that because the two threads are uncoordinated at the moment the thread that first
+gets to run will swallow up most of the 20 sweets (perhaps all of them) before
+the other thread can get a look in. Our output began like this: </p>
+<pre>Consumer 1 eats sweet 20 - yummy!
+Consumer 1 eats sweet 19 - yummy!
+Consumer 1 eats sweet 18 - yummy!
+Consumer 1 eats sweet 17 - yummy!
+Consumer 1 eats sweet 16 - yummy!
+Consumer 1 eats sweet 15 - yummy!
+Consumer 1 eats sweet 14 - yummy!
+Consumer 1 eats sweet 13 - yummy!
+Consumer 1 eats sweet 12 - yummy!
+Consumer 1 eats sweet 11 - yummy!
+Consumer 1 eats sweet 10 - yummy!
+Consumer 1 eats sweet 9 - yummy!</pre>
+<p>As you see, the first consumer has already eaten more than half the contents
+of the jar! </p>
+<p>To prevent this greedy behaviour you will need to change the class <span class="PA">SweetJar</span>
+as follows: </p>
+<ul>
+  <li>A new variable <span class="PA">int turn</span> is required to keep track of the id of the thread
+which is entitled to go next. </li>
+  <li>The method <span class="PA">eatSweet</span> must be declared <span class="PA">synchronized</span>; this is so we can call
+<span class="PA">wait</span> and <span class="PA">notifyAll</span>. </li>
+  <li>Extra code must be added to the body of the method <span class="PA">eatSweet</span>:
+  <ul>
+  <li>If a thread attempts to eat a sweet out of turn then <span class="PA">wait</span> must be called
+and the thread will block; </li>
+  <li>When a thread is the one entitled to go next then it can execute the method
+and eat a sweet. Before the method returns it must change <span class="PA">turn</span> to indicate that
+the opposing thread is now entitled to eat the next sweet, and call <span class="PA">notifyAll</span> to
+make other threads runnable, if they are currently blocked. </li></ul>
+
+The four locations in <span class="PA">SweetJar</span> where new code is necessary are indicated by
+comments. </li>
+
+<li>Because <span class="PA">wait</span> can throw an exception, it must be enclosed in a <span class="PA">try</span> block, with
+a corresponding <span class="PA">catch</span>. </li>
+<li>Make the necessary alterations to <span class="PA">SweetJar</span> and test your code. You should now
+see the sweets being shared fairly: </p>
+<pre>
+Consumer 1 eats sweet 20 - yummy!
+Consumer 2 eats sweet 19 - yummy!
+Consumer 1 eats sweet 18 - yummy!
+Consumer 2 eats sweet 17 - yummy!
+etc.</pre>
+</li>
+<li>
+Having tested your code, take a good look at the last line of the output from your program.
+Does it say that 'sweet 0 was eaten'? If so, try to work out how this is possible and figure out what
+amendments you would need to make to your code to avoid such behaviour. You may want to add various
+<span class="PA">println</span> statements to your code,
+to trace which thread is executing, and how many sweets there are at that point.
+</li>
+</ul>
+
+</body>
+
+</html>

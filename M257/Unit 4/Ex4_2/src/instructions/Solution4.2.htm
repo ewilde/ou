@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.2 - Reading from a text file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.2 - Reading from a text file</h1>
+
+<p>Here is our sample solution for the class <span class="PA">Read_a_File</span>:</p>
+
+<pre>
+import java.io.*;
+import java.util.*;
+
+public class Read_a_File
+{
+    public void run() throws IOException
+    {
+        String line;
+        
+        // Create a Scanner instance here.  The filename is "sample1.txt"
+        Scanner sc = new Scanner(new File("sample1.txt"));
+        
+        while (sc.hasNext())
+        {
+            // Write code here to display each line and then read the next one.
+            line = sc.nextLine();
+            System.out.println(line);
+        }
+        
+        sc.close();
+    }
+}
+</pre>
+
+</body>
+
+</html>

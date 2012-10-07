@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Activity 6.1 - Constructing a frame with buttons using
+BorderLayout</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 6.1 - Constructing a frame with buttons using <span
+ class="PA">BorderLayout</span></h1>
+<h2>Topic </h2>
+<p>In this activity we display a frame with buttons arranged using <span
+ class="PA">BorderLayout</span>,
+which is the default layout for a <span class="PA">JFrame</span>. </p>
+<p>Here is a picture of what the frame will look like. </p>
+<p><img src="Activity6.1_files/image001.png"
+ alt="The figure displayed is described in detail in the main text where it lists the attributes of the frame."
+ height="297" width="210"></p>
+<h2>Task</h2>
+<p>The task is to display a frame with the following attributes: </p>
+<ul>
+  <li>Its top left-hand corner is to be at screen location <span
+ class="PA">(200, 200)</span>. (The default
+position of the frame would be at <span class="PA">(0, 0)</span>, with
+its top left corner at the top
+left of the computer screen.) </li>
+  <li>Its dimensions are to be 210 x 297, in proportion to a page of A4
+paper.</li>
+  <li>The title is to be "A4 Page". </li>
+  <li>The frame is to have buttons at the top, bottom, left and right,
+corresponding to the margins of the page. The text of the buttons is to
+be
+"Top", "Bottom", "Left", "Right" respectively. </li>
+</ul>
+<p>You will need to write a Java class to the following outline: </p>
+<h4>Imports </h4>
+<p>AWT and Swing. </p>
+<h4>Inheritance </h4>
+<p>Extends <span class="PA">JFrame</span>. </p>
+<h4>Instance variables </h4>
+<p>Four fields of type <span class="PA">JButton</span> to represent
+the buttons. </p>
+<h4>Constructor </h4>
+<p>Takes a single <span class="PA">String</span> argument used to set
+the title of the frame. </p>
+<ul>
+  <li>Sets the title. </li>
+  <li>Sets the size to 210 x 297. </li>
+  <li>Positions the top left-hand corner of the frame at screen
+location <span class="PA">(200,
+200)</span>. This can be done using the method <span class="PA">setLocation(int
+x, int y)</span>. </li>
+  <li>Creates <span class="PA">JButton</span> instances with text <span
+ class="PA">"Top"</span>, <span class="PA">"Bottom"</span>, <span
+ class="PA">"Left"</span> and <span class="PA">"Right"</span> and
+assigns them to the corresponding instance variables. </li>
+  <li>Gets the content pane of the frame. </li>
+  <li>Adds the four buttons to the content pane, in the positions
+North, South,
+West and East.</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+  <li>Select <span class="PA">File|New Project Next></span> and create a
+new Java application called <span class="PA">MyEx6_1</span>. In the
+New Java Application wizard name the project <span class="PA">MyEx6_1</span>
+and set the Project Location to <code>C:\M257\Unit 6</code>. Change
+the name of the Main Class to <span class="PA">myex6_1.FrameDemo1Test</span>.<br>
+    <br>
+    <img src="Activity6.1_files/image002.png"
+ alt="Screengrab of the New Java Application window" height="325"
+ width="655"></li>
+  <br>
+  <br>
+  <li>Add a new Java class called <span class="PA">FrameDemo1</span>
+to the project in the same package. Write the code for this class so
+that it meets the specification above. </li>
+  <li>Now complete the main class
+    <span class="PA">FrameDemo1Test</span> so it will:
+    <ul>
+      <li>Create a new instance of <span class="PA">FrameDemo1</span>
+with the title "A4 Page";</li>
+      <li>Make the new frame visible. </li>
+    </ul>
+  </li>
+  <li>Run the project to test your code.</li>
+  <li>Our sample solution appears in the Solution file.</li>
+</ol>
+</body>
+</html>

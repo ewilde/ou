@@ -1,0 +1,96 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 3.6 - Writing a subclass that overrides a superclass method</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 3.6 - Writing a subclass that overrides a superclass method</h1>
+<p>
+The object of this activity was to extend the <span class="PA">Member</span> class by a class
+<span class="PA">CommitteeMember</span>, and override the <span class="PA">toString</span> method defined by <span class="PA">Member</span>.&nbsp; </p>
+<p>The <span class="PA">GroupRecord</span> class begun in Activity 3.5 is included in this project and
+two methods have been added to it, giving it slightly more functionality than
+before:</p>
+<ol>
+  <li><span class="PA">getHeadCount</span> returns the number of members in the group record. </li>
+  <li><span class="PA">getMemberAt</span> returns the <span class="PA">Member</span> reference stored at a particular index in a
+  <span class="PA">GroupRecord</span> object.</li>
+</ol>
+<p>Here follows the completed class <span class="PA">CommitteeMember</span>:</span>
+<pre>
+public class CommitteeMember extends Member
+{
+   private String position;
+
+   public CommitteeMember(String nam, String ema, String adr, String pos)
+   {
+      super(nam, ema, adr);
+      position = pos;
+   }
+
+   public String getPosition()
+   {
+      return position;
+   }
+
+   /* We can make use of the parent toString method.
+      This technique works even if there are no public getter methods
+      in the parent for any variables we wish to access,
+      but the parent toString method may not return exactly what we want */
+   public String toString()
+   {
+      String text;
+
+      text = super.toString();              //use the parent toString method
+      text = text + "(" + position + ")";   //add locally defined information
+
+      return text;
+   }
+
+   /* An alternative solution illustrated below is to use available parent
+      getter methods such as getName. This gives extra flexibility in this method.
+      We have chosen to use the same form of output as the parent class.
+      We add the 'position' information defined in this class
+   */
+
+   /*
+   public String toString()
+   {
+      return getName() + ", email address " + getEmailAddress()
+             + ", home address " + getHomeAddress() + "(" + getPosition() + ")";
+   }
+   */
+}
+</pre>
+<h2>Notes</h2>
+<p>Think about the following points:</p>
+<ul>
+  <li><span class="PA">m3</span> and <span class="PA">m4</span> were declared to be of type <span class="PA">Member</span> rather than of type
+  <span class="PA">CommitteeMember</span>.&nbsp; This is allowed because <span class="PA">CommitteeMember</span> (when completed
+  correctly) extends <span class="PA">Member</span>, and so a <span class="PA">CommitteeMember</span>
+  <i>is-a</i> <span class="PA">Member</span>.&nbsp; Notice,
+  however, that when we invoke the <span class="PA">toString</span> method on these references, the
+  method invoked depends on the type of the object referenced.&nbsp; When the
+  object is of type <span class="PA">CommitteeMember</span>, we are able to see the office held by the
+  member, because the <span class="PA">toString</span> method defined by a <span class="PA">CommitteeMember</span> object
+  displays this information. </li>
+  <li>the <span class="PA">addMember</span> method of <span class="PA">GroupRecord</span> was able to add references of both
+  <span class="PA">Member</span> and <span class="PA">CommitteeMember</span> types to the <span class="PA">listOfMembers</span> array.&nbsp; </li>
+  <li>the method <span class="PA">getMemberAt</span>, which returns a <span class="PA">Member</span> reference, serves our
+  purpose whether the references it returns are of type <span class="PA">Member</span> or
+  <span class="PA">CommitteeMember</span>.&nbsp; </li>
+  <li>Both <span class="PA">addMember</span> and <span class="PA">getMemberAt</span> (the one taking an argument of type <span class="PA">Member</span>,
+  and the other returning a value of type <span class="PA">Member</span>) will continue to work with
+  other classes extending <span class="PA">Member</span> or any of its subclasses! <br>
+&nbsp;<br>
+  </li>
+</ul>
+
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+
+<html>
+<head>
+<title>Discussion of Activity 10.5 - Using high level interfaces</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+<body>
+<h1>Discussion of Activity 10.5 - Using high level interfaces</h1>
+
+
+<p>The solution for part 3 of this activity is shown below.
+</p>
+<pre>
+package textboxexample;
+
+import javax.microedition.midlet.*;
+import javax.microedition.lcdui.*;
+
+public class TextBoxExample extends MIDlet implements CommandListener
+{
+   private TextBox textbox;
+   private Display display;
+   private static final int screenLength = 100;
+
+   //commands
+   private static final Command STOP = new Command("Stop", Command.EXIT,0);
+   private static final Command CLEAR = new Command("Clear Screen", Command.SCREEN,1);
+   private static final Command GO = new Command("GO",Command.SCREEN,1);
+
+   private static final Command LOGO = new Command("LOGO",Command.SCREEN,1);
+ 
+   public TextBoxExample()
+   {
+   }
+ 
+   public void startApp()
+   {
+      textbox = new TextBox("TextBoxExample",
+         "Delete this text and enter your own, then select option GO from the menu",
+          screenLength,TextField.ANY);
+
+      //add commands
+      textbox.addCommand(STOP);
+      textbox.addCommand(CLEAR);
+      textbox.addCommand(GO);
+
+      textbox.addCommand(LOGO);
+
+      textbox.setCommandListener(this);
+ 
+      //display the screen
+      display = Display.getDisplay(this);
+      display.setCurrent(textbox);
+   }
+
+   public void pauseApp()
+   {
+   }
+
+   public void destroyApp(boolean b)
+   {
+   }
+
+   //command Actions
+   public void commandAction(Command c, Displayable d)
+   {
+      if (c == GO)
+      {
+         String text = textbox.getString();
+         //create the Ticker
+         Ticker ticker = new Ticker(text);
+         textbox.setTicker(ticker);
+      }
+      if (c == STOP)
+      {
+         destroyApp(true);
+         notifyDestroyed();
+      }
+      if (c == CLEAR)
+      {
+         textbox.setString(null);
+      }
+
+      if (c == LOGO)
+      {
+         String logo = "The Open University";
+         Ticker ticker = new Ticker(logo);
+         textbox.setTicker(ticker);
+      }
+   }
+}
+
+</pre>
+<p>The solution for part 4 is to
+<ol> <li>
+<p> add an import statement for the <span class="PA">java.io</span> library to the class in
+order to be able to handle the <span class="PA">IOException</span> that can now be thrown.</p></li>
+<li><p> replace the last <span class="PA">if</span> clause in the <span class="PA">commandAction</span> method
+by code similar to the following:
+<pre>
+if (c == LOGO)
+{
+   String logo = null;
+   try
+   {
+      //access the resources folder
+      InputStream is = getClass().getResourceAsStream("/res/logoFile.txt");
+      InputStreamReader ir = new InputStreamReader(is);
+      //create buffer
+      char[] buffer = new char[100];
+      StringBuffer sb = new StringBuffer();
+      int count=0;
+      //read in characters one by one
+      while ((count = ir.read(buffer,0,buffer.length)) &gt; -1)
+      {
+         sb.append(buffer,0,count);
+      }
+      logo = sb.toString();
+   }
+   catch (IOException ex)
+   {
+      logo = null;
+   }
+   //create the Ticker
+   Ticker ticker = new Ticker(logo);
+   textbox.setTicker(ticker);
+}
+
+</pre>
+</p></li> </ol>
+<p> It is also important to remember to actually put the text file in the <span class="PA">res</span> folder!</p>
+</body>
+</html>
+

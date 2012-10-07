@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+<title>Activity 9.5 - Testing the simple server</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.5 - Testing the simple server</h1>
+<h2>Topic </h2>
+
+<p>In this activity we try out the simple server discussed in section 7 of Unit 9.
+For a client we use the <span class="PA">telnet</span> program we met in Activity 9.4.
+</p>
+
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this exercise contains two classes, which are complete: </p>
+<ul>
+  <li><span class="PA">HelloServer;</span></li>
+  <li><span class="PA">TestHelloServer</span> which runs the server.</li>
+</ul>
+<p>You will also need the <span class="PA">telnet</span> program as in Activity 9.4.</p>
+<h2>Task</h2>
+<p>To connect to a server on the local machine, using the <span class="PA">HelloServer</span> class.</p>
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>Run the project to start up the server.  You should get a message indicating that the
+server is starting up.  The server is set to listen on port 3000.</p>
+</li>
+<li>
+<p>You are to use <span class="PA">telnet</span> as a client.  For this activity
+you do not need to be connected to the internet.  See Activity 9.4 for instructions
+about starting up <span class="PA">telnet</span> if you have not done this before.
+At the prompt type <span class="PA">telnet localhost 3000</span> and then press enter.
+The <span class="PA">localhost</span> address is a special name indicating the
+computer on which the  <span class="PA">telnet</span> program is running.  The
+ <span class="PA">3000</span> indicates the port number to be used by the server.
+ </p>
+
+<p>You should see a reply from the server and then that the server closes down.
+This causes an end to the  <span class="PA">telnet</span> connection and the message
+<span class="PA">"connection to host lost"</span> should appear - this does not indicate a problem.
+</p>
+</li>
+<li>
+<p>If you want to try again, you have to run the project again to restart the server
+and then type the <span class="PA">telnet</span> command again, as above.</p>
+</li>
+
+</ol>
+</body>
+</html>

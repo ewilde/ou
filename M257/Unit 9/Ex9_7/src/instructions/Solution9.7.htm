@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 9.7 - Testing the name server</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 9.7 - Testing the name server</h1>
+
+<ol>
+<li>
+
+<p>It is important to ensure that the server is running before you try to run
+the <span class="PA">telnet</span> client.  The server should display a message
+to indicate that it is starting up.
+</p>
+
+<li>
+<p>If you omit the port number from the  <span class="PA">telnet</span> command,
+then <span class="PA">telnet</span> defaults to trying port 23, which in this case will not work.
+There is nothing special about port 3000 but the client and server must use the same port number.
+</p>
+
+
+<p>We have seen in a previous activity how to use a simple Java class as a client.
+Using <span class="PA">telnet</span> as the client shows that there is nothing
+special about the Java clients - they use the same TCP/IP protocols as <span class="PA">telnet</span>.
+In the next activity we will see how to use a Java client that has a graphical
+user interface.  The server program does not know what sort of client we are using -
+it simply responds to messages sent across the socket connection, via the streams.
+</p>
+</li>
+<li>
+<p>This server can only deal with one client at a time. If the server is already
+connected to a client, any other clients which try to connect will be queued and
+will be serviced in order, one at a time.  You can try this by running several
+<span class="PA">telnet</span> programs at the same time (you need a command prompt
+window for each <span class="PA">telnet</span> client).  You enter the same <span class="PA">telnet</span>
+command as before in each window, in order to request a connection to the server. Only the first
+<span class="PA">telnet</span> client will get a response to any user names you
+enter.  You can try entering user names into the other clients but you will get
+no response until you quit from the first client.  Then the second client will
+get responses until you quit from this, and so on.
+</p>
+<p>This behaviour is useful but not ideal.  We will see later how to make the server
+responsive to several clients at once.
+</p>
+</li>
+
+</ol>
+</body>
+</html>

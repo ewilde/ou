@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+<title>Activity 3.5 - Using an array of a reference type</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 3.5 - Using an array of a reference type</h1>
+<h2>Topic </h2>
+<p>In this activity you will develop a class <span class="PA">GroupRecord</span> which uses the class
+you wrote for the last activity. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project for this activity contains
+the classes: </p>
+<ul>
+  <li><span class="PA">GroupRecord</span>, a class so far empty but for comments!</li>
+  <li><span class="PA">Member</span>, instances of which represent members of a local conservation
+  group. This is the class <br>you wrote in Activity 3.4. </li>
+  <li><span class="PA">GroupRecordTest</span>, which will test your <span class="PA">GroupRecord</span> class when you have
+  written it. </li>
+</ul>
+<h2>Task </h2>
+<p>You are asked to develop a class an instance of which will maintain a list of
+<span class="PA">Member</span> objects in an array, and provide methods to locate and access the stored
+objects. </p>
+<p>The class requires: </p>
+<ol>
+  <li>an array of <span class="PA">Member</span> objects, with a default size of 100. </li>
+  <li>an instance variable to record how many members are currently listed. </li>
+  <li>a single zero-argument constructor that initialises the array variable to
+  a new array of the default size, and the other variable to zero. </li>
+  <li>three public methods: </li>
+
+<ul>
+  <li><span class="PA">addMember(Member mem)</span>, which adds a member to the list;</li>
+  <li><span class="PA">getEmailAddressForMember(String membersName)</span>, which retrieves an email
+  address given the member's name;</li>
+  <li><span class="PA">getHomeAddressForMember(String membersName)</span>, which retrieves a home
+  address given the member's name. </li>
+</ul>
+<li>a helper method <span class="PA">findIndex(String name)</span> that will locate the
+array index at which the Member's name passed as an argument is stored in the
+array. <br>
+You may assume the array will always contain the object in question. </li>
+</ol>
+<h2>Instructions </h2>
+<p>Write the code for the class <span class="PA">GroupRecord</span> to comply with the requirements
+above and run the project to test what you have done.</p>
+
+</body>
+
+</html>

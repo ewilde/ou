@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Discussion of Activity 9.10 - Communicating with datagrams:
+letter drops</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 9.10 - Communicating with datagrams: letter
+drops</h1>
+<p>Just as with normal socket communication (using the TCP protocol)
+it is important to ensure that the server is running before you try to
+run
+the client. To do this, you need to ensure that you run the project in
+the
+server folder first.
+</p>
+<h2>Sample Solution for Dead Letter Drop</h2>
+<p><b>The server code</b></p>
+<p>In the <span class="PA">ServerMain</span> we must invoke the
+<span class="PA">dropMessage()</span> method, rather than the <span
+ class="PA">receiveData()</span>
+method. The code for the method <span class="PA">dropMessage()</span>
+looks as follows:</p>
+<pre>public void dropMessage()<br>{<br>   String message;		//Message from client<br>   DatagramPacket packet;	//The packet of data received<br><br>   // Buffer for receiving a fixed-size UDP packet,<br>   byte[] buffer = new byte[MAX_UDP_PACKET_SIZE];<br><br>   PrintWriter pw;<br>   String dropLocation = "drop.txt";<br><br>   try<br>   {<br>      packet = new DatagramPacket(buffer, buffer.length);<br>      //Receive a packet from the client<br>      datagramSocket.receive(packet);<br>      message = new String(packet.getData(), 0, packet.getLength());<br>      pw= new PrintWriter(new FileOutputStream(dropLocation), true);<br>      pw.println(message);<br>      pw.close();<br>      System.out.println("packet dropped");<br>   }<br>   catch(IOException e)<br>   {<br>      System.out.println("Problem receiving packet:"+ e);<br>   }<br><br>}<br></pre>
+<p><b>The client code</b></p>
+<p>
+We need to amend the <span class="PA">ClientMain</span> class to make
+sure that only one message is sent.
+The class <span class="PA">DatagramClient</span> remains the same.
+</p>
+<pre>public class ClientMain<br>{<br>   public static void main(String[] args)<br>   {<br>      DatagramClient md = new DatagramClient();<br>      md.sendDatagramPacket("Flee at once - all is discovered!");<br>   }<br>}<br></pre>
+</body>
+</html>

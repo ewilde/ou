@@ -1,0 +1,86 @@
+<html >
+
+<head>
+
+
+<title>Activity 6.2 - Constructing a frame using GridLayout</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 6.2 - Constructing a frame using <span class="PA">GridLayout</span></h1>
+<h2>Topic </h2>
+<p>In this activity we use a <span class="PA">GridLayout</span> to display buttons in a 3 x 3
+arrangement. </p>
+<h2>Task </h2>
+<p>The task is to produce a frame, which has a <span class="PA">JPanel</span> on it. On the <span class="PA">JPanel</span> nine
+buttons are to appear, so that it looks like a partially complete game of
+noughts-and-crosses. </p>
+<p><img width=200 height=200 src="Activity6.2_files/image001.png"
+alt="This figure is composed of nine square buttons arranged in a square formation. Each button has either no label, the label X or the label O."
+></p>
+<p>The size of frame should be 200 x 200, its title &quot;Tic-tac-toe&quot; and its
+location <span class="PA">(200, 200)</span>. </p>
+<p>The frame is to be an object of class <span class="PA">LayoutDemo</span>, which extends <span class="PA">JFrame</span> and
+whose outline is as follows: </p>
+<h4>Imports </h4>
+<p>AWT and Swing. </p>
+<h4>Instance variables </h4>
+<ul>
+<li>Nine variables of type <span class="PA">JButton</span> to represent the buttons. </li>
+<li>One variable of type <span class="PA">JPanel</span>. </li>
+</ul>
+<h4>Constructor </h4>
+<p>Takes a single <span class="PA">String</span> argument used to set the title of the frame. </p>
+<ul>
+  <li>Sets the title. </li>
+  <li>Sets the size to 200 x 200. </li>
+  <li>Positions the top left-hand corner of the frame at screen location <span class="PA">(200,
+200)</span>. </li>
+  <li>Creates nine <span class="PA">JButton</span> instances with text either <span class="PA">&quot;O&quot;</span>, <span class="PA">&quot;X&quot;</span> or <span class="PA">&quot; &quot;</span> and assigns
+them to the corresponding instance variables. </li>
+  <li>Creates an instance of <span class="PA">JPanel</span> and assigns it to the corresponding variable.
+  </li>
+  <li>Sets the layout of the <span class="PA">JPanel</span> to a 3 x 3 grid layout. </li>
+  <li>Adds the nine buttons to the panel. </li>
+  <li>Gets the content pane of the <span class="PA">JFrame</span>. </li>
+  <li>Adds the panel to the content pane. </li>
+</ul>
+<h2>Instructions </h2>
+<ol>
+  <li>Following the same procedure as in Activity 6.1, create a new project in the Unit 6 folder, but this time called <span class="PA">MyEx6_2</span>. In the New Java Application wizard name the Main Class <span class="PA">myex6_2.LayoutDemoTest</span>.</li>
+  <li>Add a new Java class called <span class="PA">LayoutDemo</span> to the project and write code to meet the
+specification above. </li>
+  <li>Complete the main class <span class="PA">LayoutDemoTest</span> so that it creates a test instance of <span class="PA">LayoutDemo</span> with the title &quot;Tic-tac-toe&quot; and makes the new frame visible. Run the project to test your code. Our sample solution appears in the Solution file.</li>
+<li>As an experiment, go back and comment out the line of code in which
+ you set the grid layout. The layout will revert to the default for a <span class="PA">JPanel</span>, which
+is <span class="PA">FlowLayout</span>. Re-run the program to see the effect  of this change.</li>
+<li>Now restore the grid layout but use a four-argument constructor:
+<pre>GridLayout(int rows, int cols, int hgap, int vgap)</pre>
+<p>Set <span class="PA">hgap</span> and <span class="PA">vgap</span> to 10 and run the program to see what difference this
+makes.</p> </li>
+</ol>
+<h2>Notes </h2>
+<ol >
+  <li><p>In this example, it would have been possible to omit the <span class="PA">JPanel</span> and add
+the buttons directly to the content pane. However using a panel is better
+programming practice, and panels will become essential in the exercises which
+follow, so we decided to use one here.</p> </li>
+  <li><p>You will probably have noticed that closing a <span class="PA">JFrame</span> does not
+automatically stop the program, which is rather inconvenient. Although how it
+works is not covered until the next unit, you may like to add the following line
+of code to your program, immediately following the statements that set the
+title, size and location.</p>
+
+<pre>
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); </pre>
+
+<p>The program should now halt when the window is closed. </p></li>
+</ol>
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+<title>Activity 4.1 - Reading input from the keyboard</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.1 - Reading input from the keyboard</h1>
+
+<h2>Topic </h2>
+
+<p>In this activity, we write a class to read input from the keyboard. </p>
+
+<h2>Materials </h2>
+
+<p>In addition to the Solution document, the project for this activity contains
+two classes: </p>
+
+<ul>
+ <li><span class="PA">Greeter</span>, which is in
+     skeleton form; </li>
+ <li><span class="PA">Main</span>, which contains test code for the activity.</li>
+</ul>
+
+<h2>Task </h2>
+
+<p>The class <span class="PA">Greeter</span> is to have a method <span class="PA">run</span>, containing a loop which repeatedly prompts the user for
+their name and prints the message: </p>
+
+<pre>I am very pleased to meet you, X </pre>
+
+<p>where<span class="PA">X</span> stands for the name typed in by the
+user. </p>
+
+<p>If the user types <span class="PA">Bye</span> at the prompt the loop should
+terminate.</p>
+
+<p>Your run method should make use of a class called <span class="PA">Scanner</span>
+which we describe below.</p>
+
+<h2>Instructions</h2>
+
+<p>The project will not compile at this stage, so do not try to run it. </p>
+
+<p>Before Java 5.0 you would read text from the keyboard by using code similar to the
+following:</p>
+
+<pre>
+InputStreamReader isr = new InputStreamReader(System.in);
+BufferedReader br = new BufferedReader(isr);
+System.out.println(&quot;Please enter your input&quot;);
+String input = br.readLine();
+</pre>
+
+<p>Java 5.0 introduced a versatile new class <span class="PA">Scanner</span> which
+offers an alternative way of reading keyboard input. Using <span class="PA">Scanner</span>,
+the code above can be replaced with the following.</p>
+
+<pre>
+Scanner sc = new Scanner(System.in);
+System.out.println(&quot;Please enter your input&quot;);
+String input = sc.nextLine();
+</pre>
+
+<p><span class="PA">Scanner</span> also takes care of any exceptions that may occur, so
+we do not have to do anything about exception handling.</p>
+
+<p>Open the class <span class="PA">Greeter</span> and add code where indicated. Note
+that <span class="PA">Scanner</span> is in the package <span class="PA">java.util</span>
+rather than <span class="PA">java.io. Greeter</span> already contains the necessary import statement, 
+but note also that it is easy to fix missing import statements in NetBeans by 
+right-clicking in a source file and selecting 'Fix Imports'.
+</p>
+
+<p>When you have made all the additions, run the project to test what you have written.
+When the program is executed an Output window will open at
+the bottom of the main NetBeans window.
+Enter a name or <span class="PA">Bye</span> in the output window and press Return.
+The response will appear in the Output window.</p>
+
+</body>
+
+</html>

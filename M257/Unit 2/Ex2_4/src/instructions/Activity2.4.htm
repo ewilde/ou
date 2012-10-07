@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+<title>Activity 2.4 - Understanding relational and logical operators</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 2.4 - Understanding relational and logical operators</h1>
+<h2>Topic </h2>
+<p>This activity looks at relational and logical operators. </p>
+<h2>Materials </h2>
+<p>In addition to the discussion of the solution in the Solution document, the project
+for this activity contains two classes: </p>
+<ul>
+  <li> <span class="PA">Ex2_4</span>, which you are asked to modify; </li>
+  <li> <span class="PA">Main</span>, which is run to test the code. </li>
+</ul>
+<h2>Task </h2>
+<p>The method <span class="PA">checkTruthValues</span> defines some primitive data values and then
+evaluates and prints out six expressions. At present, every expression evaluates
+to the boolean value <span class="PA">false</span>. Your job is to alter one of the operators, but not
+the variables, in each of these expressions, so that the new versions all then
+evaluate to <span class="PA">true</span>. </p>
+<p>To give an example of what we mean, take the statement </p>
+<p class="PS">x = (A == B) || D; </p>
+<p>If A were <span class="PA">10</span>, <span class="PA">B</span> were <span class="PA">42</span> and <span class="PA">D</span> boolean <span class="PA">false</span>, the expression on the right-hand
+side would evaluate to <span class="PA">false</span>. One way to make it evaluate to <span class="PA">true</span> by changing
+one operator would be to change the statement to </p>
+<p class="PS">x = (A != B) || D; </p>
+<p>There are usually several ways of achieving a true expression by changing one
+operator. For example, we could also have said: </p>
+<p class="PS">x = (A &lt; B) || D; </p>
+<h2>Instructions </h2>
+<ol>
+<li>Run the project and check that all the expressions evaluate to <span class="PA">false</span> to begin
+with. </li>
+<li>Open the class <span class="PA">Ex2_4</span> and edit the method <span class="PA">checkTruthValues</span>. </li>
+<li>You can test your changes by re-running the project. </li>
+<li>Note that there may be other solutions than the ones we give.</li>
+</ol>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+<title>Activity 3.3 - Writing a toString method</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 3.3 - Writing a <span class="PA">toString</span> method</h1>
+<h2>Topic </h2>
+<p>In this activity we shall write a <span class="PA">toString</span> method that overrides the one
+inherited from <span class="PA">Object</span>. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project for this activity contains
+two classes: </p>
+<ul>
+  <li><span class="PA">RoomID</span>, whose <span class="PA">toString</span> method is to be written.</li>
+  <li><span class="PA">RoomIDTest</span> to test the <span class="PA">toString</span> method. </li>
+</ul>
+<h2>Task </h2>
+<p>The <span class="PA">RoomID</span> class is to be provided with a method </p>
+<pre>String toString() </pre>
+<p>that will return a string saying that the object is a room ID and describing
+the values of the instance variables (the <span class="PA">blockName</span> and <span class="PA">roomNumber</span> of the <span class="PA">RoomID</span>
+object). </p>
+
+<h2>Instructions </h2>
+<ol>
+<li>Run the project and you will see the output resulting from using the
+inherited <span class="PA">toString</span> method. </li>
+<li>Open the class <span class="PA">RoomID</span> and insert a <span class="PA">toString</span> method that returns a more
+informative string. </li>
+<li>Run the project to check that the method works as you intend. </li>
+</ol>
+
+<h2>Notes</h2>
+<p>
+You may have noticed that the editor has added a lightbulb symbol to the left
+of the <span class="PA">equals</span> method, as shown in the following
+screenshot.
+</p>
+
+<div align="center"><br>
+  <img src="Solution3.3_files/hints and tips.png" alt="a lightbulb appears in the editor left-hand margin">
+
+  <p> If you click on this symbol you will see a suggestion to add an <span class="PA">@Override</span>
+      annotation.
+  </p>
+
+  <div align="center"><br>
+  <img src="Solution3.3_files/add Override annotation.png" alt="clicking on add Override annotation">
+
+  <p>If you click on this hint, the <span class="PA">@Override</span> annotation is added for you.
+  This annotation indicates that the following method is intended
+  to override an inherited method.
+  If you use this annotation and the method following it does not override
+  any methods, a compilation error will result. This is a useful check
+  that you are doing what you intended to do, and also a reminder when
+  reading code that you are overriding an inherited method. 
+  </p>
+
+  <p>You may like to add this annotation whenever you intend to override a method.
+      For example, you may like to use it now on your <span class="PA">toString</span> method. You can type
+  it in manually if you want to.</p>
+
+  <p>There are also other useful hints available using the lightbulb symbol, but
+  you are not required to use such hints in assignments.
+  Using such hints may lead you to a different solution than
+  the one intended by a question.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.3 - Writing a date-stamp to a text file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.3 - Writing a date-stamp to a text file</h1>
+
+<h2>Topic</h2>
+
+<p>In this activity, we write
+a date-stamp to a text file.</p>
+
+<h2>Materials</h2>
+
+<p>In addition to the Solution
+document, the project for this activity contains three classes: </p>
+
+<ul>
+<li><span class="PA">DateStamp</span>, a utility class we have written,
+which has a static method to return today's date in full, e.g. Saturday,
+ January 10, 2004.</li>
+
+<li><span class="PA">DateStamper</span>, the <span class="PA">run(String)</span> method of which is to write a
+date-stamp to the file specified by the string argument. This class is
+incomplete. </li>
+
+<li><span class="PA">Main</span>, which contains test code. </li>
+</ul>
+
+<p>In addition, the project
+folder contains a text file, <span class="PA">sample2.txt</span>, empty at present, which is to be date-stamped.</p>
+
+<h2>Task</h2>
+
+<p>At present the <span class="PA">run</span> method in <span class="PA">DateStamper</span> 
+merely obtains a date-stamp and prints an informative message 
+via <span class="PA">System.out</span>. 
+Nothing is actually written to the file as yet. 
+Your task is to supply the code that opens an output stream for
+writing to the text file, and writes the date-stamp to the file. </p>
+
+<h2>Instructions</h2>
+
+<p>Open the file <span class="PA">sample2.txt</span>, using the File|Open File... option from the IDE. It should be empty. Leave the file open.</p>
+
+<p>Open <span class="PA">DateStamper</span> and insert code where indicated. Run the
+project. </p>
+
+<p>If your code is correct,
+you should see that <span class="PA">sample2.txt</span> has now acquired a date-stamp. </p>
+
+<h2>Notes</h2>
+
+<ol>
+<li>For
+simplicity, this application uses only a <span class="PA">FileWriter</span> and a <span class="PA">PrinterWriter</span>, with no <span class="PA">BufferedWriter</span> between them. </li>
+
+<li>If
+you edit the <span class="PA">Main</span> class to alter the file name passed to the <span class="PA">run</span> method, and then re-run the
+project, you will find that a new file of that name is created and
+date-stamped. </li>
+</ol>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+package simplegraphics;
+
+import javax.microedition.midlet.*;
+import javax.microedition.lcdui.*;
+
+public class MyCanvas extends Canvas
+{
+   private int width, height, widthPosition, heightPosition;
+
+   public MyCanvas()
+   {
+      width = getWidth();
+      height = getHeight();
+      widthPosition = width/3;
+       heightPosition = height/3;
+   }
+
+   public void paint(Graphics g)
+   {
+      //clear screen
+      g.setColor(0xffffff);
+      g.fillRect(0,0,width,height);
+
+      //draw circle
+      g.setColor(0);
+      g.drawArc(widthPosition,heightPosition,width/4,height/4,0,360);
+   }
+
+   protected void keyPressed(int keyCode)
+   {
+      if (getGameAction(keyCode) == Canvas.UP)
+      {
+         heightPosition = heightPosition - 1;			
+         repaint();
+      }
+
+      if (getGameAction(keyCode) == Canvas.DOWN)
+      {
+         heightPosition = heightPosition + 1;			
+         repaint();
+      }
+	
+      if (getGameAction(keyCode) == Canvas.LEFT)
+      {
+         widthPosition = widthPosition - 1;			
+         repaint();
+      }
+	
+      if (getGameAction(keyCode) == Canvas.RIGHT)
+      {
+         widthPosition = widthPosition + 1;			
+         repaint();
+      }
+   }
+}

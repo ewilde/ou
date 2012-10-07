@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 7.3 - Designing a logo</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 7.3 - Designing a logo</h1>
+<h2>Sample solution</h2>
+<p>1. Code for <span class="PA">paintComponent</span> in class <span class="PA">OULogo</span>:</p>
+
+<pre>
+ public void paintComponent(Graphics g)
+ {
+    //U
+    g.setColor(Color.blue);
+    g.fillRect(X,Y,WIDTH,HEIGHT);
+    g.fillArc(X,Y + HEIGHT - WIDTH/2,WIDTH,WIDTH,0,-180);
+
+    //O
+    g.setColor(Color.yellow);
+    g.fillOval(X + OFFSET,Y + OFFSET,RADIUS,RADIUS);
+ }
+</pre>
+<p>2. Code for  <span class="PA">BetterOULogo</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+
+public class BetterOULogo extends OULogo
+{
+   public void paintComponent(Graphics g)
+   {
+      //draw the shadow
+      g.setColor(Color.darkGray);
+      g.fillArc(X + 10,Y + HEIGHT - WIDTH/2 + 5,WIDTH,WIDTH, 0,-180);
+      g.fillRect(X + 10,Y + 5,WIDTH,HEIGHT);
+
+      //draw the logo
+      super.paintComponent(g);
+   }
+}
+</pre>
+<p>In this case you will also need to adjust the <span class="PA">OULogoTest</span> class 
+    so that it passes the <span class="PA">PictureFrame</span> class an instance of
+    the <span class="PA">BetterOULogo</span>
+    class as follows:</p>
+
+<pre>OULogo logo = new BetterOULogo();</pre>
+
+</body>
+</html>

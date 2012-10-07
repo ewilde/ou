@@ -1,0 +1,87 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.5 - Developing a class that throws exceptions</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.5 - Developing a class that throws exceptions</h1>
+<p>Here is our sample solution for the class <span class="PA">Read_a_Sonnet</span>:</p>
+<pre>
+import java.io.*;
+public class Read_a_Sonnet
+{
+   private FileReader fr;
+   private BufferedReader br;
+   final static int LINES_IN_SONNET = 14;
+
+   public void run() throws IOException
+   {
+      openFile("sonnet1.txt");
+      try
+      {
+         readLines(LINES_IN_SONNET);
+      }
+      catch (EOFException ex)
+      {
+         System.out.println("Wrong number of lines in poem. " + ex);
+      }
+      finally
+      {
+         closeFile();
+      }
+   }
+
+   // open the specified file
+   private void openFile(String fileName) throws IOException
+   {
+      fr = new FileReader(fileName);
+      br = new BufferedReader(fr);
+      System.out.println("== File "+ fileName + " opened OK");
+      // just for testing
+   }
+
+   /* Read and display the specified number of lines from text
+      file.
+      Modify this method so that it throws an EOFException if the
+      file has less lines than required
+   */
+
+   private void readLines(int numberOfLines) throws IOException,
+      EOFException
+   // Note: not strictly necessary to list EOFException here - why?
+   {
+      String nextLine;
+      int lineCount;
+      nextLine = br.readLine();
+      lineCount = 0;
+      while (nextLine != null && lineCount &lt; numberOfLines)
+      {
+         lineCount++;
+         System.out.println(nextLine);
+         nextLine = br.readLine();
+      }
+      if (lineCount &lt; numberOfLines)
+      {
+         throw new EOFException("read "+ lineCount + " lines");
+      }
+   }
+
+   // close the text file
+   private void closeFile() throws IOException
+   {
+      br.close();
+      fr.close();
+      System.out.println("== File closed OK"); // just for testing
+   }
+}
+</pre>
+<h2>Notes</h2>
+<p>Note that method <span class="PA">readLines</span> has been declared as throwing both <span class="PA">IOException</span> and <span class="PA">EOFException</span>.&nbsp; This is not strictly necessary, since <span class="PA">EOFException</span> is a subclass of <span class="PA">IOException</span>.&nbsp; Therefore we could just declare that the method throws an <span class="PA">IOException</span>, since this implicitly includes all exceptions which are subclasses of <span class="PA">IOException</span>.&nbsp; In this case, we have left both exceptions in the method header, as it advertises more clearly that an <span class="PA">EOFException</span> is possible.</p>
+
+</body>
+
+</html>

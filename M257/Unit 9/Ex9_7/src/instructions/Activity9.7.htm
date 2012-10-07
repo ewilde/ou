@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Activity 9.7 - Testing the name server</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 9.7 - Testing the name server</h1>
+<h2>Topic </h2>
+<p>In this activity we try out the name server discussed in section 8.1
+of Unit 9.
+For a client we use the <span class="PA">telnet</span> program we met
+in Activity 9.4.
+</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this exercise contains two classes, which are complete: </p>
+<ul class="LS">
+  <li><span class="PA">NameServer;</span></li>
+  <li><span class="PA">TestNameServer</span> which runs the server.</li>
+</ul>
+<p>You will also need the <span class="PA">telnet</span> program as in
+Activity 9.4.</p>
+<h2>Task</h2>
+<p>To use the <span class="PA">NameServer</span> class and the <span
+ class="PA">telnet</span>
+program, and to observe how they communicate.</p>
+<h2>Instructions </h2>
+<ol>
+  <li>
+    <p>Run the project to start up the server. You should get a message
+indicating that the
+server is starting up. The server is set to listen on port 3000.</p>
+  </li>
+  <li>
+    <p>You are to use <span class="PA">telnet</span> as a client. For
+this activity
+you do not need to be connected to the internet. See Activity 9.4 for
+instructions
+about starting up <span class="PA">telnet</span> if you have not done
+this before.
+At the prompt type <span class="PA">telnet localhost 3000</span> and
+then press enter.
+The <span class="PA">localhost</span> address is a special name
+indicating the
+computer on which the <span class="PA">telnet</span> program is
+running. The <span class="PA">3000</span> indicates the port number to
+be used by the server. </p>
+    <p>Once the <span class="PA">telnet</span> client has connected to
+the server, the
+server waits for a message from the client containing a user name. Type
+one of the
+user names listed in the <span class="PA">setUpNameDatabase</span>
+method and press enter. Note that
+the first name you type in may not be displayed on the screen.</p>
+    <p>You should get a reply indicating the corresponding e-mail
+address. Note
+that you can only get a match for the email address if you had entered
+the name exactly
+as given, including capital letters. You can continue entering
+as many user names as you like. Any user name not in the database
+should receive
+a reply indicating this fact. To terminate the connection, you enter <span
+ class="PA">Exit</span> (exactly
+like this) and press enter. This should close down the <span class="PA">telnet</span>
+connection but does not cause the server to close. </p>
+  </li>
+  <li>
+    <p>Unlike the simple server in previous activities, this server
+keeps running even
+after the <span class="PA">telnet</span> client has terminated. You
+can run the <span class="PA">telnet</span>
+client again and send some more user names to the server. It should
+respond as
+before. The only way to end this server is to forcibly terminate the
+program the program from NetBeans. </p>
+  </li>
+  <li>When you've finished this activity, you are advised to disable <span
+ class="PA">telnet</span> for security reasons. See below for help on
+doing this in Windows.<br>
+  </li>
+</ol>
+<h2>Disabling telnet service<br>
+</h2>
+<p>For Vista and Windows 7 to disable telnet<br>
+</p>
+<ul>
+  <li>Go to Control Panel and open Programs and Features</li>
+  <li>Select Turn Windows features on and off</li>
+  <li>Uncheck telnet client</li>
+  <li>Click OK</li>
+</ul>
+<p>For Windows XP the client is enabled by default. The server should
+normally be disabled. You can check here:<br>
+</p>
+<ul>
+  <li>Go to Control panel and open Performance and Maintenance (or if
+this is unavaiable, select Administrative Tools)</li>
+  <li>Double click the Services icon</li>
+  <li>Double click the Telnet icon</li>
+  <li>Select startup type disabled</li>
+  <li>Click OK<br>
+  </li>
+</ul>
+<br>
+</body>
+</html>

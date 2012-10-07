@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.7 - - Using a LinkedList</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.7 - Using a <span class=PA>LinkedList</span></h1>
+<p>
+Here is our sample solution for the class <span class="PA">LinkedStack</span>.</p>
+<pre>
+import java.util.*;
+
+public class LinkedStack implements Stack
+{
+   private LinkedList&lt;Object&gt; theList;
+
+   public LinkedStack()
+   {
+      theList = new LinkedList&lt;Object&gt;();
+   }
+
+   public void push(Object o)
+   {
+      theList.addLast(o);
+   }
+
+   public Object pop()
+   {
+      return theList.removeLast();
+   }
+
+   public Object peek()
+   {
+      return theList.getLast();
+   }
+
+   public boolean isEmpty()
+   {
+      return theList.isEmpty();
+   }
+}</pre>
+
+</body>
+
+</html>

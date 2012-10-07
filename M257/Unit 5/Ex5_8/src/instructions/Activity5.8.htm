@@ -1,0 +1,91 @@
+<html>
+
+<head>
+
+<title>Activity 5.8 - Using the Set interface</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 5.8 - Using the <span class="PA">Set</span> interface</h1>
+<h2>Topic </h2>
+<p>This activity uses the basic operations in the <span class="PA">Set</span> interface. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains one class: </p>
+<ul>
+  <li><span class="PA">SetTest</span>, containing an empty <span class="PA">main</span> method
+  </li>
+</ul>
+<h2>Task </h2>
+<p>First look up the <span class="PA">Set&lt;E&gt;</span> interface in the API documentation. The characteristic
+feature of a set is that the items are unique: the same element cannot appear
+more than once. </p>
+<p>In this activity we shall concentrate on five basic operations: </p>
+<ul>
+<li class="PA">boolean add(E o); </li>
+<li class="PA">boolean contains(Object o); </li>
+<li class="PA">boolean isEmpty(); </li>
+<li class="PA">boolean remove(Object o); </li>
+<li class="PA">int size(); </li>
+</ul>
+<p>Read carefully what these operations do. The <span class="PA">Set</span> interface has a number of other operations but they are not relevant to this activity. </p>
+<p>Note that <span class="PA">add</span> and <span class="PA">remove</span> have <span class="PA">boolean</span> return type. These methods return <span class="PA">true</span>
+if the collection has changed i.e. the operation has been successful.</p>
+
+<h2>Instructions </h2>
+<ol>
+  <li>Add a statement to the <span class="PA">SetTest</span> class to import <span class="PA">java.util.*.</span>.<br>
+  Then make the following changes to the code in <span class="PA">main</span>
+and re-run the project each time. </p>
+
+<li>Declare a variable of interface type </p>
+<p class="PS">Set&lt;String&gt; set1; </p>
+<p>(In what follows your variables should all be of interface type <span class="PA">Set</span>, not of
+class type <span class="PA">HashSet</span> or <span class="PA">TreeSet</span>. This is good practice, because it lets us alter
+what implementation we use just by using a different constructor, without any
+need to declare the variables afresh.) </p>
+<p>Add a statement to create an empty instance of <span class="PA">HashSet</span> using its
+zero-argument constructor and assign the new instance to <span class="PA">set1</span>, i.e. </p>
+<p class="PS">set1 = new HashSet&lt;String&gt;(); </p>
+<p>Add statements to add an item to the set </p>
+<p class="PS">set1.add(&quot;Persuasion&quot;); </p>
+<p>and display the result </p>
+<p class="PS">System.out.println(set1); </p>
+<p>Run the project. Check that the output is as you would expect. </p>
+</li>
+
+<li>
+<p>Next introduce statements which will do the following: </p>
+<ul >
+  <li>add the items <span class="PA">&quot;Mansfield Park&quot</span>, <span class="PA">&quot;Northanger Abbey&quot</span>, <span class="PA">&quot;Emma&quot</span>,
+  and <span class="PA">&quot;Sense and
+Sensibility&quot</span> to the set </li>
+  <li>print <span class="PA">set1</span> and <span class="PA">set1.size()</span>
+  </li>
+  <li>remove the item <span class="PA">&quot;Northanger Abbey&quot</span></li>
+  <li>print <span class="PA">set1</span> and <span class="PA">set1.size()</span> again </li>
+</ul>
+<p>Run the project again. Check that the output is as you would expect. </p>
+</li>
+
+<li><p>Next we use a constructor that takes an argument which is in itself a collection.
+Insert the statement </p>
+<p class="PS">Set&lt;String&gt; set2 = new TreeSet&lt;String&gt;(set1); </p>
+This will create a tree set which contains all the elements belonging to the
+set referenced by <span class="PA">set1</span>. Add a statement that will print <span class="PA">set2</span>, and run the
+project. What is different about the output this time and why? <br><br>
+
+</li>
+
+<li>
+<p>Finally, add the code to remove all four elements from <span class="PA">set2</span> (in any order
+you please) and check that the following statement produces the expected result:
+</p>
+<p class="PS">System.out.println(set2.isEmpty()); </p>
+</li>
+</ol>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.5 - Using an interface</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.5 - Using an interface</h1>
+<h2>Sample solutions </h2>
+<ol>
+  <li>Comparing <span class="PA">Employee</span> objects by salary:
+
+<p>The class header must be modified as follows: </p>
+<pre>
+public class Employee implements Comparable&lt;Employee&gt;
+</pre>
+<p>An example method implementation is as follows: </p>
+<pre>
+public int compareTo(Employee emp)
+{
+    if (salary > emp.salary)
+    {
+       return 1;
+    }
+    if (salary < emp.salary)
+    {
+       return -1;
+    }
+
+    return 0;
+}
+</pre>
+</li>
+
+<p>
+    In fact there is a more elegant way of doing this that returns a more useful
+    value, and that is simply to find the difference between the two employee
+    salaries like this:
+    <pre>
+public int compareTo(Employee emp)
+{
+    return this.salary - emp.salary;
+}
+</pre>
+<p>
+    Not only does this method return a useful value (the difference between the
+    employee's salaries), but it is easy to reverse sorting using this approach:
+
+     <pre>
+public int compareTo(Employee emp)
+{
+    return emp.salary - this.salary;
+}
+</pre>
+
+</p>
+
+<li>
+<p>The class header cannot be changed if we are to 
+    use <span class="PA">Arrays.sort</span>
+    as this method requires the items in the array
+    to implement <span class="PA">Comparable</span> for their own type.
+</p>
+<p> A possible method implementation is now as follows: </p>
+<pre>
+public int compareTo(Employee emp)
+{   
+   return emp.name.compareTo(name);
+}
+</pre>
+
+<p>Here we make use of the fact that
+    the <span class="PA">String</span> class already has a
+    suitable <span class="PA">compareTo</span> method defined
+    (this <span class="PA">compareTo</span>
+method accepts a <span class="PA">String</span> argument only).</p>
+</li>
+</ol>
+</body>
+
+</html>

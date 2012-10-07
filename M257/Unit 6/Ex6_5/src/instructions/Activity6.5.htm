@@ -1,0 +1,63 @@
+<html >
+
+<head>
+
+
+<title>Activity 6.5 - Constructing a user interface to demonstrate fonts</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 6.5 - Constructing a user interface to demonstrate fonts</h1>
+<h2>Topic </h2>
+<p>In this activity we create a User Interface, using a variety of visual
+components. </p>
+<h2>Task </h2>
+<p>You are asked to develop a User Interface for a program that will demonstrate
+fonts. When the application runs, the window should look like this: </p>
+<p><img width=400 height= 240 src="Activity6.5_files/image001.png"
+alt = "The figure displays a rectangle which has a large area to display text, and various buttons and labels to control the way the text is displayed.
+The figure is described in detail in the main text where it decribes the interface, immediately below the figure.">
+</p>
+
+<p>The interface consists of: </p>
+<ul>
+  <li>A menu bar, containing a single menu &quot;Help&quot;, which has a single item
+  &quot;About&quot;. </li>
+  <li>An upper panel, with flow layout, containing the following elements: </li>
+  <ul><li>A label &quot;Font family&quot;. </li>
+  <li>A drop down list with items &quot;SansSerif&quot;, &quot;Serif&quot;, &quot;Monospaced&quot;. </li>
+  <li>A label &quot;Size&quot;. </li>
+  <li>A text field, three characters wide, initialised to &quot;12&quot;. </li>
+  <li>A label &quot;Style&quot;. </li>
+  <li>Two checkboxes &quot;Bold&quot; and &quot;Italic&quot;. </li>
+  <li>A button &quot;Show font&quot;. When this button is pressed, the font combination
+  specified by the controls above will be displayed in the lower panel. </li>
+  </ul>
+  <li>A lower panel, with border layout, containing a scrollable text area,
+  initialised to &quot;The cat sat on the mat&quot;. The user can edit the contents. Note
+  that the picture above displays no scrollbars because the current extent of
+  the text makes them unnecessary. If enough text is inserted scrollbars will
+  appear automatically. </li>
+</ul>
+<p>With the exception of the labels, all these types of element were used in
+Activity 6.4. </p>
+<p>The enclosing frame has title &quot;Font demo&quot; and dimensions 400 by 240. It uses
+a 2 by 1 grid layout. </p>
+<p>In this activity we are only developing the interface and the program will
+not be capable of actually displaying the chosen font. We will continue this example in Unit 7.
+</p>
+<h2>Instructions </h2>
+<ol>
+<li>Create a new project called <span class="PA">MyEx6_5</span> in the Unit 6 folder. In the New Java Application wizard name the Main Class <span class="PA">myex6_5.FontDemoTest</span>.</li>
+<li>Add a new class <span class="PA">FontDemo</span> that implements the interface shown above. You are not expected to write a hierarchy of classes as was done in Exercise 6.4.
+Instead you should add all the interface elements in the same class. </li>
+<li>Complete the main class <span class="PA">FontDemoTest</span> to create an instance of <span class="PA">FontDemo</span> and display
+it. Compile and run your program. </li>
+<li>Our sample code appears in the Solution file. </li>
+</ol>
+</body>
+
+</html>

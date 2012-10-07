@@ -1,0 +1,44 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 9.9 - Using a threaded server</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 9.9 - Using a threaded server</h1>
+
+<ol>
+<li>
+<p>It is important to ensure that the server is running before you try to run
+the client.  To do this, you need to ensure that you run the project in the
+server folder first.  The server should display a message
+to indicate that it is starting up, and some further messages when the client
+connects and when the server closes down.
+</p>
+</li>
+
+<li>
+<p>The client program in this case is identical to the client used in Activity 9.8.
+So it should behave in exactly the same way.
+</p>
+</li>
+
+<li>
+<p>This server can deal with many clients apparently at once, by creating a thread to handle
+the connection and communication with each client.  This concurrent handling of
+multiple clients is much better than the sequential behaviour we saw in previous
+activities.  For this reason all practical servers use threads or other means
+to handle multiple clients concurrently.  We say "apparently at once" since the
+server will normally only handle one message at a time from a client, but it can
+normally switch its attention from one message to the next so quickly that it seems to be
+simultaneous.
+</p>
+</li>
+</ol>
+
+</body>
+
+</html>

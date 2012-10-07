@@ -1,0 +1,81 @@
+<html>
+
+<head>
+
+<title>Activity 9.9 - Using a threaded server</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.9 - Using a threaded server</h1>
+<h2>Topic </h2>
+<p>
+In this activity we see how the name server from previous activities can be extended
+to deal with more than one client at once.  This is discussed in section 9 of Unit 9.
+The client code is identical to that used in Activity 9.8, and discussed in section 8.2
+of the course text.
+</p>
+
+<h2>Materials </h2>
+<p>For this activity there are two separate projects, one for the server and one
+for the client.
+The instructions for this activity and the Solution document can be accessed
+from both projects.</p>
+<p><b>You should start from the server project if you have not already done this.</b>
+</p>
+
+<p>In addition to the Solution document, the server project
+for this exercise contains three classes, which are complete: </p>
+<ul >
+  <li><span class="PA">ThreadedNameServer</span> which is the server class;</li>
+  <li><span class="PA">ConnectionThread</span> - an instance of this handles each client;</li>
+  <li><span class="PA">TestThreadedNameServer</span> which runs the server.</li>
+</ul>
+
+<p>In addition to the Solution document, the client project also contains
+two classes, which are complete: </p>
+<ul>
+  <li><span class="PA">NameClient;</span></li>
+  <li><span class="PA">TestNameClient</span> which runs the client.</li>
+</ul>
+<h2>Task</h2>
+<p>You are to run a server program, <span class="PA">ThreadedNameServer</span>, which can
+communicate with several <span class="PA">NameClient</span> clients. </p>
+
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>Open the project <span class="PA">Ex9_9Server</span> and run it, to start up the server.  You should get a message indicating that the
+server is starting up.  The server is set to listen on port 3000.</p>
+</li>
+<li>
+<p>First try running a single client as in Activity 9.8.
+Open the project <span class="PA">Ex9_9Client</span> and run it. </p>
+
+<p>In the appropriate text box of the client GUI, enter a user name from those defined in
+the <span class="PA">NameServer</span> method <span class="PA">setUpNameDatabase</span>.
+Press the <span class="PA">Go</span> button to send the user name to the server.
+You should see a reply from the server in the other text box. You can continue entering a user name and receiving a reply as many times
+as you like.  To quit you click on the <span class="PA">Quit</span> button.  As in Activity 9.8
+this will cause the client to terminate but not the server.
+</p>
+</li>
+<li>
+<p>The server continues running even after the client has terminated. Now try
+running several client programs at the same time.
+To do this, ensure you have the client set as the main project and click on the <span class="PA">Run Main Project</span> button several times. 
+You may find that the several instances of the client window are placed on top of
+each other on screen - in this case you can drag them to different positions on
+screen using the mouse.  Unlike in Activity 9.8, each client should get a response
+quite soon after you send a user name to the server.  There is no priority order - the
+server simply responds to each message as it receives it.  You must quit each client
+separately by clicking on the <span class="PA">Quit</span> button, as before.</p>
+<li>
+<p>
+The only way to stop this server is terminating it from NetBeans.
+</p>
+</li>
+</ol>
+</body>
+</html>

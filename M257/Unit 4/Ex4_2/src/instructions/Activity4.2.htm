@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.2 - Reading from a text file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.2 - Reading from a text file</h1>
+
+<h2>Topic </h2>
+
+<p>In this activity, we read lines from a sample text file and print them out
+one by one. </p>
+
+<h2>Materials </h2>
+
+<p>In addition to the Solution document, the project for this activity contains
+two classes: </p>
+
+<ul>
+ <li><span class="PA">Read_a_File</span>, which is incomplete; </li>
+ <li><span class="PA">Main</span>, which contains test code for the activity.</li>
+</ul>
+
+<p>In addition there is a text file <span class="PA">sample1.txt</span> which is
+not part of the project but which can be found in the project folder. </p>
+
+<h2>Task </h2>
+
+<p>The <span class="PA">run</span> method of the class <span class="PA">Read_a_File</span> is to read successive lines of the file <span class="PA">sample1.txt</span> and print them out one by one, halting when there
+are no more lines. </p>
+
+<h2>Instructions </h2>
+
+<p>Do not run the project at this stage, it will not yet compile.</p>
+
+<p>The <span class="PA">Scanner</span> class you were introduced to in Activity
+4.1 can be employed to read from any input stream, not just <span class="PA">System.in</span>. </p>
+
+<p>To read from a file, we use the filename to construct a <span class="PA">File</span>
+object, then create a <span class="PA">Scanner</span> for the <span class="PA">File</span>
+object, like this:</p>
+
+<pre>Scanner sc = new Scanner(new File(<i>filename</i>));</pre>
+
+<p>Once the <span class="PA">Scanner</span> is created we can read lines from it
+using <span class="PA">nextLine()</span>
+just as we did in Activity 4.1.</p>
+
+<p>Open the class <span class="PA">Read_a_File</span>
+and complete the code where indicated. </p>
+
+<p>Run the project to read an instructive quote from a computing pioneer.</p>
+
+
+</body>
+
+</html>

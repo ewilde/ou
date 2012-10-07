@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 3.1 - Experimenting with the User</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 3.1 - Experimenting with the <span class="PA">User</span> class</h1>
+<p>
+Each task requires code to be added to the <span class="PA">UserTest</span> class of project <span class="PA">Ex3_1</span>.</p>
+<h2>Task 1</h2>
+<p>
+The first task is to add a new <span class="PA">User</span> object referenced by <span class="PA">maria</span>, set its address,
+and then retrieve the result and print it out:</p>
+<pre>
+User maria;                     // another User reference to reference new User
+String theEmailAddress;        // another String reference for retrieved email address
+maria = new User();                          // new User object referenced by maria
+maria.setEmailAddress("ibs27@student.life.ac.uk");                 // set the address
+theEmailAddress = maria.getEmailAddress();                  // retrieve the address
+System.out.println("The email address is " + theEmailAddress);   // confirm the value
+</pre>
+<h2>Task 2</h2>
+<p>
+The second task is to set and get the <span class="PA">userID</span> instance variable of the <span class="PA">User</span>
+object referenced by <span class="PA">maria</span>:</p>
+<pre>
+String theUserID;                      // String reference for the retrieved user ID
+maria.setUserID(&quot;W169073&quot;);                        // set object's userID
+theUserID = maria.getUserID();                             // retrieve the userID
+System.out.println("The user ID address is " + theUserID);     //confirm the value
+</pre>
+<p>You could also retrieve and print out the <span class="PA">userID</span> without storing a reference to it as follows:</p>
+<pre>
+System.out.println("The user ID address is " + maria.getUserID());
+</pre>
+
+<h2>Task 3</h2>
+
+<p>If the suggested statements are added, the statement </p>
+<pre>User testUser = new User();</pre>
+<p>invokes a zero-argument constructor for the <span class="PA">User</span> class. If you examine the
+<span class="PA">User</span> class, you will see that there is no initialization of the instance
+variables of <span class="PA">User</span> (we have not invoked any setter methods in this statement),
+which means that default values are used to initialize a new <span class="PA">User</span> object.&nbsp;
+Because <span class="PA">userID</span> is a reference variable, its default value is&nbsp; <span class="PA">null</span>.
+Executing the code confirms this!&nbsp; You will read more about how this works
+later on in Unit 3.</p>
+
+<h2>Task 4</h2>
+<p>
+If we attempt to invoke a method on the reference <span class="PA">testString</span>
+(in this case the <span class="PA">length</span> method of a <span class="PA">String</span>
+object), the program will crash. </p>
+<p>In Task 3 we saw that <span class="PA">testString</span> has the value <span class="PA">null</span>, which means that it does
+not reference an object at all, and therefore cannot have any methods invoked on
+it. So, the attempt to invoke <span class="PA">length</span> on <span class="PA">testString</span> causes a
+<span class="PA">NullPointerException</span>.</p>
+
+</body>
+
+</html>

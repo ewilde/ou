@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 8.6 - Running the greedy consumers</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 8.6 - Running the greedy consumers</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">SweetJar</span>:</p>
+<pre>
+public class SweetJar
+{
+   private int numberOfSweets;
+   private int turn = 1;
+
+   public SweetJar(int sweets)
+   {
+      numberOfSweets = sweets;
+   }
+
+   public int countSweets()
+   {
+      return numberOfSweets;
+   }
+
+   public synchronized void eatSweet(int id)
+   {
+      try
+      {
+         // If this thread is attempting to go out of turn it must be blocked.
+         while (turn != id)
+         {
+            wait();
+         }
+         /*  You may have used 'if' instead of 'while'.
+             In general 'while' must be used - see Activity 8.8.
+         */
+      }
+      catch(Exception e)
+      {
+         System.out.println(e);
+      }
+      System.out.println("Consumer " + id + " eats sweet "
+                          + numberOfSweets + " - yummy!");
+      numberOfSweets--;
+      turn = 3 - turn;
+      notifyAll();
+   }
+}
+</pre>
+
+<p> The solution as given above, allows the situation to occur where 'sweet 0 gets eaten'. To
+understand why this happens, we look at the <span class="PA">while</span> statement in the
+<span class="PA">Consumer</span> class. If there is currently 1 sweet left, a thread will be
+allowed to continue and invoke the <span class="PA">eatSweet</span> method. It may find it is
+not its turn, and waits. The next thread may check the <span class="PA">while</span> condition,
+find that there is 1 sweet left, and it also invokes the <span class="PA">eatSweet</span> method.</p>
+<p>At this point there are 2 threads active. The one whose turn it is will actually continue,
+decrease the number of sweets, and notify other threads. This is where the problem arises, because
+a notified thread can proceed without having to recheck the <span class="PA">while</span> condition.</p>
+<p>What can we do to prevent this? We must build in a further check, inside the
+<span class="PA">eatSweet</span> method so that the 'actual' eating of the sweet takes place
+within an <span class="PA">if</span> statement, as follows:
+
+<pre>
+if (numberOfSweets > 0)
+{
+   System.out.println("Consumer " + id +  " eats sweet "
+                       + numberOfSweets + " - yummy!");
+   numberOfSweets--;
+   turn = 3 - turn;
+   notifyAll();
+}
+else
+{
+   System.out.println("no more sweets");
+}
+</pre>
+
+</body>
+
+</html>

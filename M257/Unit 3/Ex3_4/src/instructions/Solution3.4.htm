@@ -1,0 +1,90 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 3.4 - Putting it all together</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 3.4 - Putting it all together</h1>
+<p><br>
+Your task here was to complete the <span class="PA">Member</span> class.&nbsp;&nbsp; The project cannot
+be run, initially, as the <span class="PA">TestMember</span> class assumes certain things will be defined by
+<span class="PA">Member</span>, which is incomplete</p>
+<p>Below is the definition of the class <span class="PA">Member</span>:</p>
+
+<pre>
+public class Member
+{
+   //Note that these variables should be declared private
+   private String name;
+   private String emailAddress;
+   private String homeAddress;
+
+   // A three-argument constructor for Member
+   public Member(String nam, String ema, String adr)
+   {
+      name = nam;
+      emailAddress = ema;
+      homeAddress = adr;
+   }
+
+   // getter methods
+   public String getName()
+   {
+      return name;
+   }
+
+   public String getEmailAddress()
+   {
+      return emailAddress;
+   }
+
+   public String getHomeAddress()
+   {
+      return homeAddress;
+   }
+
+   // setter methods
+   public void setName(String s)
+   {
+      name = s;
+   }
+
+   public void setEmailAddress(String s)
+   {
+      emailAddress = s;
+   }
+
+   public void setHomeAddress(String s)
+   {
+      homeAddress = s;
+   }
+
+
+   //This is one possible string representation of a Member
+   public String toString()
+   {
+      return  getName() + ", email address " +
+              getEmailAddress() + ", home address " + getHomeAddress();
+   }
+
+   /* an example equals method, assuming that we should compare
+    * all instance variables of two Member objects to determine equality of Members
+    */
+
+   public boolean equals(Object o)
+   {
+      // cast the passed object to type Member (potentially fails)
+      Member mem = (Member) o;
+      return  name.equals(mem.getName()) &&
+              emailAddress.equals(mem.getEmailAddress()) &&
+              homeAddress.equals(mem.getHomeAddress());
+   }
+}</pre>
+
+</body>
+
+</html>

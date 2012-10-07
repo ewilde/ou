@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Discussion of Activity 9.4 - Accessing a server using Telnet</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 9.4 - Accessing a server using Telnet</h1>
+<p>If you do not have <span class="PA">telnet</span> on your system,
+you should be able to download a free copy from the web for any
+computing platform.
+</p>
+<p>If for any reason you are not connected to the internet, or there is
+no <span class="PA">telnet</span> site
+at this address, you should get a message indicating that
+<span class="PA">telnet</span> could not open a connection to the
+specified host (ie the
+computer at the URL you specified). In this case there is no point in
+trying this particular connection with a browser, as the browser
+expects to access a website on a different port. You could, however,
+use a browser just to check that you are online.</p>
+<p>The <span class="PA">telnet</span> program by default tries to
+access the specified server
+on port 23. You can specify the port to be used when you run <span
+ class="PA">telnet</span>, for example like this:
+<span class="PA">telnet HOSTNAME 23</span>. This should work just as
+before.
+If you try a different port number then most servers will not respond
+to the request
+as they will not be expecting <span class="PA">telnet</span> requests
+on other ports.
+If you write your own server, of course, you can choose which port it
+listens to. In this
+case you could use <span class="PA">telnet</span> to communicate with
+the server on that port, which need not be
+port 23. We will see how to do this a little later in this unit.
+</p>
+<p>As mentioned previously, the <span class="PA">telnet</span> request
+may not work on some sites, even
+those suggested here or on the web as offering a telnet service.
+If it still does not work after trying again a couple of times, you
+may want to try another site, but don't spend too much time on this.
+Please make sure you are trying the correct address - there is
+no <span class="PA">www.</span> in the name
+of telnet sites (as they are not websites). You will write your own
+server later in the unit that will operate on similar principles.</p>
+
+<p> If you wish to explore further, you may want to try downloading a client
+supporting ssh, such as "putty" or "mintty" </p>
+
+<p>Note that the Firewall advice you were given in the earlier
+activities of this unit, is also
+relevant to this activity, because again we are connecting to the
+internet.<br>
+</p>
+<hr style="width: 100%; height: 2px;">
+<p>To enable <span class="PA">telnet</span> on Vista or Windows 7 you may need to
+do the following:</p>
+<ol>
+  <li>
+    <p>From your Windows Start button, select Control Panel, click
+Programs and features, and then click Turn Windows features on or off.
+(Enter a password or provide confirmation if asked to do so.)</p>
+  </li>
+  <li>
+    <p>In Windows Features tick the check box for Telnet Client.</p>
+  </li>
+  <li>
+    <p>Click OK and wait for the installation to complete.</p>
+  </li>
+</ol>
+</body>
+</html>

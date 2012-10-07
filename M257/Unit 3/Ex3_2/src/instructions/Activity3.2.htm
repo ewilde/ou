@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>Activity 3.2 - Using the CarTracker class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 3.2 - Using the <span class="PA">CarTracker</span> class</h1>
+<h2>Topic </h2>
+<p>In this activity we make use of the methods defined in the class <span class="PA">CarTracker</span>.
+</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project for this activity contains
+the classes: </p>
+<ul>
+  <li><span class="PA">CarTracker</span>; </li>
+  <li><span class="PA">TreasureHunt</span>, which needs appropriate statements adding to it;</li>
+  <li><span class="PA">TreasureHunt_Solution</span>, our sample answer. </li>
+</ul>
+<h2>Task </h2>
+<p>Your task is to locate a 'treasure' hidden somewhere on a grid system. The
+<span class="PA">CarTracker</span> class discussed in Unit 3 operates with a grid system, and so we can
+use <span class="PA">CarTracker</span> objects to help us determine where the treasure is by making use
+of information supplied about the location of the treasure. </p>
+<p>You are given the following information. </p>
+<ul>
+  <li>All distances are in straight lines and measured in kilometres. </li>
+  <li>The treasure is located at either Point A, position (11, 5) or at Point B,
+  position (1, 9). </li>
+  <li>Spyglass Hill is at grid position (8, 33). </li>
+  <li>Smuggler's Cove is at grid position (6, 18). </li>
+  <li>Parrot Point is at grid position (15, 25). </li>
+  <li>The treasure is more than 5 km from Spyglass Hill, more than 10 km from
+  Parrot Point and not more than 11 km from Smuggler's Cove. </li>
+</ul>
+<ol>
+  <li>Decide whether the treasure lies at A or B, based on distances between
+  points A and B and Spyglass Hill, Smuggler's Cove and Parrot Point. </li>
+  <li>How far would you travel if you started from Spyglass Hill, went first to
+  the treasure, then journeyed on to the Ship Inn at (15,15)? </li>
+</ol>
+<h2>Instructions </h2>
+<p>Open the class <span class="PA">TreasureHunt</span>. Insert statements in the <span class="PA">main</span> method that will make
+the comparisons necessary to locate the site of the treasure, and work out the
+journey distance from Spyglass Hill to the Ship Inn via the treasure. </p>
+<p>For example, we can construct a <span class="PA">CarTracker</span> object whose starting position is
+point A (11,5) and whose ending position is at SpyglassHill (8, 33) as follows:
+</p>
+<p class="PS">CarTracker aToSpyglass = new CarTracker(11,5,8,33); </p>
+<p>Then the expression <span class="PA">aToSpyglass.greaterThan(5)</span> tells if the distance from A
+to Spyglass Hill is more than 5km. This is one thing that must be true if A is
+where the treasure is. There are two other things that must be true. </p>
+<p>We can perform the same tests for B's position. </p>
+<p>See our <span class="PA">TreasureHunt_Solution</span> for one way to solve the problem.</p>
+
+</body>
+
+</html>

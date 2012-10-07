@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 9.2 - Sending an HTTP request</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 9.2 - Sending an HTTP request</h1>
+
+<p>When you run the project, you should see the HTML for the Open University home page.
+In fact, the result will be largely the same as when we connected to this
+home page in Activity 9.1!
+The difference is that there we relied on the built-in facilities of Java to
+send the request, whereas here we have made a lower-level connection to the
+web site, using socket programming, and then sent our own request using HTTP.</p>
+<p>Doing things this way yields extra information;
+the HTML is preceded by a header containing the date and time,
+the size and type of the content, and details of the server.  You may have to scroll
+the display back up to see these additional details, unless you can read very quickly!
+</p>
+
+<p>The most likely thing to go wrong is that you are not connected to the internet
+or that the web site is not available, and a message like this may be displayed
+<pre>java.net.UnknownHostException: www.open.ac.uk</pre></p>
+<p>As usual, check using a browser if you
+think this is happening.</p>
+<p>You may also experience problems with the firewall, so check the information provided on this issue
+in Activity 9.1.</p>
+<p>By changing the URL in the <span class="PA">main</span> method, and running the project again,
+you should be able to display the source for other web pages.  If you know or
+can find out some other HTML requests you can try sending requests other than
+<span class="PA">GET</span>, such as using the <span class="PA">OPTIONS</span> command mentioned in the course unit.</p>
+
+<p>In this case you may get compilation errors if you edit the code wrongly -
+check the punctuation and quotes carefully.
+You may also get an error message from the web server if your HTTP request is not a valid one,
+but at least this shows that you sent something!</p>
+
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 3.5 - Using an array of a reference type</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 3.5 - Using an array of a reference type</h1>
+<p>The project includes a complete <span class="PA">Member</span> class, according to the specification
+of Activity 3.4. </p>
+<p>Activity 3.5 required you to complete the <span class="PA">GroupRecord</span> class to make use of
+the <span class="PA">Member</span> class. </p>
+<p>Initially the project does not compile, due to the missing information in
+<span class="PA">GroupRecord</span>. Here is a completed version of class
+<span class="PA">GroupRecord</span>:</p>
+<pre>
+public class GroupRecord
+{
+   final int        DEFAULT_SIZE = 100;
+   private Member[] listOfMembers;
+   private int      headCount;
+
+   public GroupRecord()
+   {
+      listOfMembers = new Member[DEFAULT_SIZE];
+      headCount     = 0;
+   }
+
+   public void addMember(Member mem)
+   {
+      listOfMembers[headCount] = mem;
+      headCount++;
+   }
+
+   public String getEmailAddressForMember(String membersName)
+   {
+      int index = findIndex(membersName);
+      return listOfMembers[index].getEmailAddress();
+   }
+   public String getHomeAddressForMember(String membersName)
+   {
+      int index = findIndex(membersName);
+      return listOfMembers[index].getHomeAddress();
+   }
+
+   //Note that this method is declared private, as it is a helper method
+   private int findIndex(String membersName)
+   {
+      int    i = 0;
+      Member mem;
+      while (i &lt; headCount)
+      {
+         mem = listOfMembers[i];
+         if (mem.getName().equals(membersName))
+         {
+            return i;
+         }
+         i++;
+      }
+      return -1;   // We assume that this will not be reached.
+   }
+
+   /*
+   * An alternative solution is:
+   */
+
+   /*
+   private int findIndex(String m)
+   {
+      int index = 0;
+      while (!listOfMembers[index].getName().equals(m) &&
+             index &lt; headCount)
+      {
+         index++;
+      }
+       return index;
+   }
+   */
+}
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+<title>Activity 2.8 - Adding methods to the Bag class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 2.8 - Adding methods to the <span class="PA">Bag</span> class</h1>
+<h2>Topic </h2>
+<p>This activity asks you to add extra methods to an existing class implementing
+a bag data structure. </p>
+<h2>Materials </h2>
+<p>In addition to the discussion of the solution in the Solution document, the project
+for this activity contains two classes: </p>
+<ul>
+  <li> <span class="PA">Bag</span>, which is the class you are asked to add a method to;
+  </li>
+  <li> <span class="PA">BagTest</span>, which is run to test the code. </li>
+</ul>
+<h2>Tasks </h2>
+<p>A bag is a collection of data that keeps track of the number of times each
+item occurs in it. In this case the items are the digits 0 - 9. The numbers of
+occurrences of each digit are held in an integer array <span class="PA">bagVals</span>. </p>
+<p>For example, the following collection has two 1's, one 2, five 3's, a 4 and
+an 8 in it: </p>
+<p class="PA">1, 1, 2, 3, 3, 3, 3, 3, 4, 8 </p>
+<p>This can be represented by an array with the following values </p>
+
+<p class="PA">{0, 2, 1, 5, 1, 0, 0, 0, 1, 0} </p>
+<p>The additional methods to be added to the bag class are: </p>
+<ul>
+  <li> <span class="PA">removeFromBag(int)</span> where the argument represents one of the digits. When
+called, the method should remove one occurrence of the specified digit. (You may
+assume that the method will not be called unless the digit occurs at least
+once.) The method does not return any value. </li>
+  <li> <span class="PA">removeAllFromBag(int)</span>, where the argument represents one of the digits.
+When called, the method should remove all occurrences of the specified digit
+from the bag. The method does not return any value. </li>
+  <li> <span class="PA">emptyBag()</span>, which resets the bag to its empty state, where there are no
+occurrences of any digit. The method does not return any value. Do this using a
+for-loop to set each array location to zero. </li>
+  <li> <span class="PA">printCounts()</span>, which prints the number of each digit in the bag. For the
+example given above, it would print 0 2 1 5 1 0 0 0 1 0 followed by a blank line.
+Do this using a for-loop to print out the number of each digit in the bag. </li>
+</ul>
+
+<h2>Instructions </h2>
+<p>Open the class <span class="PA">Bag</span> and examine the existing methods. Using these as a guide,
+add the new methods, as described above, at the point indicated. </p>
+<p>When you have done this, open the class <span class="PA">BagTest</span> and read the code there to
+see what it does. Now run the project to try out your solution.</p>
+
+</body>
+
+</html>

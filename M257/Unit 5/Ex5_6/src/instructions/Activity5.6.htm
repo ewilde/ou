@@ -1,0 +1,77 @@
+<html>
+
+<head>
+
+
+
+<title>Activity 5.6 - E-commerce class hierarchy with abstract classes</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 5.6 - E-commerce class hierarchy with abstract classes</h1>
+<h2>Topic </h2>
+<p>This activity makes use of a hierarchy of classes representing e-commerce
+items, and is loosely based on that described in the unit. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for the activity contains the following hierarchy of classes. Those shaded are
+abstract. </p>
+
+<p><img width=361 height=194 src="Activity5.6_files/UMLf01.gif"
+alt = "This figure is a UML diagram illustrating the inheritance relationships between six classes related to E-commerce items.  Each class is shown as a
+rectangle containing the name of the class.  Inheritance relationships are shown by an open-headed arrow pointing from the subclass to the superclass.
+The rectangle for each abstract class is shown shaded - all the other (concrete) classes are shown unshaded.  The topmost class of the hierarchy is an abstract
+class, named Item.  This has two subclasses, MultiMediaItem, which is abstract and PrintedItem, which is not abstract.  MultiMediaItem has two concrete subclasses,
+named  MusicCD and VideoCD.  The class PrintedItem has one concrete subclass named Book.">
+<p>These classes are already fully coded and are included in the project.</p>
+<p>The project also contains a class <span class="PA">TestClass</span> for testing the application. The
+project is missing a class <span class="PA">Bill</span> that you are asked to create and write the code
+for. </p>
+<h2>Task </h2>
+<p>The class <span class="PA">Bill</span> is to fulfil the following specification.</p>
+<h4>Instance variable </h4>
+<pre>List&lt;Item&gt; itemList </pre>
+<h4>Constructor </h4>
+<pre>Bill() </pre>
+<p>Creates an <span class="PA">ArrayList&lt;Item&gt;</span> and makes <span class="PA">itemList</span> point to it. </p>
+<h4>Methods </h4>
+<pre>void addItem(Item item) </pre>
+<p>Adds an item to the array list. </p>
+<pre>void removeItem(Item item) </pre>
+<p>Removes an item from the array list. This method is provided so that errors
+can be corrected, or so that the user can amend their order. </p>
+<pre>void printBill() </pre>
+<p>Prints out the name of each item in the array list, with its unit cost in
+pence, calculates the total amount as it goes along, and prints the total, also
+in pence, at the end of the list, e.g. </p>
+<pre>
+Item 1: The Java Collection Classes cost 1200
+Item 2: Favourites from the Palm Court Orchestra cost 399
+Total amount: 1599
+Thank you for visiting us. Please come again. </pre>
+<p>This method makes use of methods <span class="PA">getUnitPrice</span> and <span class="PA">getItemName</span> specified
+in <span class="PA">Item</span>. </p>
+<p>For simplicity we work entirely in pence. In a real-life application we would
+of course have to use pounds and pence, properly formatted, but for the purposes
+of this activity we will ignore this complication. </p>
+<h2>Instructions </h2>
+<p>Create a new class <span class="PA">Bill</span> that implements the
+specification given above. 
+You can open the New Java Class wizard in the same way as you did in 
+Activity 4 of the NetBeans Guide, 
+or right-click on the package node in the Projects window 
+and select New||Java Class. 
+Make sure the new class is part of the project's package.</p>
+<p>Run the project to test your code. It should compile automatically, and
+<span class="PA">TestClass</span> is already selected as the main class. </p>
+<h2>Note </h2>
+<p>Do not forget to include the appropriate import statement in <span class="PA">Bill</span>.
+</p>
+
+
+</body>
+
+</html>

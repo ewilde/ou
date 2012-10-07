@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Discussion of Activity 6.2 - Constructing a frame using
+GridLayout</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 6.2 - Constructing a frame using <span
+ class="PA">GridLayout</span></h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">LayoutDemo</span>:</p>
+<pre>import java.awt.*;<br>import javax.swing.*;<br><br>public class LayoutDemo extends JFrame<br>{<br>   private JPanel p;<br>   private JButton top1, top2, top3;<br>   private JButton middle1, middle2, middle3;<br>   private JButton bottom1, bottom2, bottom3;<br><br>   public LayoutDemo(String title)<br>   {<br>      setTitle(title);<br>      setSize(200,200);<br>      setLocation(200,200);<br>      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  //see note 2<br><br>      // Create the panel.<br>      p = new JPanel();<br>      //using four argument constructor as in 5th instruction<br>      p.setLayout(new GridLayout(3,3,10,10));<br><br>      // Create the buttons.<br>      top1 = new JButton("O");<br>      top2 = new JButton("X");<br>      top3 = new JButton("O");<br>      middle1 = new JButton("O");<br>      middle2 = new JButton(" ");<br>      middle3 = new JButton("X");<br>      bottom1 = new JButton(" ");<br>      bottom2 = new JButton(" ");<br>      bottom3 = new JButton("X");<br><br>      // Add the buttons to the panel.<br>      p.add(top1);<br>      p.add(top2);<br>      p.add(top3);<br>      p.add(middle1);<br>      p.add(middle2);<br>      p.add(middle3);<br>      p.add(bottom1);<br>      p.add(bottom2);<br>      p.add(bottom3);<br> <br>      // Get the content pane of the frame.<br>      Container cp = getContentPane();<br>      // Add the panel to the content pane;<br>      cp.add(p);<br>   }<br>}</pre>
+<p>Code for class <span class="PA">LayoutDemoTest</span>:</p>
+<pre>public class LayoutDemoTest<br>{<br>   public LayoutDemoTest()<br>   {<br>   }<br><br>   public static void main(String[] args)<br>   {<br>      LayoutDemo ld =<br>      new LayoutDemo("Tic-tac-toe");<br>      ld.setVisible(true);<br>   }<br>}<br></pre>
+<h2>Notes</h2>
+1. The four-argument constructor allows you to specify the size of the
+horizontal and vertical gaps between cells in the grid layout.<br>
+2. The default close operation allows you to set the application to
+terminate when the window's close button is clicked.<br>
+</body>
+</html>

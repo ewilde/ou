@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+<title>Activity 8.4 - Running the GoodThread and the BadThread</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 8.4 - Running the <span class="PA">GoodThread</span> and the <span class="PA">BadThread</span></h1>
+<h2>Topic </h2>
+<p>This activity demonstrates the effect of the Java <span class="PA">
+synchronized</span> keyword. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains the following classes: </p>
+<ul>
+<li><span class="PA">BankAccount;</span></li>
+ <li><span class="PA">GoodThread;</span> </li>
+ <li><span class="PA">BadThread;</span> </li>
+ <li><span class="PA">Main.</span> </li>
+</ul>
+<h2>Task </h2>
+<p>Your task will be to study the classes we have provided, and to alter one of the methods
+so that the program behaves correctly and the bank account is not left in an inconsistent state.</p>
+<p>Here is an explanation of the classes:</p>
+<ul>
+
+  <li><p><span class="PA">BankAccount</span>, which has a single data field
+  <span class="PA">balance</span>, and two methods which simply increment the
+  balance by 1, wait a bit, then decrement the balance by 1 again, so that it
+  ends back where it started. This data field is initialised to 0 and so when
+  the method finishes <span class="PA">balance</span> will once more be 0,
+  although its value will have been 1 at some point during the execution of the
+  method.</p>
+
+<p>The methods in class <span class="PA">BankAccount</span> contain println statements at the appropriate
+points so that we will know when a method is entered, when it is exited and what the
+balance is on entry. </p>
+<p>One of the methods, <span class="PA">methodA</span>, is declared
+<span class="PA">synchronized</span>. The other, <span class="PA">methodB</span>,
+is unsynchronized. </p>
+</li>
+  <li><p><span class="PA">GoodThread</span>. A good thread calls the synchronized <span class="PA">methodA</span>. Its <span class="PA">run</span> method has a loop which invokes
+<span class="PA">methodA</span> 5 times. </p>
+</li>
+  <li><p><span class="PA">BadThread</span>. A bad thread calls the unsynchronized <span class="PA">methodB</span>. Its <span class="PA">run</span> method has a loop which invokes
+<span class="PA">methodB</span> 5 times. </p>
+</li>
+  <li><p>Class <span class="PA">Main</span> creates a bank account, then creates a
+  good and a bad thread that share the bank account, then starts the two
+  threads. </p></li>
+
+</ul>
+
+<h2>Instructions </h2>
+<p> Build and run the program, setting <span class="PA">ex8_4.Main</span> as the main class. </p>
+<p>You should see that <span class="PA">methodA</span> and <span class="PA">
+methodB</span> can access the shared data concurrently. Evidence for this is
+that the balance is generally reported as 1. This is because one thread has
+incremented the balance, but before it can decrement the balance back to 0 and
+exit the method the other thread has got in and read the incremented value. </p>
+<p>What is happening here is that the good thread calls the synchronized
+<span class="PA">methodA</span> and must acquire the lock associated with the
+<span class="PA">BankAccount</span> object in order to execute the method.
+However this is not enough to protect the data. The bad thread calls the
+unsynchronised <span class="PA">methodB</span> and so does not need to acquire
+the lock and can go right ahead without it. </p>
+<p>Thus nothing stops the bad thread accessing the data before the good thread
+is finished with it! </p>
+<p>Moreover, since the bad thread never acquires the lock, the good thread can
+always get hold of it, so it can proceed to access the data before the bad
+thread is through with it. </p>
+<p>Now alter <span class="PA">methodB</span> so it is <span class="PA">synchronized</span>. When you run
+the program again you should find a dramatic difference. The bad thread must now
+also acquire the lock belonging to the <span class="PA">BankAccount</span>
+before it can go ahead. Since both threads now require the lock, only one of
+them can access the data at a time, and once a thread starts executing its
+method it will finish without interference, and only when it exits will the
+other thread be able to proceed. You should be able to see this from the
+printout. </p>
+<p>The balance will now always be given as 0, of course, because a thread that
+gets to increment the balance will also get to decrement it again before the
+other thread can read its value. </p>
+
+</body>
+
+</html>

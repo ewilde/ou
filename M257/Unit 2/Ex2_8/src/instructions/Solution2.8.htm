@@ -1,0 +1,74 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.8 - Adding methods to the Bag class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.8 - Adding methods to the <span class="PA">Bag</span> class</h1>
+<p>Here is an example solution:</p>
+<h2>Method removeFromBag</h2>
+<pre>public void removeFromBag(int toBeRemoved)
+{
+   bagVals[toBeRemoved]--;
+}
+
+</pre>
+<p>To remove from the bag, we decrease the count for the digit by one.
+Notice how similar this is to the <span class="PA">addToBag</span> method. A longer version
+(perhaps more readable) might look like this:</p>
+<pre>bagVals[toBeRemoved] = bagVals[toBeRemoved] - 1;</pre>
+
+<h2>Method removeAllFromBag</h2>
+<pre>// to remove all of a digit from the bag, we set the digit's count to zero
+public void removeAllFromBag(int toBeRemoved)
+{
+   bagVals[toBeRemoved] = 0;
+}</pre>
+
+<h2>Method emptyBag</h2>
+
+<p>To empty the bag, we set all digits' counts to zero by setting each digit count
+to zero: </p>
+
+<pre>public void emptyBag()
+{
+   for (int i = 0; i &lt; bagVals.length; i++)
+   {
+      bagVals[i] = 0;
+   }
+}</pre>
+
+<p>This method could also have made use of the <span class="PA">removeAllFromBag</span> method above,
+e.g.:</p>
+<pre>public void emptyBag()
+{
+   for (int i = 0; i &lt; bagVals.length; i++)
+   {
+      removeAllFromBag(i);
+   }
+}
+
+</pre>
+<p>It is often preferable to make use of methods defined within the class to
+improve maintainability of the code. </p>
+<h2>Method printCounts</h2>
+<pre>//print out the number of each digit present in the bag
+public void printCounts()
+{
+   for (int i = 0; i &lt; bagVals.length; i++)
+   {
+      System.out.print(findNum(i) + " ");
+      //Instead of using findNum, we could also have written
+      //System.out.print (bagVals[i] + " ");
+   }
+   // one way to print a line separator
+   System.out.println();
+}</pre>
+
+</body>
+
+</html>

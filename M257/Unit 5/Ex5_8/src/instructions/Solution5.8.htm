@@ -1,0 +1,91 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.8 - Using the Set interface</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.8 - Using the <span class="PA">Set</span> interface</h1>
+<p>Here are the expected results at each stage of this activity: </p>
+<ol>
+  <li>No output at this stage<br><br><br></li>
+  <li><p>As a result of adding one item to the set, and then displaying the
+contents of the set, you should get this output:</p>
+<pre>[Persuasion] </pre>
+
+</li>
+
+<li><p>As a result of adding a number of further items to the set, you may
+get this output: </p>
+<pre>[Sense and Sensibility, Northanger Abbey, Mansfield Park, Emma, Persuasion]
+5 </pre>
+
+<p>Removing the item <span class="PA">&quot;Northanger Abbey&quot</span> could give the following output:</p>
+<pre>[Sense and Sensibility, Mansfield Park, Emma, Persuasion]
+4 </pre>
+<p>The set items may appear in a different order from this, because a <span class="PA">HashSet</span>
+implementation does not guarantee any particular order for its contents. </p><br>
+</li>
+
+<li>
+<p>Using a <span class="PA">TreeSet</span> means that the display should show the same elements as before, but now in alphabetical order: </p>
+<pre>[Emma, Mansfield Park, Persuasion, Sense and Sensibility] </pre>
+<p>The key difference between a <span class="PA">HashSet</span> and a <span class="PA">TreeSet</span> is that the elements in a
+<span class="PA">TreeSet</span> are ordered, those of a <span class="PA">HashSet</span> are not. </p>
+<p>The argument to a <span class="PA">Set</span> constructor can be another kind of collection, not
+necessarily a set. This is very useful because it lets us do things like convert
+a list to a set, which has the effect of removing any duplication amongst the
+items. </p><br>
+</li>
+<li>
+<p>After removing all four elements from the set referenced by <span class="PA">set2</span> the
+<span class="PA">isEmpty</span> method should return the value <span class="PA">true</span> and this is the expected output. </p>
+</ol>
+
+<p>
+For reference, here is the complete code. We have indicated which section corresponds to each part of the question.</p>
+<pre>
+// Step 1
+import java.util.*;
+ 
+public class SetTest
+{   
+   public static void main(String[] args)
+   {
+      // Step 2
+      Set&lt;String&gt; set1;
+      set1 = new HashSet&lt;String&gt;();
+      set1.add("Persuasion");
+      System.out.println(set1); 
+      
+      // Step 3
+      set1.add("Mansfield Park");
+      set1.add("Northanger Abbey");
+      set1.add("Emma");
+      set1.add("Sense and Sensibility");
+      System.out.println(set1); 
+      System.out.println(set1.size()); 
+      
+      set1.remove("Northanger Abbey");
+      System.out.println(set1); 
+      System.out.println(set1.size());
+      
+      // Step 4
+      Set&lt;String&gt; set2 = new TreeSet&lt;String&gt;(set1); 
+      System.out.println(set2); 
+      
+      // Step 5
+      set2.remove("Persuasion");
+      set2.remove("Mansfield Park");
+      set2.remove("Emma");
+      set2.remove("Sense and Sensibility");
+      System.out.println(set2.isEmpty()); 
+   }
+}
+</pre>
+</body>
+
+</html>

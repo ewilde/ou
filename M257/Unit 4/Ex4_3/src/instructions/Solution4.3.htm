@@ -1,0 +1,43 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.3 - Writing a date-stamp to a text file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.3 - Writing a date-stamp to a text file</h1>
+<p>Here is our sample solution for the class <span class="PA">DateStamper</span>:</p>
+<pre>
+import java.io.*;
+public class DateStamper
+{
+   private PrintWriter pw;
+   
+   public void openStreams(String filename) throws IOException
+   {
+      pw = new PrintWriter(filename);
+   }
+   public void run(String filename) throws IOException
+   {
+      // Open output streams.
+      openStreams(filename);
+      // Create new DateStamp.
+      String stamp = DateStamp.getFullDate();
+      System.out.println("File " + filename +
+         " will be date-stamped " + stamp);
+      pw.println("This file date-stamped " + stamp);
+      // Close output streams.
+      closeStreams();
+   }
+   public void closeStreams() throws IOException
+   {
+      pw.close();
+   }
+}</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Discussion of Activity 6 - Using low level interfaces</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+<body>
+<h1>Discussion of Activity 10.6 - Using low level interfaces</h1>
+
+<p>There are many solutions to this activity; the code below is just one answer.
+The <span class="PA">SimpleGraphics</span> class does not need to be changed.</p>
+<p>We decided to make the circle smaller.</p>
+
+<pre>
+package simplegraphics;
+ 
+import javax.microedition.lcdui.*;
+ 
+public class MyCanvas extends Canvas
+{
+  private int width, height, widthPosition, heightPosition, diameter, moved;
+ 
+  public MyCanvas()
+  {
+    width = getWidth();
+    height = getHeight();
+    diameter = width/10;
+    widthPosition = width/3;
+    heightPosition = height/3;
+  }
+ 
+  public void move()
+  {
+    switch (moved)
+    {
+      case 0:;
+      break;
+      case 1:heightPosition = heightPosition - 1;
+      break;
+      case 2:heightPosition = heightPosition + 1;
+      break;
+      case 3:widthPosition = widthPosition - 1;
+      break;
+      case 4:widthPosition = widthPosition + 1;
+      break;
+    }
+    repaint();
+  }
+ 
+  public void paint(Graphics g)
+  {
+    //clear screen
+    g.setColor(0xffffff);
+    g.fillRect(0,0,width,height);
+    //draw circle
+    g.setColor(0);
+    g.drawArc(widthPosition,heightPosition,diameter,diameter,0,360);
+ 
+    move();
+  }
+ 
+  protected void keyPressed(int keyCode)
+  {
+    if (getGameAction(keyCode) == Canvas.UP)
+    {
+      moved = 1;
+      repaint();
+    }
+ 
+    if (getGameAction(keyCode) == Canvas.DOWN)
+    {
+      moved = 2;
+      repaint();
+    }
+    if (getGameAction(keyCode) == Canvas.LEFT)
+    {
+      moved =3;
+      repaint();
+    }
+    if (getGameAction(keyCode) == Canvas.RIGHT)
+    {
+      moved = 4;
+      repaint();
+    }
+  }
+}
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+
+<head>
+
+<title>Activity 9.2 - Sending an HTTP request</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.2 - Sending an HTTP request</h1>
+<h2>Topic </h2>
+<p>In this activity we use a Java program to send an HTTP request to a web server.
+</p>
+
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this exercise contains two classes, which are complete: </p>
+<ul >
+  <li><span class="PA">RequestSender;</span></li>
+  <li><span class="PA">Main</span>, which allows you to test the <span class="PA">RequestSender</span> class. </li>
+</ul>
+
+<h2>Task </h2>
+<p>You are to use the <span class="PA">RequestSender</span> class
+to connect to the home page of the Open University website and display its HTML source.
+</p>
+
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>Open <span class="PA">Main</span> and study the code.  You will see that it creates an instance of
+<span class="PA">RequestSender</span> and then invokes its <span class="PA">run</span> method.
+The <span class="PA">run</span> method takes three arguments.
+The first is the symbolic address at which the server is located.
+The second is the port number it will be listening on.
+The third argument is the request the client (our program) will send to the server,
+which in this case is:
+<pre>
+"GET / HTTP/1.0" + "\r\n\r\n"
+</pre></p>
+
+<p>This asks for everything from the home level page at the site, using HTTP version 1.0.
+The extra characters are part of the protocol the server will expect.
+The class is programmed using sockets, which will be discussed later in this unit.
+You are not expected to follow the details at this point.
+</p>
+</li>
+
+<li>
+<p>You will need to be connected to the internet.  Compile and run the project,
+observing the result.  You should see the HTML for the Open University home page.
+In fact, the result will be largely the same as when we connected to this
+home page in Activity 9.1!</p>
+<p>Can you spot anything different about the output this time?
+</p>
+</li>
+
+</ol>
+
+
+</body>
+
+</html>

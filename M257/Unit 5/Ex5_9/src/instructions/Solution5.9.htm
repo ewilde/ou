@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.9 - Developing a word frequency counter using a List and a HashMap</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.9 - Developing a word frequency counter using a <span class="PA">List</span> and a <span class="PA">HashMap</span></h1>
+<p>Our sample solutions are as follows.</p>
+<p>In <span class="PA">FrequencyCounter</span>
+
+<pre>
+   /**
+    * Creates a new empty HashMap, then populates the map with 
+    * entries whose keys are the distinct items found in the argument,
+    * and whose values are Integer objects that represent the number
+    * of times the corresponding item is found.
+    * @param    list   the list.
+    * @return   the populated HashMap
+    *
+    */
+   public Map&lt;Object,Integer&gt; countFrequencies(List&lt;?&gt; list)
+   {
+      Map&lt;Object,Integer&gt; count = new HashMap&lt;Object,Integer&gt;();
+       
+      for (Object element : list)
+      {
+         if (!count.containsKey(element))
+         {
+            count.put(element, 1);
+         }
+         else
+         {
+            count.put(element, count.get(element) + 1);
+         }
+      }
+      return count;      
+   }
+</pre>
+
+<p>In <span class="PA">FrequencyTest</span> (new code is shaded)</p>
+
+<pre>
+public static void main(String[] args) throws Exception
+{
+   ObjectInputStream ois1 = new ObjectInputStream(new FileInputStream("Chapter_1"));
+   Object obj = ois1.readObject();
+   List&lt;?&gt; list1 = (ArrayList&lt;?&gt;)obj;
+</pre>
+<pre style=background:#CCFFFF>
+    FrequencyCounter fc = new FrequencyCounter();
+    Map result = fc.countFrequencies(list1);
+ 
+    System.out.println(result.get("Bennet"));
+    System.out.println(result.get("four"));
+    System.out.println(result.get("see"));
+    System.out.println(result.get("good-humoured"));
+    System.out.println(result.get("them"));</pre>
+<pre>
+}
+</pre>
+<h4>Expected Results</h4>
+<pre>
+6
+2
+4
+1
+9
+</pre>
+
+</body>
+
+</html>

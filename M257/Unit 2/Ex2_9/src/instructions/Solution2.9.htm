@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.9 - Adding methods to the computer collection class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.9 - Adding methods to the <span class="PA">ComputerCollection</span> class
+</h1>
+<p>We have asked you to ignore the section at the beginning of
+<span class="PA">ComputerCollection</span>, where we have used some code that has not yet been
+discussed. This code defines a 'constructor' to intialize an object of type
+<span class="PA">ComputerCollection</span>.  You will see more about this kind of code in Unit 3.</p>
+<p>The methods that were to be completed were</p>
+<ol>
+  <li><span class="PA">isInNetwork</span>, which returns true or false according to the value returned
+  by the <span class="PA">indexOf</span> method. If <span class="PA">indexOf</span> returns a non-negative value, then the searched for computer exists in the <span class="PA">computers</span> collection, otherwise it is not found.
+
+<pre>
+// use the indexOf method to tell if a computer is in the network
+public boolean isInNetwork(String wantedComputer)
+{
+   boolean found;
+   if (indexOf(wantedComputer) &gt; -1)
+   {
+      found = true;
+   }
+   else
+   {
+      found = false;
+   }
+   return found;
+}</pre></li>
+<li>Keeping track of the number of removals requires no more than
+ incrementing the instance variable storing this information, so at the
+ end of the <span class="PA">removeComputer</span> method we require the code:
+<p class="PA">numOfRemovals++;</p>
+<p>This must appear within the body of the last <span class="PA">if</span> statement, as it should only
+be performed when a removal is performed.</p></li>
+<li>A method to return the number of removals only needs to return the
+value stored in the <span class="PA">numOfRemovals</span> variable:
+<pre>// Method to return the number of removals
+public int getNumOfRemovals()
+{
+   return numOfRemovals;
+}
+</pre>
+</li></ol>
+
+<h2>Notes</h2>
+<p>There is another observation that is worth making here, concerning the
+<span class="PA">addComputer</span> method of <span class="PA">ComputerCollection</span>. This method copies a reference to an
+array of <span class="PA">Strings</span> called <span class="PA">computers.</span> Because strings are immutable, there is
+no danger that the referenced string can be changed by any other part of the
+program that has a reference to it. Normally, copying a reference does not
+guarantee that the object referenced (if any) will not be altered by other parts
+of the program.</p>
+
+
+</body>
+
+</html>

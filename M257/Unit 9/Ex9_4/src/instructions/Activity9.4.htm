@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Activity 9.4 - Accessing a server using Telnet</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 9.4 - Accessing a server using Telnet</h1>
+<h2>Topic </h2>
+<p>
+In this activity we use a standard client program called <span
+ class="PA">telnet</span> to
+access a server over the internet.
+</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, you will need to have the the <span
+ class="PA">telnet</span>
+program, which is supplied as standard on most platforms.
+There is no additional Java code provided for this activity.</p>
+<h2>Task</h2>
+<p>To use the <span class="PA">telnet</span> program as a means of
+contacting servers over the internet. </p>
+<h2>Instructions </h2>
+<ol>
+  <li>
+    <p>You will need to be connected to the internet before you begin.
+Open a command prompt window
+(on Windows you would typically do this by clicking Start, then
+Programs, Accessories,
+Command Prompt, but the exact details may vary depending on your
+operating system.)
+At the prompt type <span class="PA">telnet HOSTNAME</span> and then
+press enter
+- where <span class="PA">HOSTNAME</span> should be the URL of a
+host that accepts <span class="PA">telnet</span> requests.
+There are fewer hosts available now than in the early days of the internet, so 
+do not be surprised if some you try are no longer working.
+A list of sites that may work can be found by googling, for example
+there were some listed at <a href="http://telnet.org/htm/places.htm"> telnet.org </a>
+
+when we last checked.</p>
+    
+    <p><span class="PA">telnet</span> stands for Terminal Emulation
+Network software
+and was at one time (before the Web) a common way of accessing
+resources on remote
+computer systems. With the wide availability of the Web and increasing
+concern
+about security, many sites no longer offer <span class="PA">telnet</span>
+access and ssh has become more common. Don't worry if you don't manage
+to connect to a telnet site; you won't need to be able to do this for M257. </p>
+  </li>
+  <li>
+    <p>If you successfully connect to a site, you should see
+some sort of information in the command prompt window - perhaps just
+that, or perhaps an invitation to select
+further options from a menu by pressing a particular key. You can
+explore this
+as much or as little as you like - the point of this exercise is to
+explore
+connecting to a server using the <span class="PA">telnet</span>
+client. </p>
+  </li>
+  <li>
+    <p>When you quit from a particular site, or when the site
+disconnects you, there will
+normally be a message such as <span class="PA">"connection to host
+lost"</span>. You can then
+return to step 1 and try another site if you wish.</p>
+  </li>
+</ol>
+<h2>Notes</h2>
+<p>To enable <span class="PA">telnet</span> on Vista or Windows 7 you
+may need to
+do the following:<br>
+</p>
+<ol>
+  <li>
+    <p>From your Windows Start button, select Control Panel, click
+Programs and features, and then click Turn Windows features on or off.
+(Enter a password or provide confirmation if asked to do so.)</p>
+  </li>
+  <li>
+    <p>In Windows Features tick the check box for Telnet Client.</p>
+  </li>
+  <li>
+    <p>Click OK and wait for the installation to complete.</p>
+  </li>
+  <li>When you have finished this activity you are advised to disable
+the client again, for security reasons. (However, <span class="PA">telnet</span>
+is used again in
+Activities 9.5 and 9.7)<br>
+  </li>
+</ol>
+<p>In Windows XP the <span class="PA">telnet</span> client is normally
+enabled by default.<br>
+</p>
+</body>
+</html>

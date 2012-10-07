@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+<title>Activity 4.5 - Developing a class that throws exceptions</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.5 - Developing a class that throws exceptions</h1>
+
+<h2>Topic</h2>
+
+<p>This activity extends a
+previous exercise on reading from a text file to include throwing and catching
+exceptions.</p>
+
+<h2>Materials</h2>
+
+<p>In addition to the Solution
+document, the project for this activity contains two classes </p>
+
+<ul>
+<li>
+<span class="PA">Read_a_Sonnet</span>, which is incomplete; 
+</li>
+
+<li>
+<span class="PA">Main</span>, which contains test code for the
+exercise. </li>
+</ul>
+<p>In addition, there is a
+text file <span class="PA">sonnet1.txt</span> that is not part of the project but which can be found in the project
+folder. This contains a well-known sonnet (a fourteen-line poem) by William
+Shakespeare.</p>
+
+<h2>Task</h2>
+
+<p>The <span class="PA">run</span> method of the class <span class="PA">Read_a_Sonnet</span> will read successive lines of the file <span class="PA">sonnet1.txt</span> and print them out one by one,
+halting when it meets the end of the file. The <span class="PA">main</span> method should handle any exceptions
+of type <span class="PA">IOException</span> which may occur. </p>
+
+<h2>Instructions </h2>
+
+<p>Run the project and check
+that it displays the full contents of the text file. </p>
+
+<ol>
+<li>Open the class <span class="PA">Read_a_Sonnet</span>, change the name of the text file
+from <span class="PA">sonnet1.txt</span> to the name of a non-existent file such as <span class="PA">sonnet2.txt</span> and run the project again. This
+should cause an exception, which will be caught and reported by the <span class="PA">main</span> method. Note how the exception was
+propagated from the method where it was thrown to the first appropriate handler
+(in the <span class="PA">main</span> method). </li>
+
+<li>In class <span class="PA">Read_a_Sonnet</span>, change the text file name back to <span class="PA">sonnet1.txt</span>. Then make the other changes
+indicated within the source file, so as to read exactly the correct number of
+lines and to throw an <span class="PA">EOFException</span> if the text file does not contain
+enough lines. This exception should be caught and reported in the <span class="PA">run</span> method. Check that this works both
+for a file with at least the required number of lines (14) and for a shorter
+file. You can use File|Open File... to open and edit the file in the IDE. When you
+delete lines, make sure the lines themselves have actually been deleted, not
+just their contents. You can check this by pressing the down arrow key on the
+keyboard. If the cursor moves below the last line of visible text one or more
+blank lines still need to be removed.</li>
+
+<li>When you are satisfied that this works correctly, modify the <span class="PA">run</span> method of the class <span class="PA">Read_a_Sonnet</span>, to include a <span class="PA">finally</span> clause. This should ensure that the
+file is always closed after use, even if an exception occurs while reading the
+file. Check that this works by running the project first on a valid file and
+then on a file which will give rise to an <span class="PA">EOFException</span>. </li>
+
+</ul>
+
+</body>
+
+</html>

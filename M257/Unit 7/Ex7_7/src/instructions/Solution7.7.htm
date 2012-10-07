@@ -1,0 +1,195 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 7.7 - Creating 'framelets' - editable notepads</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 7.7 - Creating 'framelets' - editable notepads</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">Framelet</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Framelet extends JFrame
+{
+   private static final int BASE_LOCATION_X = 390;
+   private static final int BASE_LOCATION_Y = 90;
+   private Color colour;
+   private int serialNumber;
+
+   public Framelet(Color c, int n)
+   {
+      colour = c;
+      serialNumber = n;
+      setSize(150,150);
+
+      // 10 * number is added so the initial location of this framelet
+      // will be offset by (10,10) relative to the previous one.
+      setLocation
+         (BASE_LOCATION_X + 10 * serialNumber,
+          BASE_LOCATION_Y + 10 * serialNumber);
+      setTitle("No. " + serialNumber);
+
+      // Set the icon image and frame title.
+      Toolkit toolkit = Toolkit.getDefaultToolkit();
+      Image image = toolkit.getImage("notelet.gif");
+      setIconImage(image);
+
+      // Set up the text area and add it to the content pane.
+      JTextArea editArea = new JTextArea();
+      editArea.setLineWrap(true);
+      editArea.setBackground(colour);
+      Container cp = getContentPane();
+      cp.add(editArea);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">FrameletControl</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class FrameletControl extends JFrame
+{
+   private static final int FRAME_WIDTH = 300;
+   private static final int FRAME_HEIGHT = 120;
+
+   private static final int DEFAULT_LOCATION_X = 600;
+   private static final int DEFAULT_LOCATION_Y = 400;
+
+   private static final int NUMBER_OF_COLOURS = 6;
+
+   //Section (A)
+   private static int frameletCount = 0;
+
+   private Color currentColour;
+   private static final String[] COLOUR_NAMES =
+      {"pink","green","blue","yellow","mauve","steel"};
+
+   private static final Color[] COLOURS =
+   {
+      //Section (B)
+      new Color(255,200,200),
+      new Color(220,255,220),
+      new Color(220,220,255),
+      new Color(255,255,220),
+      new Color(255,165,255),
+      new Color(210,255,255)
+   };
+
+   private JButton newFrameletButton;
+   private JButton exitProgramButton;
+
+   private JLabel colourSwatchLabel;
+   private JPanel colourSwatchPanel;
+
+   private JMenuBar menuBar;
+   private JMenu colourMenu;
+
+   private JMenuItem[] colourItems = new JMenuItem[NUMBER_OF_COLOURS];
+
+   // This is the constructor.
+   public FrameletControl()
+   {
+      setSize(FRAME_WIDTH,FRAME_HEIGHT);
+      setLocation(DEFAULT_LOCATION_X,DEFAULT_LOCATION_Y);
+      setTitle("Framelet control panel");
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // Get the content pane and set the layout.
+      Container contentPane = getContentPane();
+      contentPane.setLayout(new FlowLayout());
+
+      // Set a default colour.
+      currentColour = COLOURS[0];
+
+      colourSwatchLabel = new JLabel("Current colour");
+      colourSwatchPanel = new JPanel();
+      colourSwatchPanel.setBackground(currentColour);
+
+      newFrameletButton = new JButton("Create new Framelet");
+      newFrameletButton.addActionListener(new NewFrameletButtonListener());
+
+      exitProgramButton = new JButton("Exit program");
+      exitProgramButton.addActionListener(new ExitProgramButtonListener());
+
+      menuBar = new JMenuBar();
+      colourMenu = new JMenu("Colours");
+
+      // Set the icon image on the title bar.
+      Toolkit toolkit = Toolkit.getDefaultToolkit();
+      Image image = toolkit.getImage("notelet.gif");
+      setIconImage(image);
+
+      // Section (C). Populate the menu.
+      for (int i = 0; i &lt; 6; i++)
+      {
+         colourItems[i] = new JMenuItem(COLOUR_NAMES[i]);
+         colourItems[i].setBackground(COLOURS[i]);
+         colourItems[i].addActionListener(new ColourMenuListener());
+         colourMenu.add(colourItems[i]);
+      }
+
+      menuBar.add(colourMenu);
+      setJMenuBar(menuBar);
+
+      // Add the components to the content pane.
+      contentPane.add(newFrameletButton);
+      contentPane.add(exitProgramButton);
+      contentPane.add(colourSwatchLabel);
+      contentPane.add(colourSwatchPanel);
+   }
+
+   //Section (D)
+   private class NewFrameletButtonListener implements
+      ActionListener
+   {
+      public void actionPerformed(ActionEvent a)
+      {
+         frameletCount++;
+         Framelet framelet = new Framelet(currentColour,
+            frameletCount);
+         framelet.setVisible(true);
+      }
+   }
+
+   //Section (E)
+   private class ExitProgramButtonListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent a)
+      {
+         System.exit(0);
+      }
+   }
+
+   //Section (F)
+   private class ColourMenuListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent a)
+      {
+         for (int i = 0; i &lt; NUMBER_OF_COLOURS; i++)
+         {
+            if (a.getSource() == colourItems[i])
+            {
+               currentColour = COLOURS[i];
+            }
+         }
+         /* Alternatively we could replace the for loop by a single statement:
+            currentColour = ((JMenuItem)a.getSource()).getBackground(); */
+
+         colourSwatchPanel.setBackground(currentColour);
+      }
+   }
+}
+</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+<title>Activity 10.2 - Programming an applet</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 10.2 - Programming an applet</h1>
+<h2>Topic </h2>
+<p>This <i>optional</i> exercise allows you to modify or extend the applet for the game "Spot the Robot",
+discussed in the course text.</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this exercise contains one Java class: </p>
+<ul class="LS">
+  <li><span class="PA">SpotTheRobot</span>, which is a complete applet but can be used as a basis for
+  further work. </li>
+</ul>
+
+<h2>Task </h2>
+<p>You are to make a number of changes to the applet and run it using either the
+<span class="PA">appletviewer</span> or a browser,
+to see how your modified game works in each case. We suggest using the<span class="PA">appletviewer</span>.</p>
+
+<h2>Instructions </h2>
+<ol>  
+  <li><p>Experiment with using a different image file by changing the filename parameter
+  in the <span class="PA">getImage</span> method invocation
+  (look in the <span class="PA">images</span> folder to see what is available). Or try changing
+  the size of the applet window by changing the relevant constants in the code. Run the file by right-clicking on it in the Projects window and choosing Run File. This should display the applet using the <span class="PA">appletviewer</span>.</p>
+
+  <p>Close down the applet window to finish.</p>
+  </li>
+
+  <li><p>Modify the applet class, <span class="PA">SpotTheRobot</span>, to act as a mouse listener,
+  instead of using the inner class <span class="PA">MouseTrap</span>.  See the course text for
+  some initial ideas about how to do this.  As before, run your modified applet and
+  check that it still works as expected.</p>
+  </li>
+
+  <li><p>Design a more complex game, using a number of robot images and possibly other images,
+  and a screen display that responds to mouse clicks.  Modify the applet class, <span class="PA">SpotTheRobot</span>,
+  to implement your game.  For example, you may wish to have robots chasing each other around
+  the screen or being "zapped" by the mouse - it is up to you!  Run your modified applet and
+  check that it works as expected.</p>
+  </li>
+
+  <li><p>If you have access to a website, you may wish to try installing
+  one or more of your applets together with its associated web page.  You can then try
+  downloading and running the web page linked to the applet.  Make sure that any
+  image files or audio files required by the applet are downloaded from the computer
+  that hosts the website.  Recall that applet security restrictions mean that a
+  standard applet cannot access the local file system (i.e. on the computer that
+  is running the applet).</p>
+</li>
+<h2>Note</h2>
+  <p>[IMPORTANT]Unless you are very sure of what you are doing, it is not
+  a good idea at this stage to make your applet publicly available.  If you
+  want to do this, get some expert advice.</p>
+  
+  <p>
+  To set the size of the applet in a browser, after building, 
+  copy the HTML file from the build folder 
+  to the src/ex10_2 folder and edit the size of the applet in the HTML file 
+  by setting the width and height attributes in the APPLET tag.  
+  </p>
+
+
+  </ol>
+
+</body>
+
+</html>

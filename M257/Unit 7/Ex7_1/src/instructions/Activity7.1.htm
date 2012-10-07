@@ -1,0 +1,84 @@
+<html>
+<head>
+
+<title>Activity 7.1 - Constructing an interface for font selection</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 7.1 - Constructing an interface for font selection</h1>
+<h2>Topic </h2>
+<p>In this activity we complete the coding of the class <span class="PA">FontDemo</span>, the User
+Interface of which was developed in the activities for Unit 6. The interface is shown below.</p>
+
+<p><img
+width=400 height=240 src="Activity7.1_files/image001.png"
+alt = "The figure displays a rectangle which has a large area to display text, and various buttons and labelled controls to manage the way the text is displayed. 
+The controls are:
+ a drop-down list for changing fonts, a text area to change the font size, a tick box to embolden and a tick box for italics."
+>
+
+<h2>Materials </h2>
+<p>We have provided the classes: </p>
+<ul>
+  <li><span class="PA">FontDemo</span>; </li>
+  <li><span class="PA">FontDemoTest.</span> </li>
+</ul>
+
+<p><span class="PA">FontDemo</span> is functionally identical to the class of the same name in the Unit
+6 Activities but the code has been extended. That is, there are a few extra lines of code, some lines are taken out, and all the helper
+methods have been added.</p>
+<h2>Task </h2>
+<p>You are asked to complete the coding of <span class="PA">FontDemo</span> so that </p>
+<ul>
+  <li>When the &quot;Show font&quot; button is clicked, the text sample in the bottom panel
+is shown in the font specified by the controls &quot;Font family&quot;, &quot;Size&quot; and &quot;Style&quot;
+in the top panel; </li>
+  <li>When the user pulls down the &quot;Help&quot; menu and selects &quot;About&quot; a pop-up
+dialog is displayed. </li>
+</ul>
+<p>But don't worry, you don't have to know all about Java fonts and dialog
+boxes! We have provided two helper methods to handle the actual mechanics. </p>
+<p>When the method <span class="PA">updateFontSample</span> is called, it will find out what font is
+wanted, and set the text sample accordingly. The method <span class="PA">aboutDialog</span> will
+display the required dialog. </p>
+<p>Your job is to write the code that will cause the appropriate helper method
+to be invoked when an event occurs in the User Interface. </p>
+<p>You will first need to write an inner class that implements <span class="PA">ActionListener</span>.
+You can name this class anything you please; we used <span class="PA">FontDemoListener</span>. It must
+of course have an <span class="PA">actionPerformed(ActionEvent e)</span> method, because otherwise it
+wouldn't <span class="PA">implement ActionListener</span>. </p>
+<p>The <span class="PA">actionPerformed(ActionEvent e)</span> will have to find what the source of the
+event was <span class="PA">(displayButton</span> or <span class="PA">aboutItem</span>) and call <span class="PA">updateFontSample()</span> or
+<span class="PA">aboutDialog</span> as appropriate. </p>
+<p>The second step will be to add listeners to the button and to the menu item.
+</p>
+<p>(In practice you might write the code the other way around - begin by
+choosing a name for the listener class and adding the listeners where they are
+needed, then write the code for the listener class afterwards.)</p>
+<h2>Instructions </h2>
+<ol>
+<li>Compile and run the project, setting <span class="PA">ex7_1.FontDemoTest</span> as the main class. You
+should find that the user interface appears but nothing actually happens when
+the &quot;Show font&quot; button is clicked, or &quot;About&quot; is selected from the menu. </li>
+<li>Add an inner class, and action listeners, as described above. You will also
+need to import <span class="PA">java.awt.event.*</span>. We have indicated the places where the extra
+code must be inserted by comments labelled (A) to (D). </li>
+<li>Compile and run the amended code and check that the program is now fully
+functional. </li>
+<li>For our sample solution see the Solution file.</li>
+</ol>
+<h2>Note</h2>
+<p>From the previous coverage of packages, you might have expected <span class="PA">java.awt.*</span> to have 
+included <span class="PA">java.awt.event.*</span>. However, <span class="PA">java.awt.event.*</span> is not included in the <span class="PA">java.awt</span> package.
+</p>
+<p>All events inherit from the <span class="PA">java.util.EventObject</span> class and so have to be specifically imported into 
+any program that needs to handle events.</p>
+<p>This approach by the Java language may seem strange but it actually confers a great deal of flexibility - 
+for example allowing you to define events that do not relate conceptually to GUI components.<p>
+
+</body>
+
+</html>

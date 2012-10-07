@@ -1,0 +1,96 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 6.5 - Constructing a user interface to demonstrate fonts</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 6.5 - Constructing a user interface to demonstrate fonts</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">FontDemo</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+
+public class FontDemo extends JFrame
+{
+   private JMenuBar menuBar;
+   private JMenu helpMenu;
+   private JMenuItem aboutItem;
+   private JLabel fontChoiceLabel;
+   private JComboBox fontChoices;
+   private JLabel sizeChoiceLabel;
+   private JTextField size;
+   private JScrollPane scrollPane;
+   private JLabel styleChoiceLabel;
+   private JCheckBox bold;
+   private JCheckBox italic;
+   private JTextArea textBox;
+   private JButton displayButton;
+   private JPanel topPanel;
+   private JPanel bottomPanel;
+
+   public FontDemo()
+   {
+      setSize(400,240);
+      setTitle(&quot;Font demo&quot;);
+      setLocation(100,100);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      Container contentPane = getContentPane();
+      contentPane.setLayout(new GridLayout(2,1));
+      menuBar = new JMenuBar();
+      helpMenu = new JMenu(&quot;Help&quot;);
+      aboutItem = new JMenuItem(&quot;About&quot;);
+      helpMenu.add(aboutItem);
+      menuBar.add(helpMenu);
+      setJMenuBar(menuBar);
+      topPanel = new JPanel();
+      bottomPanel = new JPanel();
+      fontChoiceLabel = new JLabel(&quot;Font family&quot;);
+      fontChoices = new JComboBox();
+      fontChoices.addItem(&quot;SansSerif&quot;);
+      fontChoices.addItem(&quot;Serif&quot;);
+      fontChoices.addItem(&quot;Monospaced&quot;);
+      topPanel.add(fontChoiceLabel);
+      topPanel.add(fontChoices);
+      sizeChoiceLabel = new JLabel(&quot;Size&quot;);
+      topPanel.add(sizeChoiceLabel);
+      size = new JTextField(3);
+      size.setText("12");
+      topPanel.add(size);
+      styleChoiceLabel = new JLabel(&quot;Style&quot;);
+      topPanel.add(styleChoiceLabel);
+      bold = new JCheckBox(&quot;Bold&quot;);
+      italic= new JCheckBox(&quot;Italic&quot;);
+      topPanel.add(bold);
+      topPanel.add(italic);
+      displayButton = new JButton(&quot;Show font&quot;);
+      topPanel.add(displayButton);
+
+      textBox =
+      new JTextArea(&quot;The cat sat on the mat.&quot;);
+      scrollPane = new JScrollPane(textBox);
+      bottomPanel.setLayout(new BorderLayout());
+      bottomPanel.add(scrollPane,BorderLayout.CENTER);
+      contentPane.add(topPanel);
+      contentPane.add(bottomPanel);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">FontDemoTest</span>:</p>
+<pre>
+public class FontDemoTest
+{
+   public static void main(String[] args)
+   {
+      FontDemo fd = new FontDemo();
+      fd.setVisible(true);
+   }
+}</pre>
+
+</body>
+
+</html>

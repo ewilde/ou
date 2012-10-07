@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Activity 8.1 - Running the hare and the tortoise race</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 8.1 - Running the hare and the tortoise race</h1>
+<h2>Topic </h2>
+<p>In this activity we create threads by extending the <span class="PA">Thread</span>
+class. </p>
+<h2>Materials </h2>
+<p>You will have to add your own classes to the project.</p>
+<p>A discussion of the solution can be found in the Solution document.</p>
+<h2>Task </h2>
+<p>The task is to simulate the race between the "Hare and the
+Tortoise". </p>
+<p>The class <span class="PA">Hare</span> is to extend <span
+ class="PA">Thread</span>. Its <span class="PA">run()</span> method
+will contain a for loop
+that iterates from 1 to 50 000 000, testing each successive value of
+the loop
+variable to see if it is divisible by 1 000 000. This can be done by
+using the
+condition </p>
+<p class="PS">if (i % 1000000 == 0) </p>
+<p>Whenever the value of the loop variable is divisible by 1000000
+(which will
+happen exactly ten times) the string <span class="PA">"H "</span>
+should be printed, using <span class="PA">print()</span> not
+<span class="PA">println()</span> so the output will remain on the same
+line. </p>
+<p>The class <span class="PA">Tortoise</span> is to have a <span
+ class="PA">run</span>
+method identical to that of <span class="PA">Hare</span>,
+except that it will print <span class="PA">"T "</span> instead of <span
+ class="PA">"H "</span>. </p>
+<p>A further class <span class="PA">ThreadRace1</span> will contain
+the <span class="PA">main</span> method which creates
+a <span class="PA">Hare</span>
+instance and a <span class="PA">Tortoise</span> instance and sets them
+running. </p>
+<p>When the program executes, a typical printout will show output from
+the <span class="PA">Hare</span> and
+<span class="PA">Tortoise</span> objects interleaved, like this </p>
+<p class="PS">They're off! H H H H H H T T T T T H H H H T T T T T </p>
+<p>On this occasion the hare won (it finished first). On a different
+occasion
+the tortoise might be the winner; the outcome is not predictable.</p>
+<h2>Instructions </h2>
+<p>Write classes<br>
+</p>
+<ul>
+  <li><span class="PA">Hare</span></li>
+  <li><span class="PA">Tortoise</span> and&nbsp;<span class="PA"></span></li>
+  <li><span class="PA">ThreadRace1</span>&nbsp;</li>
+</ul>
+<p>as specified above. <br>
+</p>
+<p>You can create a new class by right-clicking on a project or folder
+and selecting <span class="PA">New | Java Class</span>. (You can also
+use the <span class="PA">File| New File</span> dialogue to create each
+class.)
+</p>
+<p> In the New Class dialogue, create all the classes in the same
+package, called <span class="PA">race</span>.<br>
+</p>
+<p>Once you've completed your coding, you also need to select the main
+class to run. <br>
+</p>
+<p>Run the program several times. You should find that on different
+runs the
+race goes differently; sometimes it is won by the hare, sometimes by
+the
+tortoise. </p>
+<p>(If you make a mistake about where you place a class, you can drag
+it to the correct folder and select Refactor.)</p>
+</body>
+</html>

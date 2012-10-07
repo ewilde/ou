@@ -1,0 +1,106 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.9 - Processing a CSV file</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.9 - Processing a CSV file</h1>
+<p>Here is our sample solution for the <span class="PA">CSVProcessor </span>class:</p>
+
+<pre>
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class CSVProcessor
+{
+   // Declare variables for input streams...
+   private FileReader fr;
+   private BufferedReader br;
+
+   // ...and output streams.
+   private FileWriter fw;
+   private PrintWriter pw;
+
+   // The c.s.v. fields currently in use are:
+   // PI, Surname, Forenames, Initials, Title,
+   // Addr1, Addr2, Addr3, Postcode
+   private int numberOfFields = 9;
+
+
+   public void run(String source, String destination) throws IOException
+   {
+      // Open IO streams.
+      openStreams(source, destination);
+      // Line to be read from the source file.
+      String inString;
+      // Array to hold tokens extracted from input line.
+      String[] fieldContents =  new String[numberOfFields];
+      // Line to be written to the destination file.
+      String outString;
+      StringTokenizer st;
+
+      inString = br.readLine();
+      // Read the source line by line.
+      while (inString != null)
+      {
+         st = new StringTokenizer(inString,&quot;,&quot;);
+         // Index which will step through the array.
+         int i = 0;
+
+         // Extract the tokens one by one into the array.
+         while (st.hasMoreTokens())
+         {
+            fieldContents[i] = st.nextToken();
+            i++;
+         }
+
+         //  Assemble the required string for output.
+         String newline = System.getProperty(&quot;line.separator&quot;); 
+      
+         outString = fieldContents[4] + &quot; &quot; + fieldContents[3] +
+            &quot; &quot; + fieldContents[1] + newline + fieldContents[5] + newline +
+            fieldContents[6] + newline + fieldContents[7] + newline +
+            fieldContents[8]  + newline + newline;
+
+         //  Write the output string to the destination.
+         pw.println(outString);
+         // Proceed to the next line of input.
+         inString = br.readLine();
+      }
+      // Close IO streams.
+      closeStreams();
+   }
+
+
+   public void openStreams(String input, String output) throws
+   IOException
+   {
+      // Open input streams...
+      fr = new FileReader(input);
+      br = new BufferedReader(fr);
+
+      // ...and output streams.
+      fw = new FileWriter(output);
+      pw = new PrintWriter(fw);
+   }
+
+
+   public void closeStreams() throws IOException
+   {
+      // Close input streams...
+      fr.close();
+      br.close();
+
+      // ... and output streams.
+      fw.close();
+      pw.close();
+   }
+}</pre>
+
+</body>
+
+</html>

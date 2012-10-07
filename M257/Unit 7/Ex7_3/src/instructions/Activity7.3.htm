@@ -1,0 +1,77 @@
+
+<html>
+    <head>
+        <title>Activity 7.3 - Designing a logo</title>
+        <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+    </head>
+
+    <body>
+
+        <h1>Activity 7.3 - Designing a logo</h1>
+        <h2>Topic </h2>
+        <p>In this activity we explore some drawing methods. </p>
+        <h2>Materials </h2>
+        <p>We have provided three classes: </p>
+        <ul>
+            <li><span class="PA">OULogo</span> from which you are asked to develop two further classes; </li>
+            <li><span class="PA">PictureFrame</span> which will display an <span class="PA">OULogo</span>; </li>
+            <li><span class="PA">OULogoTest</span> which contains the <span class="PA">main</span> method. </li>
+        </ul>
+        <h2>Task </h2>
+        <p>When <span class="PA">OULogoTest</span> is run it creates an instance of <span class="PA">PictureFrame</span>,
+            passing it an instance of <span class="PA">OULogo</span> as an argument.
+            A simple line drawing of the Open University logo is produced. </p>
+
+        <p><img border=0 width=200 height=200
+                src="Activity7.3_files/image001.png" alt= "A simple line drawing of the OU logo. "></p>
+
+        <p>The task is to modify the code, first so that <span class="PA">OULogo</span> draws filled areas rather than lines: </p>
+
+        <p><img border=0 width=200 height=200
+                src="Activity7.3_files/image002.png"
+                alt = " A drawing of the OU logo with the 'O' coloured yellow and the 'U' coloured blue" ></p>
+
+        <p>and then to extend the drawing code so that a shadow is added: </p>
+
+        <p><img border=0 width=200 height=200
+                src="Activity7.3_files/image003.png"
+                alt = "  A drawing of the OU logo with the 'O' coloured yellow and the 'U' coloured blue, casting a shadow giving an above the background effect."></p>
+
+        <p>Note that for simplicity we are working with an earlier version of the university logo and not the one currently in use.</p>
+
+        <h2>Instructions </h2>
+
+        <ol>
+            <li><p>Compile and run the project to see the simple version of the logo.
+                    (If you are prompted for a main class set it to <span class="PA">ex7_3.OULogoTest</span>).</p></li>
+
+            <li><p>Update the <span class="PA">OULogo</span> class so that instead of
+                    drawing the outline of a U shape, the U shape is filled in with colour blue.
+                </p>
+                <p>Now do the same for the O inside the U, this time in colour yellow.</p>
+                <p>Recompile and run the project to test your changes.
+                    (Hint: For the U, you can draw a filled rectangle with a filled arc at its bottom.)</p>
+
+            </li>
+
+            <li><p> Create a new class <span class="PA">BetterOULogo</span>,
+                    which should inherit from <span class="PA">OULogo</span>.
+                    Write a new <span class="PA">paintComponent</span> method which now begins by
+                    drawing a dark grey shadow, using exactly the same shapes as the logo but
+                    with 10 added to all the x-coordinates and 5 added to the y-coordinates,
+                    thus giving a shadow 10 to the right and 5 down from where the logo will appear. </p>
+                <p>Once the shadow is drawn, the <span class="PA">paintComponent</span> method
+                    from the superclass <span class="PA">OULogo</span> should be invoked.
+                    This will draw the logo in front of the shadow as required.</p>
+
+                <p>Note that it's essential to do things this way round.
+                    Drawing the logo first won't produce the result we want.
+                    In a <span class="PA">paint</span> method you always need to ensure that methods are invoked in the correct order.</p>
+
+                <p>Compile and test the final version. </p></li>
+            <li><p>For our sample solutions see the Solution file.</p></li></ol>
+
+    </body>
+
+</html>

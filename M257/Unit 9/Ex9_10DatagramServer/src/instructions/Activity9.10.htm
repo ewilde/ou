@@ -1,0 +1,96 @@
+<html>
+
+<head>
+
+<title>Activity 9.10 - Communicating with datagrams: letter drops</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.10 - Communicating with datagrams: letter drops</h1>
+<h2>Topic </h2>
+<p>In this activity we show a UDP client and server for you to adapt.
+The datagram client uploads a message to the datagram server,
+and the server saves the message in a special file.
+</p>
+
+<h2>Background</h2>
+<p>Stories about espionage often describe the use of a "dead letter drop".
+The idea is simple; if A and B want to communicate without anyone else suspecting,
+they pre-arrange a secret location, such as an empty building, a hollow tree,
+a crack in a church wall or a rubbish bin in the park.
+Each can leave ("drop") a message in the "dead letter box" for the other to
+pick up later. In this exercise we shall simulate a dead letter drop in software.
+The dead letter box will just be a text file.
+To keep things short, we shall only implement the drop side of things.
+Once we have that working it is not too hard to see how the corresponding
+pickup code could be written.</p>
+
+<h2>Materials </h2>
+<p>To get you started, we have provided a working example of a UDP client and server.
+This is an application in which we imagine the client is on holiday
+and sends the server a short electronic postcard!</p>
+
+<p>For this activity there are two separate projects, one for the datagram server and one
+for the datagram client - these are stored in separate folders.
+The instructions for this activity and the Solution document can be accessed
+from both projects.</p>
+<p><b>You should start from the datagram server project if you have not already done this.</b>
+</p>
+
+<p>In addition to the Solution document, the datagram server project
+for this exercise contains two classes that work but are for you to adapt later: </p>
+<ul>
+  <li><span class="PA">DatagramServer</span> which is the server class;</li>
+  <li><span class="PA">ServerMain</span> which runs the server.</li>
+</ul>
+
+<p>In addition to the Solution document, the client project also contains
+two classes that work but are for you to adapt later: </p>
+<ul>
+  <li><span class="PA">DatagramClient;</span></li>
+  <li><span class="PA">ClientMain</span> which runs the client.</li>
+</ul>
+
+<h2>Task</h2>
+<p>Using the client and server we have supplied as a guide, you are asked to write
+a client which sends just a one-line message, as a datagram packet, to a server.
+The server receives the packet and saves it in a file called <span class="PA">drop.txt</span>.
+Naming the file <span class="PA">drop.txt</span> with no directory path specified
+will result in it being saved in the project directory of the server program.
+Should you wish to save it anywhere else the full pathname must be given.</p>
+
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>The first step is to try out the datagram client and server we have provided.
+Open the project in the datagram server folder and run this, to start up the server.
+The server is set to listen on port 4000.</p>
+
+<p>Open the project in the datagram client folder and run this.
+In the output a message should appear saying that the postcard has been sent.
+Now go back and examine the output from the server (click on the tab for
+the server program at the bottom of the NetBeans window). It should be displaying
+the contents of the messages making up the "postcard". The server and the client
+should both have terminated since the client sent a special termination message
+to the server before it closed.</p>
+</li>
+
+<li>
+<p>Taking the existing datagram server and client as a basis, write the code for
+the dead letter drop application.  The client code does not need much changing.
+We leave the choice of message to you!</p>
+<p>On the server side you need to write a method <span class="PA">dropMessage()</span>
+which reads one message, and then stores this in a text file called <span class="PA">drop.txt</span>.</p>
+
+<p>Now compile and run the server, then the client. If your code has worked correctly a file called <span class="PA">drop.txt</span>
+will have appeared in the datagram server project folder <span class="PA">Ex9_10DatagramServer</span>.
+You should be able to open this file from the <span class="PA">Files</span> window in NetBeans or using a text editor such as Notepad, to read the message left in the dead letter box.</p>
+</li>
+
+</ol>
+
+</body>
+
+</html>

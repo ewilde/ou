@@ -1,0 +1,82 @@
+<html>
+
+<head>
+
+<title>Activity 5.9 - Developing a word frequency counter using a List and a HashMap</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 5.9 - Developing a word frequency counter using a <span class="PA">List</span> and a <span class="PA">HashMap</span></h1>
+<h2>Topic </h2>
+<p>In this activity we develop a class <span class="PA">FrequencyCounter</span> with a method
+<span class="PA">countFrequencies(List)</span> that accepts a list in which some items may be repeated
+and counts the number of times each item appears. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains the following: </p>
+<ul>
+  <li>a skeleton class <span class="PA">FrequencyCounter</span> which you are to complete; </li>
+  <li>a class called <span class="PA">FrequencyTest</span>, containing a <span class="PA">main</span> method which you are
+  required to modify.</li>
+  </ul>
+
+<p>You have also been provided with a data file named <span class="PA">Chapter_1</span>. </p>
+
+<h2>Task</h2>
+<p>The class <span class="PA">FrequencyCounter</span> is to fulfil the following specification:</p>
+<ul>
+<li>Imports <span class="PA">java.util.* </span></li>
+<li>No instance variables </li>
+<li>No constructor (i.e. default constructor only) </li>
+<li>A method <span class="PA">countFrequencies</span> as detailed below.</li>
+</ul>
+<pre>Map&lt;Object,Integer&gt; countFrequencies(List&lt;?&gt list)</pre>
+
+<p>This is a public method that accepts a list argument, creates a new empty <span class="PA">HashMap</span>,
+then populates the map with entries whose keys are the distinct items found in
+the list, and whose values are <span class="PA">Integer</span> objects representing the number of times
+the corresponding item is found in the list. For example if the argument is:</p>
+<p class="PS">[a, b, r, a, c, a, d, a, b, r, a] </p>
+<p>the map returned should be:</p>
+
+<p class="PS">{b=2, a=5, r=2, d=1, c=1} </p>
+<p>(The exact order in which the entries appear may differ from this.)</p>
+<p>Note that the list argument is specified with a wildcard operator ?, which means that the method will accept a list of <i>any</i> type.</p>
+<p>The method performs the following steps:</p>
+
+<ul>
+  <li>Declares a suitable variable and initialises it to a new empty instance
+of <span class="PA">HashMap</span>. The keys in the map should be of type <span class="PA">Object</span> and the values of type <span class="PA">Integer</span>; </li>
+  <li>Iterates through the argument list, using a <span class="PA">foreach</span> variable of type <span class="PA">Object</span>. If an item already appears as a key in the map, the corresponding value is read, incremented and used to update the map entry. If the item is not an existing key, a new map entry is added, with the item as the key and <span class="PA">1</span> as the value;</li>
+  <li>Returns the resulting <span class="PA">HashMap</span>. </li>
+</ul>
+
+<h2>Instructions </h2>
+<ol>
+  <li><p>Write code for the method <span class="PA">countFrequencies</span>, carefully following the specification above.</p></li>
+  <li>Class <span class="PA">FrequencyTest</span> contains code that reads in the first chapter of <i>
+Pride and Prejudice</i> from a data file and stores the words in an <span class="PA">ArrayList&lt;?&gt; list1</span>. Now you are to insert code in the <span class="PA">main</span> method which will do the following:
+<ul>
+  <li>Create a new instance of <span class="PA">FrequencyCounter</span>;</li>
+  <li>Invoke <span class="PA">countFrequencies</span> on it, with <span class="PA">list1</span> as argument, storing the result
+in a suitable variable;</li>
+  <li>Print out the frequency of the following strings:
+  <pre>
+"Bennet"
+"four"
+"see"
+"good-humoured"
+"them"
+</pre>
+</li>
+</ul>
+
+<p>When you have made these changes, run the project and check the output.</p>
+</li>
+</ol>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.6 - Writing a user-defined exception class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.6 - Writing a user-defined exception class</h1>
+<p>Here is our sample solution for the <span class="PA">FileFormatException</span> class:</p>
+<pre>
+public class FileFormatException extends Exception
+{
+   // add a zero-argument constructor here
+   public FileFormatException()
+   {
+      // implicitly invokes the superclass zero-argument
+      // constructor
+   }
+   // add a one-argument constructor here
+   public FileFormatException(String message)
+   {
+      // invoke the superclass one-argument constructor
+      super(message);
+   }
+}</pre>
+
+<p>All the work is done by the superclass in this case.&nbsp; More complex exception classes may have their own instance variables and methods.&nbsp;
+</p>
+
+<p>Our sample solution for the modified class <span class="PA">Read_a_Sonnet</span> follows.
+We simply replace <span class="PA">EOFException</span>
+by <span class="PA">FileFormatException</span> throughout the class:
+</p>
+
+<pre>
+import java.io.*;
+public class Read_a_Sonnet
+{
+   private FileReader fr;
+   private BufferedReader br;
+   final static int LINES_IN_SONNET = 14;
+
+   public void run() throws IOException
+   {
+      openFile(&quot;sonnet1.txt&quot;);
+      try
+      {
+         readLines(LINES_IN_SONNET);
+      }
+      catch (FileFormatException ex)
+      {
+         System.out.println(&quot;Wrong number of lines in poem. &quot; + ex);
+      }
+      finally
+      {
+         closeFile();
+      }
+   }
+
+   // open the specified file
+   private void openFile(String fileName) throws IOException
+   {
+      fr = new FileReader(fileName);
+      br = new BufferedReader(fr);
+      System.out.println(&quot;== File &quot;+ fileName + &quot; opened OK&quot;); // just for testing
+   }
+
+   // read and display the specified number of lines from text file
+   // Note: we do need to list FileFormatException separately.
+   private void readLines(int numberOfLines)
+   throws IOException, FileFormatException
+   {
+      String nextLine;
+      int lineCount;
+      nextLine = br.readLine();
+      lineCount = 0;
+      while (nextLine != null &amp;&amp; lineCount &lt; numberOfLines)
+      {
+         lineCount++;
+         System.out.println(nextLine);
+         nextLine = br.readLine();
+      }
+      if (lineCount &lt; numberOfLines)
+      {
+         throw new FileFormatException(&quot;read &quot; + lineCount + &quot; lines&quot;);
+      }
+   }
+   // close the text file
+   private void closeFile() throws IOException
+   {
+      br.close();
+      fr.close();
+      System.out.println(&quot;== File closed OK&quot;); // just for testing
+   }
+}</PRE>
+
+<h2>Notes</h2>
+<p>Note that method <span class="PA">readLines</span> has been declared as throwing
+both <span class="PA">IOException</span> and <span class="PA">FileFormatException</span>.
+Unlike in the previous activity, where we used <span class="PA">EOFException</span> ,
+it is necessary to declare both exceptions since <span class="PA">FileFormatException</span>
+is not a subclass of <span class="PA">IOException</span>.</p>
+<p>Try removing <span class="PA">FileFormatException</span> from the declaration,
+if you want to confirm this.
+</p>
+
+
+</body>
+
+</html>

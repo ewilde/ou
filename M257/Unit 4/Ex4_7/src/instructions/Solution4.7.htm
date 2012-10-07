@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.7 - Defensive programming</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.7 - Defensive programming</h1>
+<p>Here is our sample solution for the <span class="PA">FixedSizeQueue</span> class:</p>
+<pre>
+public class FixedSizeQueue
+{
+   private int maxItems;       // maximum number of items in the queue
+   private int numberOfItems;  // current number of items in the queue
+   private int[] queue;        // the queue items
+
+   // Constructor - create a queue of specified capacity
+   public FixedSizeQueue(int capacity)
+   {
+      maxItems = capacity;
+      numberOfItems = 0;
+      queue = new int[capacity];
+   }
+
+   // add a new item to the end of the queue
+   // ** modify this method to protect against adding too many items
+   public boolean add(int newItem)
+   {<span class="highlight">
+      if (isFull())
+      {
+         return false;
+      }
+      else</span>
+      {
+         queue[numberOfItems] = newItem;
+         numberOfItems++;
+         return true;
+      }
+   }
+
+   // returns true if the number of items in the queue is at its maximum
+   private boolean isFull()
+   {<span class="highlight">
+      return(numberOfItems &gt;= maxItems);</span>
+   }
+
+   // return contents of queue in string format
+   public String toString()
+   {
+      String queueString = "";
+      for (int i = 0; i &lt; numberOfItems; i++)
+      {
+         queueString += (queue[i] + " ");
+      }
+      return queueString;
+   }
+}</pre>
+
+<h2>Notes</h2>
+
+<p>Initially the unchanged program should not compile.</p>
+
+<ol>
+  <li>After the required modifications, shown above, it should run to completion.</li>
+  <li>When the modifications to the <span class="PA">add</span> method are removed, an exception should occur.&nbsp; This shows that programs that are not carefully checked and made robust may result in a <span class="PA">RunTimeException.</span></li>
+</ol>
+
+</body>
+
+</html>

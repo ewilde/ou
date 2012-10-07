@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 9.5 - Testing the simple server</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 9.5 - Testing the simple server</h1>
+
+<ol>
+<li>
+
+<p>It is important to ensure that the server is running before you try to run
+the <span class="PA">telnet</span> client.  The server should display a message
+to indicate that it is starting up, and some further messages when the client
+connects and when the server closes down.
+</p>
+
+<p>There is no special significance in using port 3000 - any port number could have
+been used, although it is normally best to avoid numbers in the range 0-1023 some of
+which are conventionally used for standard services.  If you omit the port number
+from the  <span class="PA">telnet</span> command, then <span class="PA">telnet</span>
+defaults to trying port 23, which in this case will not work.</p>
+
+<p>You can experiment with
+using other port numbers by editing the <span class="PA">PORT_NUMBER</span>
+constant in the class <span class="PA">HelloServer</span>.  You must of course
+use the same port number when running the <span class="PA">telnet</span> client.
+</p>
+</li>
+
+<li>
+<p>Instead of typing <span class="PA">localhost</span> in the <span class="PA">telnet</span> command, you
+can also use the special IP address, <span class="PA">127.0.0.1</span>, the so-called loopback address, that
+we met in Activity 9.3.  This is the special IP address which always
+refers to the local host computer.
+The <span class="PA">telnet</span> program always accepts either symbolic addresses or numerical IP addresses.
+</p>
+</li>
+
+</ol>
+
+
+</body>
+
+</html>

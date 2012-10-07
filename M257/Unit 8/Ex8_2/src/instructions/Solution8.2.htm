@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Discussion of Activity 8.2 - Running the hare and the tortoise
+race again</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 8.2 - Running the hare and the tortoise race
+again</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">Hare</span>:</p>
+<pre>public class Hare implements Runnable<br>{<br>   public void run()<br>   {<br>      for (int i = 1; i &lt;= 50000000; i++)<br>      {<br>         if (i % 1000000 == 0)<br>         {<br>            System.out.print("H ");<br>         }<br>      }<br>   }<br>}<br></pre>
+<p>Code for class <span class="PA">Tortoise</span>:</p>
+<pre>public class Tortoise implements Runnable<br>{<br>   public void run()<br>   {<br>      for (int i = 1; i &lt;= 50000000; i++)<br>      {<br>         if (i % 1000000 == 0)<br>         {<br>            System.out.print("T ");<br>         }<br>      }<br>   }<br>} </pre>
+<p>
+Code for running the race <span class="PA">ThreadRace2</span>:</p>
+<pre>public class ThreadRace2<br>{<br>   public static void main(String[] args)<br>   {<br>      Hare h = new Hare();<br>      Tortoise t = new Tortoise();<br>      Thread ht = new Thread(h);<br>      Thread tt = new Thread(t);<br>      System.out.print("They're off! ");<br>      ht.start();<br>      tt.start();<br>   }<br>}</pre>
+</body>
+</html>

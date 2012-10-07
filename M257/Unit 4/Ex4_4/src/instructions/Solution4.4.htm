@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.4 - A program which throws an exception</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<H1>Discussion of Activity 4.4 - A program which throws an exception</H1>
+
+<P>Here are the expected results at each stage of this activity: 
+</P>
+<OL>
+	<LI>You should find that
+	the program halts and reports an <span class="PA">OutOfMemoryError</span>
+	exception. This type of exception is not at all common and has only
+	come about because we have provoked it deliberately.
+	</br></br>
+	<LI>The exception should not occur this time, as most
+	systems should be able to allocate one million <span class="PA">ints</span>.
+	If it does still occur, reduce the amount of memory requested again
+	to <span class="PA">1000
+	ints</span>. This should work on any reasonable system. The
+	program should complete normally and print the message: 
+	</br></br>
+	<pre>Successfully allocated </pre>
+</li>
+	<LI>You might think that this would have the same
+	effect as the first experiment, after an attempt to allocate a
+	million million <span class="PA">ints
+	(1000*1000*1000*1000)</span>.
+	However, an <span class="PA">int</span>
+	variable in Java cannot store a number as big as this, so the
+	calculation &quot;wraps around&quot; to a negative value, and you
+	should get messages like this: 
+	<pre>Try to allocate memory for -727379968 ints
+java.lang.NegativeArraySizeException </pre>
+	So the program does fail to complete, but with an exception
+	indicating an attempt to construct an array whose size is a negative
+	number - tricky!</li>
+</OL>
+</BODY>
+</HTML>

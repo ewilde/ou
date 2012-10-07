@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+<title>Activity 8.7 - Testing the storage tank</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 8.7 - Testing the storage tank</h1>
+<h2>Topic </h2>
+<p>In this activity we simulate liquid flowing in and out of a storage tank. The methods
+<span class="PA">wait</span> and <span class="PA">notifyAll</span> will be used to coordinate the threads responsible for filling
+and emptying the vessel.</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains the following classes: </p>
+<ul>
+  <li><span class="PA">StorageTank</span>, which models a reservoir;</li>
+  <li><span class="PA">Inflow extends Thread</span>, a source which runs forever and tries to increment
+  the volume of liquid stored in the tank;</li>
+  <li><span class="PA">Outflow extends Thread</span>, a sink which runs forever and tries to
+  decrement the volume of liquid stored in the tank; </li>
+  <li><span class="PA">Main</span>, which first creates a storage tank, then creates an inflow and
+  outflow and starts them executing. </li>
+</ul>
+
+ <h2>Task </h2>
+
+<p>The class <span class="PA">StorageTank</span> has two data fields:
+  <ul>
+ <li><span class="PA">int capacity</span> which represents the maximum number of units of liquid the
+  tank can hold; </li>
+  <li><span class="PA">int contents</span> which represents the number of units of liquid currently
+  stored in the tank. </li></ul>
+<p>and two public methods: </p>
+<ul>
+  <li><span class="PA">in</span>, which increases the contents by 1, and which throws an exception if an
+  attempt is made to increase <span class="PA">contents</span> beyond the capacity; </li>
+  <li><span class="PA">out</span>, which decreases the contents by 1, and which throws an exception if
+  an attempt is made to decrease <span class="PA">contents</span> below zero. </li>
+</ul>
+<p>At present the inflow and outflow are uncoordinated, so that when the
+simulation is executed it runs for a period of time, but eventually an exception
+is thrown and the program halts. The objective is to modify the methods <span class="PA">in</span> and
+<span class="PA">out</span> so that a thread which attempts to add liquid to a full tank, or take liquid
+from an empty one is blocked, pending a signal that the other thread has changed
+the state of the tank. </p>
+<p>In some ways the simulated storage tank resembles a buffer, although it is
+much less complex because its state simply consists of a single number, instead
+of there being a queue of stored items to manage. </p>
+<h2>Instructions </h2>
+
+<p>Run the program. You should
+find that sooner or later an exception is always thrown. You may like to
+experiment with different tank capacities, by changing the argument passed to
+the <span class="PA">StorageTank</span> constructor in the <span class="PA">main</span> method. Exactly what happens will vary
+from run to run, and will depend to a certain extent on your computer. You may see a thread continue for a number of steps after the exception is
+reported.</p>
+<p>Now make changes to the methods <span class="PA">in</span> and <span class="PA">out</span> so that the threads use <span class="PA">wait</span> and
+<span class="PA">notifyAll</span> to coordinate their activities and no longer cause exceptions to be
+thrown. </p>
+<p>Because <span class="PA">in</span> and <span class="PA">out</span> are already declared as throwing an exception
+(which is caught elsewhere) it is not essential to enclose <span class="PA">wait</span> in a <span class="PA">try</span> and
+<span class="PA">catch</span> block. </p>
+<p>Compile and run the revised program. If the changes are correct it should now
+run indefinitely and no exceptions should be thrown. You will need to stop the
+program, since it won't halt automatically. </p>
+
+</body>
+
+</html>

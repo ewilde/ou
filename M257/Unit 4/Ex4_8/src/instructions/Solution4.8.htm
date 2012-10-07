@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.8 - Designing by contract</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.8 - Designing by contract</h1>
+
+<p>Here is our sample solution for the <span class="PA">Main</span> class:</p>
+
+<pre>
+public class Main
+{
+   public static void main(String[] args)
+   {
+      FixedSizeContractQueue queue;
+
+      // Test 1 of 2.
+      System.out.println(&quot;\nTest 1: create a queue of capacity 4 and fill it up&quot;);
+      queue = new FixedSizeContractQueue(4);
+      for (int i=0; i&lt;4; i++)
+      {
+         if (queue.isFull())
+         {
+            System.out.println(&quot;The queue is full - cannot add item&quot;);
+         }
+         else
+         {
+            queue.add(i*10);       // modify this to ensure contract holds
+         }
+      }
+      System.out.println(&quot;Queue contents: &quot; + queue);
+
+      // Test 2 of 2.
+      System.out.println(&quot;\nTest 2: try to add one item too many&quot;);
+      if (queue.isFull())
+      {
+         System.out.println(&quot;The queue is full - cannot add item&quot;);
+      }
+      else
+      {
+         queue.add(40);             // modify this to ensure contract holds
+      }
+      System.out.println(&quot;Queue contents: &quot; + queue);
+   }
+}</pre>
+<h2>Notes</h2>
+
+<ol>
+  <li>Initially, the unchanged program should compile and run, but should terminate with a kind of <span class="PA">RunTimeException</span>.</li>
+  <li>After the required modifications, it should run to completion.</li>
+</ol>
+
+</body>
+
+</html>

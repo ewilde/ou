@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Discussion of Activity 10.4 - Writing a MIDlet</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+<body>
+<h1>Discussion of Activity 10.4 - Writing a MIDlet</h1>
+
+<p>The HelloWorld MIDlet from Unit 10 is as follows:</p>
+<pre>
+package helloworld;
+ 
+import javax.microedition.midlet.*;
+import javax.microedition.lcdui.*;
+ 
+public class HelloWorld extends MIDlet
+{
+   private TextBox textbox;
+   private Display display;
+   private static final int screenLength = 20;
+ 
+   public HelloWorld()
+   {
+   }
+   public void startApp()
+   {
+      textbox = new TextBox("First MIDlet", "Hello World",
+         screenLength,TextField.ANY);
+      display = Display.getDisplay(this); 
+      display.setCurrent(textbox);
+   }
+   public void pauseApp()
+   {
+   }
+   public void destroyApp(boolean b)
+   {
+   }
+}
+</pre>
+</body>
+</html>
+
+

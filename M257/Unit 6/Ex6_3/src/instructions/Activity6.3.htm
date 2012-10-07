@@ -1,0 +1,60 @@
+<html>
+<head>
+
+
+<title>Activity 6.3 - Simulating a control panel in a lift</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 6.3 - Simulating a control panel in a lift</h1>
+<h2>Topic </h2>
+<p>In this activity we build up a more complex window design by nesting several
+<span class="PA">JPanels</span> in the content pane. </p>
+<h2>Task </h2>
+<p>You are asked to write a program that will simulate the control panel in a
+lift. Here is a sketch the designer has drawn. </p>
+
+<p><img
+width=621 height=555 src="Activity6.3_files/image001.gif"
+alt = "The figure displays a rectangle, with various buttons and labels to make it look like the control panel in a lift.
+The figure is described in detail in the main text immediately below the figure." ></p>
+
+<p>On the content pane there are three panels. </p>
+<ul>
+<li>The top panel holds two text fields, the first to show whether the lift is
+travelling up or down, the second to indicate the current floor, and an alarm
+button. </li>
+<li>The middle panel contains buttons for the floors. </li>
+<li>The bottom panel contains buttons for opening and closing the doors. (These
+just use the &lt; and &gt; characters from the keyboard.) </li>
+<p>The design uses a standard title bar, with title &quot;Lift controls&quot;. </p>
+</ul>
+<h2>Notes </h2>
+
+<p>The text fields should be four and two characters wide respectively. For
+the purposes of this prototype they can just be left blank. To create a
+<span class="PA">JTextField</span> of the desired width use the constructor</p>
+
+
+<pre>JTextField(int columns) </pre>
+<p>A <span class="PA">JTextField</span> is added to a panel in exactly the same way as we add a <span class="PA">JButton</span>.
+</p>
+
+
+<h2>Instructions </h2>
+<ol>
+<li>Create a new project called  <span class="PA">MyEx6_3</span> in the Unit 6 folder. In the New Java Application wizard name the Main Class <span class="PA">myex6_3.LiftButtonFrameTest</span>. 
+</li>
+<li>Add a new Java class <span class="PA">LiftButtonFrame</span> to the project. Complete the coding for this
+class so that when an instance of <span class="PA">LiftButtonFrame</span> is displayed it will appear as
+in the design sketch above. </li>
+<li>Complete the main class <span class="PA">LiftButtonFrameTest</span> so it creates a test instance of <span class="PA">LiftButtonFrame</span> and makes it visible. Compile and run your
+project. </li>
+<li>Our specimen solution can be found in the Solution file. </li>
+</ol>
+</body>
+
+</html>

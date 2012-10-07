@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 4.1 - Reading input from the keyboard</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 4.1 - Reading input from the keyboard</h1>
+
+<p>Here is our sample solution for the class <span class="PA">Greeter</span>:</p>
+
+<pre>
+import java.util.Scanner;
+ 
+public class Greeter
+{
+   public void run()
+   {
+      String yourName;
+      
+      // Create a Scanner instance here.
+      Scanner sc = new Scanner(System.in);
+      
+      System.out.println("What is your name?");
+      
+      yourName = sc.nextLine();
+      
+      while (!yourName.equals("Bye"))
+      {
+         // Insert code to print a suitable greeting, then
+         // prompt again for the name and read the next line
+         // of input.
+         System.out.println("I am pleased to meet you, " + yourName);
+         System.out.println("What is your name?");
+         yourName = sc.nextLine();
+      }
+      
+      System.out.println("Goodbye for now");
+      
+      sc.close();
+   }
+}
+</pre>
+
+</body>
+
+</html>

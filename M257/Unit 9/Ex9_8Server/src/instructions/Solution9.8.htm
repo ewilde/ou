@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 9.8 - Developing the full client-server name service</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 9.8 - Developing the full client-server name service</h1>
+
+<ol>
+<li>
+<p>It is important to ensure that the server is running before you try to run
+the client.  To do this, you need to ensure that you run the project in the
+server folder first.  The server should display a message
+to indicate that it is starting up, and some further messages when the client
+connects and when the server closes down.
+</p>
+
+<p>There is no special significance in using port 3000 - any port number could have
+been used, although it is normally best to avoid numbers in the range 0-1023 some of
+which are conventionally used for standard services.</p>
+</li>
+
+<li>
+<p>We have seen in the previous activity how to use <span class="PA">telnet</span> as the client
+for this server.  The server program does not know what sort of client we are using -
+it simply responds to messages sent across the socket connection, via the streams.
+</p>
+</li>
+
+<li>
+<p>This server can only deal with one client at a time. If the server is already
+connected to a client, any other clients which try to connect will be queued and
+will be serviced in order, one at a time.  You can try this by running several
+client programs at the same time. To do this, make sure <span class="PA">Ex9_8Client</span> is set as the main project, then click on the <span class="PA">Run Main Project</span> button several times.
+You may find that the several instances of the client window are placed on top of
+each other on screen - in this case you can drag them to different positions on
+screen using the mouse.  Only the first client you created will get a response to any user names you
+enter.  You can try entering user names into the other clients and clicking on the
+<span class="PA">Go</span> button, but you will get
+no response until you quit from the first client.  Then the second client will
+get responses until you quit from this, and so on.
+</p>
+<p>This behaviour is useful but not ideal.  We will see later how to make the server
+responsive to several clients at once.
+</p>
+</li>
+</ol>
+
+
+</body>
+
+</html>

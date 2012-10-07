@@ -1,0 +1,29 @@
+package simplegraphics;
+
+import javax.microedition.midlet.*;
+import javax.microedition.lcdui.*;
+
+public class SimpleGraphics extends MIDlet
+{
+   private Display display;
+   private MyCanvas canvas;
+
+   public SimpleGraphics()
+   {
+      display = Display.getDisplay(this);
+      canvas = new MyCanvas();
+   }
+
+   public void startApp() 
+   {
+      display.setCurrent(canvas);
+   }
+
+   public void pauseApp()
+   {
+   }
+
+   public void destroyApp(boolean b)
+   {
+   }		
+}

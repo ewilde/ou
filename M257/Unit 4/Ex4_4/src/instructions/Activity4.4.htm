@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+<title>Activity 4.4 - A program which throws an exception</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<H1>Activity 4.4 - A program which throws an exception</H1>
+
+<H2>Topic </H2>
+
+<P>In this activity, we witness a Java exception being thrown in a
+fairly spectacular manner. </P>
+
+<H2>Materials </H2>
+
+<P>In addition to the Solution document, the project for this
+activity contains two classes: </P>
+
+<UL>
+	<LI><span class="PA">GreedyClass</span>,
+	containing a method <span class="PA">grabSomeMemory(int
+	n)</span> that tries to allocate enough memory for an array
+	of <span class="PA">int</span>
+	variables with <span class="PA">n</span>
+	elements (i.e. <span class="PA">4*n</span>
+	bytes); </li>
+	
+	<LI><span class="PA">Main</span>,
+	which creates an instance of the <span class="PA">GreedyClass</span>
+	class and invokes a method, requesting an amount of memory that is
+	likely to be absurd, at least at the time of writing! 
+	</li>
+</UL>
+
+<H2>Instructions </H2>
+<OL>
+	<LI>Run the project. You will find the
+	program halts and reports an exception. Normally, exceptions result
+	in messages that are quite informative, but this case is possibly a
+	bit extreme, so we don't get told too much!</li>
+	<p></p>
+	<LI>Confirm that this exception does not occur for
+	more modest memory allocation requests. In the <span class="PA">main</span>
+	method of <span class="PA">Main</span>,
+	decrease the amount of memory requested by a factor of 1000, like
+	this: </p>
+	<p><span class="PS">final int AMOUNT = 1000*1000; </span></p>
+	<p>Run the project again - you should find that it completes
+	successfully.</p></li>
+	<LI>Just for interest, in the <span class="PA">main</span>
+	method of <span class="PA">Main</span>,
+	try the effect of attempting to increase the amount of memory
+	requested by a factor of 1000 compared to the original program, like
+	this: 
+	<p><span class="PS">final int AMOUNT = 1000*1000*1000*1000; </span></p>
+	<p>What happens this time? </p></li>
+</OL>
+</BODY>
+</HTML>

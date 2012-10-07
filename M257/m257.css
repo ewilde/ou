@@ -1,0 +1,96 @@
+body {
+	background-color: #FFFFFF
+}
+
+p {
+	text-align: left;
+	vertical-align: top;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+ol {
+	text-align: left;
+	vertical-align: top;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+
+ul {
+	text-align: left;
+	vertical-align: top;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+
+H1 {
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 140%;
+	font-weight: bold;
+	color: #000099;
+}
+
+H2 {
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 120%;
+	font-weight: bold;
+	color: #990033;
+}
+
+H4 {
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+
+}
+
+
+.PA {
+	text-align: left;
+	font-family: Courier New, Courier, monospace;
+	font-size: 100%;
+	font-weight: normal;
+	color: #000000;
+}
+
+pre {
+	margin-left: 2em;
+	white-space: pre;		
+	font-family: Courier New, Courier, monospace;
+	font-size: 100%;
+	font-weight: normal;
+	color: #000000;
+}
+
+
+.PS {
+	margin-left: 2em;
+	font-family: Courier New, Courier, monospace;
+	font-size: 100%;
+	font-weight: normal;
+	color: #000000;
+}
+
+TD {
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 100%;
+}
+
+TD.CN {
+	font-family: Courier New, Courier, monospace; 
+	font-size: 90%;
+	color: #000099;
+}
+
+.highlight {
+	text-align: left;
+	font-family: Courier New, Courier, monospace;
+	font-size: 100%;
+	font-weight: normal;
+	color: #0033FF;
+}

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+<title>Activity 4.8 - Designing by contract</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.8 - Designing by contract</h1>
+<h2>Topic </h2>
+<p>In this activity we explore the use of <b>design by contract</b> as a way of
+preventing run-time exceptions. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains two classes: </p>
+<ul>
+  <li> <span class="PA">FixedSizeContractQueue</span>,which is a partial implementation of a very simple
+queue of integers. It is a partial implementation because it only permits items
+to be added to the queue, not removed. This is not very practical but is enough
+to demonstrate the design by contract technique we are interested in here. </li>
+  <li> <span class="PA">Main</span>, which, as usual, contains test code. </li>
+</ul>
+<h2>Task </h2>
+<p>The <span class="PA">FixedSizeContractQueue</span> class supplied does not have any protection
+against an attempt to add an item when the queue is already full. It does
+however have a <b>contract</b> defined by the <b>pre-condition</b> of the <span class="PA">add</span> method - this
+method only guarantees to add an item to the end of the queue if the queue is
+not full. See the comments preceding the code for this method. You should not
+need to change any code in this class. </p>
+<h2>Instructions</h2>
+<ol>
+  <li>As a first step, run the project without making any changes. You should
+see what happens when the contract is broken. </li>
+  <li>Now modify the test code in the <span class="PA">main</span> method of the class <span class="PA">Main</span> so as to
+ensure that the contract for the <span class="PA">add</span> method holds i.e.
+  you should prevent any attempt to add an item when the queue is full.<br>
+When you have made the required changes, run the project. You should get a message
+indicating that the attempt to add too many items has been prevented.
+</li>
+</ol>
+</body>
+
+</html>

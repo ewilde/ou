@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+<title>Activity 8.5 - Testing locks and objects</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 8.5 - Testing locks and objects</h1>
+<h2>Topic </h2>
+<p>This activity demonstrates that a lock is associated with an object, not a
+method. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains the following class: </p>
+<ul>
+<li><span class="PA">BankAccount.</span>
+</li></ul>
+<h2>Task</h2>
+
+<p>The class <span class="PA">BankAccount</span>, is a modification of the
+class in Activity 8.4. It has a single data field <span class="PA">balance</span>, initialised to 0, and
+one synchronized method <span class="PA">accessBalance(int threadID)</span> which increments the balance
+by 1, then decrements it again, so that it there is no overall change and when
+the method exits the balance is again 0. Note that when the method is invoked
+the id number of the calling thread is passed as an argument. </p>
+<p>Print statements report when the method is entered (with the balance at that
+point) and when it is exited, with the id of the thread concerned in both cases.
+</p>
+<p>Your task will be to write two new classes,  <span class="PA">TestThread</span>
+ and  <span class="PA">Main</span>, in order to experiment
+with a number of threads accessing a number of bank acccount objects.</p>
+<h2>Instructions </h2>
+<ol>
+
+<li><p>Write a new class <span class="PA">TestThread</span> which extends <span class="PA">Thread</span>
+and has two data fields:
+</p>
+<ul>
+  <li> <span class="PA">int threadID</span>, which represents the id number of the thread;
+  </li>
+  <li> <span class="PA">BankAccount account</span> which represents the bank account that this thread will
+use. </li>
+</ul>
+<p>The <span class="PA">TestThread</span> constructor should take two arguments and use them to
+initialise these fields. </p>
+<p>The <span class="PA">run</span> method of <span class="PA">TestThread</span> should contain a loop which invokes
+<span class="PA">accessBalance(int threadID)</span> on the bank account five times. </p></li>
+<li><p>Write a class <span class="PA">Main</span> which creates two <span class="PA">BankAccount</span> instances and two
+<span class="PA">TestThread</span> instances with id numbers 1 and 2 using different bank accounts, i.e.
+the bank accounts are not shared.</p>
+<p>Build and run the project (select the main class). You will probably get output that looks something
+like the following: </p>
+<pre>Thread 1 entering access method - the balance is 0
+Thread 2 entering access method - the balance is 0
+Thread 1 exiting access method
+Thread 1 entering access method - the balance is 0
+Thread 2 exiting access method
+Thread 2 entering access method - the balance is 0
+Thread 1 exiting access method
+Thread 1 entering access method - the balance is 0
+etc.</pre>
+<p>Both threads can execute the access method at once. This is because they are
+operating on different objects, and each object has its own separate lock. So
+even though the threads need to acquire these locks to run the <span class="PA">synchronized</span>
+method, they are not competing with one another for the same lock, and there is
+no reason why they cannot both be executing the same section of code
+concurrently. </p>
+<p>Since they are using different bank accounts the threads are looking at
+different data and can never see a balance that the other thread has temporarily
+incremented to 1. So the balance printed is always 0. </p>
+<li><p>Now alter <span class="PA">accessBalance</span> so that it is no longer declared <span class="PA">synchronized</span>.
+Re-compile and run the program. The change should make no difference! Since the
+threads are operating on distinct objects the presence or absence of a lock has
+no effect. </p></li>
+<li><p>Next amend <span class="PA">Main</span> so that both threads access the same bank account (still
+leaving <span class="PA">accessBalance</span> unsynchronized). Now when the program is run you should
+find that the threads can interfere with each other and will usually read the
+value of the balance while it is still set to 1. </p>
+<li><p>Lastly change <span class="PA">accessBalance</span> back to <span class="PA">synchronized</span>. This should correct the
+problem. The balance will now always be reported as 0. The threads are both
+using the same data object but can only access it one at a time. </p>
+</li>
+</ol>
+</body>
+
+</html>

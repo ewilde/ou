@@ -1,0 +1,117 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 7.4 - Creating a coloured word game</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 7.4 - Creating a coloured word game</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">ColorPanel</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+public class ColorPanel extends JPanel
+{
+   Color color;
+   String word;
+   public ColorPanel(Color c, String s)
+   {
+      color = c;
+      word = s;
+   }
+   /** Displays the panel's word in the panel's colour.
+    *
+    *  This version automatically places the word on the panel,
+    *  so it takes account of different word lengths and adjusts
+    *  the positions automatically if the window is re-sized.
+    *
+    *  A simpler but less flexible alternative would be to supply
+    *  drawString with fixed numbers calculated from the frame
+    *  dimensions - e.g. for 240 x 240 the cells would be 80 x 6
+    *  so drawString(string,10,30) would be about right.  The
+    *  code for this version would be as follows.
+    *
+    *  public void paintComponent(Graphics g)
+    *  {
+    *     Font f = new Font("Serif",Font.BOLD,18);
+    *     g.setFont(f);
+    *     g.setColor(color);
+    *     g.drawString(word,10,30);
+    *  }
+    */
+   public void paintComponent(Graphics g)
+   {
+      // First set the desired font.
+      Font f = new Font("Serif",Font.BOLD,18);
+      g.setFont(f);
+      // Now get the font metrics...
+      FontMetrics fm = g.getFontMetrics();
+      // ...and so find the width of the word.
+      int wordLength = fm.stringWidth(word);
+      // Set the color in which the word will be drawn.
+      g.setColor(color);
+      // draw the string.getWidth and getHeight find the
+      // dimensions of the panel. This, plus the word
+      // width, is used to centre the word.
+      g.drawString(word,
+         this.getWidth()/2 - wordLength/2, this.getHeight()/2);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">CrazyColors</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+public class CrazyColors extends JFrame
+{
+   ColorPanel [] panels;
+   public CrazyColors()
+   {
+      setSize(240,240);
+      setLocation(240,240);
+      setTitle("Stroop effect");
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      panels = new ColorPanel[12];
+
+      panels[0] = new ColorPanel(Color.red, "Blue");
+      panels[1] = new ColorPanel(Color.blue, "Red");
+      panels[2] = new ColorPanel(Color.green, "Red");
+      panels[3] = new ColorPanel(Color.yellow, "Red");
+      panels[4] = new ColorPanel(Color.red, "Yellow");
+      panels[5] = new ColorPanel(Color.blue, "Yellow");;
+      panels[6] = new ColorPanel(Color.green, "Blue");
+      panels[7] = new ColorPanel(Color.yellow, "Blue");
+      panels[8] = new ColorPanel(Color.red, "Green");
+      panels[9] = new ColorPanel(Color.blue, "Green");
+      panels[10] = new ColorPanel(Color.green, "Yellow");
+      panels[11] = new ColorPanel(Color.yellow, "Green");
+      Container cp = getContentPane();
+      cp.setLayout(new GridLayout(4,3));
+      for (int i = 0; i < 12; i++)
+      {
+         cp.add(panels[i]);
+      }
+
+      cp.setBackground(Color.BLACK);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">CrazyColorsTest</span>:</p>
+<pre>
+public class CrazyColorsTest
+{
+   public static void main(String[] args)
+   {
+      CrazyColors cc = new CrazyColors();
+      cc.setVisible(true);
+   }
+}
+</pre>
+</body>
+
+</html>

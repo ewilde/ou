@@ -1,0 +1,165 @@
+<html>
+<head>
+
+
+<title>Activity 7.7 - Creating 'framelets' - editable notepads</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 7.7 - Creating 'framelets' - editable notepads</h1>
+<h2>Topic </h2>
+<p>This activity brings together a number of ideas you have met in this unit to
+produce a program which is close to being a deliverable product. </p>
+<p>The code can be written in stages, following the instructions we give below.
+It is less complicated than it looks; the trick is to work through it
+systematically step by step. In order to reduce the amount of work involved we
+have provided a partial implementation of one of the classes. </p>
+<p>We begin by explaining the nature and purpose of the application.</p>
+<h2>Application description</h2>
+<p>The application we shall write will allow users to create "framelets", which
+are small editable notepads on which they can jot down items or save snippets of
+text they want to use later. For example: </p>
+<p><img width=595 height=150 src="Activity7.7_files/image001.gif"
+alt = "These are three small windows arranged alongside each other, each in a different colour and with a different text:
+Each window has a number on the top bar. The leftmost, number 2, is light green with text &quot;Why do programmers think Halloween is Christmas?&quot; Number 1 is the central window. It is pink and has text &quot;To Do Washing Up!, Library books, Phone Antonio&quot;
+The rightmost window is number 3, is yellow and has text &quot;Because ... 31 oct = 25 dec&quot;"></p>
+
+<p>Framelets inherit from <span class="PA">JFrame</span> and so can automatically be dragged and
+resized as the user requires. </p>
+<p>Text can also be copied from one framelet to another framelet, or to another
+application. Text can be pasted into a framelet from elsewhere. For example, text in the framelet below
+was pasted from NetBeans, and the framelet resized. </p>
+<p><img width=349 height=169 src="Activity7.7_files/image002.png"
+alt = "This figure displays a slightly bigger window, which is pink, and displays &quot;No 4&quot; along the top.
+It has the text that is normally found at the beginning of a class, in commented code"></p>
+
+<p>Each framelet displays a distinctive icon (which looks like a framelet!) plus
+a number unique to that framelet, so the user can tell them apart. In Windows,
+if a framelet is minimised, the icon and the number appear in the tray. </p>
+<p><img width=493 height=270 src="Activity7.7_files/image003.png"
+alt= "This figure displays a series of minimized icons such as would appear in the Windows task bar"></p>
+
+<p>Framelets are created from the Framelet control panel: </p>
+
+<p><img width=300 height=120 src="Activity7.7_files/image004.png"
+alt = "This figure displays the &quot;Framelet control panel&quot; which consists of two buttons, one labelled &quot;Create new Framelet&quot;
+and one labelled &quot;Exit program&quot;, and a menu labelled &quot;Colours&quot;. A small section of the panel is shown in pink, with a label next to it stating &quot;Current colour&quot;"></p>
+
+<p></p>
+<p>From the Colours menu, the user can select one of six restful pastel shades
+as the background colour of the next framelet. These colours are the ones you
+were asked to record RGB values for in Activity 7.6. </p>
+
+<p><img width=300 height=120 src="Activity7.7_files/image005.png"
+alt="This image shows the Framelet control panel as described for the previous image, but now showing the following menu items of the Colour menu: pink, green and blue."></p>
+
+<p>The menu selection will become the current colour, which appears in the small
+colour swatch labelled "Current colour". </p>
+
+<h2>Materials </h2>
+<p>We have provided the following: </p>
+<ul>
+  <li>a test class <span class="PA">FrameletTest</span> containing a main method. This exists solely for
+  the purpose of testing your <span class="PA">Framelet</span> class, so you can make sure it is working
+  properly before going on to write code for the control panel. Once <span class="PA">Framelet</span> is
+  correct this class will no longer be needed; </li>
+  <li>an incomplete implementation of <span class="PA">FrameletControl</span>, which is the class for
+  the control panel; </li>
+  <li>a class <span class="PA">RunFrameletControl</span> which launches a framelet control panel. This is
+  the main class for the finished program; </li>
+  <li>the graphic file <span class="PA">notelet.gif</span> which will be used to set the framelet icon. It looks as follows:
+
+
+<p><img border=0 width=31 height=33
+src="Activity7.7_files/image006.gif"
+alt="An image representing a small icon, such as can be displayed in the bottom section of an application Window to indicate a running application instance 
+which has been minimized."></p>
+
+<p>There is nothing special about the graphic, which was simply drawn in Windows
+Paint and saved as a .gif file. This .gif file can be found in the project folder \Ex7_7.
+</p>
+</li></ul>
+<h2>Task </h2>
+<p>You are asked to write an application as described above. To speed things up for you, we have supplied an incomplete version of the
+code for the control panel. We shall be asking you to supply the missing
+portions but before doing that you will need to implement the <span class="PA">Framelet</span> class.
+Once <span class="PA">Framelet</span> has been written and tested you can go on to finish the
+application off. </p>
+
+<h2>Instructions </h2>
+
+<p>For the first task you will write and test the <span class="PA">Framelet</span> class.</p>
+
+
+<p>Study the class <span class="PA">FrameletTest</span>. You will see that the <span class="PA">Framelet</span> constructor takes two
+arguments, of types <span class="PA">Color</span> and <span class="PA">int</span>. The colour represents the background of the
+typing area, and the number will represent what number framelet this is in
+sequence since the control panel was launched. Of course the control panel isn't
+written yet, so for now we'll just use 1 as the serial number.</p>
+<p>Now add a new class <span class="PA">Framelet</span> to the project and write the class definition
+according to the following steps. </p>
+<ol>
+<li><p>The size of the framelet is to be 150 x 150, and when the whole program
+is written the first framelet created is to be located at (400,100), the second
+at (410,110), the third at (420,120) and so on. You can achieve this by defining
+a base location and then adding 10 times the serial number of the framelet. </p></li>
+<li><p>The title of the framelet is to be set using the serial number. </p></li>
+<li><p>To set the icon image, use the following code: </p>
+<pre>
+Toolkit toolkit = Toolkit.getDefaultToolkit();
+Image image = toolkit.getImage("notelet.gif");
+setIconImage(image); 
+</pre>
+<p>(This should set the icon for a framelet on most operating systems.)</p></li>
+<li><p>Finally you will need to create a <span class="PA">JTextArea</span> and add it
+to the content pane. The text area should have line-wrap set true, which is done
+by invoking <span class="PA">setLineWrap(boolean)</span> on it. Its background should be set to the
+framelet colour, using the method <span class="PA">setBackground(Color)</span>. (If you want to see more
+details of these methods please consult the API documentation.)</p></li>
+<li><p>You are now ready to test your <span class="PA">Framelet</span> class. Make sure <span class="PA">FrameletTest</span> is set as the main class, then build and run the project. (For instructions on how to set the main class see <i>Setting the main class</i> in the <i>NetBeans Guide</i>.) If you get compilation errors relating to undefined listeners in class <span class="PA">FrameletControl</span>, then comment
+out the offending lines for the time being (this will be task 2).</p>
+<p>If all is well you will see a pink framelet
+with serial number 1. </p>
+
+<p><img border=0 width=150 height=150 src="Activity7.7_files/image007.png" alt = ""></p>
+
+<p>You will need to terminate the program, since closing the framelet will
+not stop the program running. See <i>Halting a running program</i> in the <i>NetBeans Guide</i> for how to do this.</p></li>
+<p>For our sample solution to this first part please see class <span class="PA">Framelet</span>
+in the Solution file </p></ol>
+<h4>Task 2: Control panel </h4>
+<p>The next stage is to finish writing the control panel.
+You will need to complete the
+following sections, which you will find identified by comments in the code: </p>
+<ol>
+<li><p>Labelled as (A). A class variable is needed to keep track of how many instances of
+<span class="PA">Framelet</span> have been created so far. </p></li>
+<li><p>Labelled as (B). The Red, Green and Blue components of the pastel shades in the Colours
+menu need to be specified, using the values you recorded from the Colour Adjust
+application in Activity 7.6. </p></li>
+<li><p>Labelled as (C). The "Colours" menu needs populating. To see how this is done, you should
+examine the class <span class="PA">ShapeDrawer</span> in the Unit. </p></li>
+<li><p>Labelled as (D). An inner class is needed to define the response to the "New Framelet"
+button. </p></li>
+<li><p>Labelled as (E). An inner class is needed to define the response to the "Exit Program"
+button. </p></li>
+<li><p>Labelled as (F). An inner class is needed to define the response to an item being selected
+from the colour menu. You can find out a way to do this from the class
+<span class="PA">MenuSelection</span> in the Shape Drawer application </p></li></ol>
+<p>The incomplete <span class="PA">FrameletControl</span> class contains comments which document more
+fully what each missing section of code (A) to (F) must do. </p>
+<p>When your code for class <span class="PA">FrameletControl</span> is complete, compile and
+run the program, now setting <span class="PA">ex7_7.RunFrameletControl</span> as the  <span class="PA">main</span> class. </p>
+<p>For our sample solution see <span class="PA">FrameletControl</span> in the Solution file.
+</p>
+<h2>Note </h2>
+<p>Once sections (A) to (C) are complete you may find it convenient to write and
+test the inner classes one by one. If you want to do this, you will need to
+temporarily comment out the lines which add the listeners you have not defined
+yet, then make certain you remember to restore these lines later. </p>
+
+</body>
+
+</html>

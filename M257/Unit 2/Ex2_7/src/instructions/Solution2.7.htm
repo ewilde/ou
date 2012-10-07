@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Discussion of Activity 2.7 - Using for loops with data stored
+in arrays</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Discussion of Activity 2.7 - Using <span class="PA">for</span>
+loops with data stored in arrays</h1>
+<p>
+Here are our sample solutions. </p>
+<h2>The method printHashMarks</h2>
+<pre>public void printHashMarks(int version)<br>{<br>   // The numbers of classes in versions<br>   // 1.0, 1.1, 1.2, 1.3 and 1.4 of Java<br>   // in units of one hundred.<br>   int[] classes = {2, 5, 18, 21, 30};<br><br>   // print as many hash marks as there are hundreds<br>   // of classes for the version<br>   for (int j = 0; j &lt; classes[version]; j++)<br>   {<br>      System.out.print("#"); //print on the same line<br>   }<br><br>   System.out.println(); // print a single newline character<br>}</pre>
+<p>This method's job is to print as many # marks as there are classes
+in
+the version (received as an argument)</p>
+<p>The key point about this method is that it uses the array element at
+<span class="PA">classes[version]</span> to decide how many hash marks
+to print in the <span class="PA">for</span> loop.
+Inside the loop we use a <span class="PA">print</span> statement
+(rather than a <span class="PA">println</span> statement) so that each
+hash mark appears on the same line. Other conditions are possible to
+control the loop, for example, we could start <span class="PA">j</span>
+at <span class="PA">1</span> and count to <span class="PA">j &lt;=
+classes[version]</span>.</p>
+<p>There are various ways to print the single newline character we
+require after
+the hash marks. You could also use <span class="PA">System.out.print("\n")</span>.</p>
+<h2>The for loop in plotGraph</h2>
+<pre>for (int i = 0; i &lt; labels.length; i++)<br>{<br>   //First we print the label and axis.<br>   System.out.print(labels[i] + "\t|");<br><br>   // Then we print the hash marks for this version<br>   printHashMarks(i);<br><br>   //After each bar is plotted, we draw another piece of axis<br>   //following it by a newline character<br>   System.out.println("\t|");<br>}</pre>
+<p> The stopping condition of the loop uses the length of the <span
+ class="PA">labels</span> array to decide how
+many labels to print. We make the array index <span class="PA">i</span>
+start at 0, because
+array indexing in Java is from 0. The last position in the array is at
+<span class="PA">labels[labels.length - 1]<br>
+</span></p>
+<h2>Notes</h2>
+1. As of NetBeans 6.9, there has been a bug in the way NetBeans handles
+the tab character in the output window and so the output may not align
+correctly.<br>
+<br>
+To check that your code works you may like to run your program from the
+command line instead. To do this, you will need to open a DOS or other
+console window on your computer and navigate to the directory above the
+directory containing the class files. You can then execute your program
+using the following command (from the directory <code>Unit
+2/Ex2_7/build/classes</code>):<br>
+<pre>java ex2_7.Main<br></pre>
+2. An alternative approach is to use a different method to format the
+output, such as the <code>System.out.format</code> method.&nbsp; An
+example <code>plotGraph </code>method is shown below using this
+approach. Please note that understanding of this approach is <span
+ style="font-weight: bold;">not</span> part of the course:<br>
+<pre>&nbsp;public void plotGraph()<br> {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Labels for successive versions of the Java Standard Edition API.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String[] labels =<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "1.0", "1.1", "1.2", "1.3", "1.4"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // A legend for the horizontal graph axis.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String legend = "Hundreds of classes in successive versions of Java";</pre>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Print a blank line, to give some space above the graph<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; labels.length; i++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>	    //the %10s indicates how much space to use for the following string<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.format("%10s", labels[i] + "|");<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Then we print the hash marks for this version<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printHashMarks(i);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //When all the bars are printed, we plot the horizontal axis.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //This bar is 50 characters long, and the labels occupied 10 characters<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //so here we used 60 characters width for the printout<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.format("%60s", "|----|----|----|----|----|----|----|----|----|----|");<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Finally we print the legend.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.format("%60s", "\n\n\t" + legend + "\n");<br>&nbsp; }<br></pre>
+<br>
+</body>
+</html>

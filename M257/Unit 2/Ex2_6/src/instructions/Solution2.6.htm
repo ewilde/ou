@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.6 - Experimenting with for loops</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.6 - Experimenting with <span class="PA">for</span> loops</h1>
+<p>
+Here are our sample solutions.
+</p>
+<h2>Method 1: countDownFrom</h2>
+<pre>public void countDownFrom(int startingValue)
+{
+   System.out.println("First task: counting down from " + startingValue + ".");
+   for (int i = startingValue; i &gt;= 0; i--)
+   {
+      System.out.println(i);
+   }
+}
+</pre>
+<h2>Method 2: totalFromOneTo</h2>
+<pre>public void totalFromOneTo(int finalValue)
+{
+   int total = 0;
+
+   System.out.println
+         ("Second task: finding the total of the numbers from 1 to " + finalValue + ".");
+   for (int i = 1; i &lt;= finalValue; i++)
+   {
+      total = total + i;
+   }
+   System.out.println("The result is " + total + ".");
+}
+</pre>
+<h2>Method 3: howManySquaresUpTo</h2>
+<pre>public void howManySquaresUpTo(int limit)
+{
+   int count = 0;
+
+   System.out.println
+         ("Third task: finding the number of squares up to " + limit + ".");
+   for(int i = 1; i*i &lt;= limit; i++)
+   {
+      count++;
+   }
+
+   System.out.println
+         ("There are " + count + " numbers whose squares are no bigger than " + limit + ".");
+}</pre>
+
+<p>In this case, it is not clear how many iterations are going to take place
+because of the relatively complex stopping condition <span class="PA">i*i &lt;= limit</span>. This may mean
+that a <span class="PA">while</span> loop is more readable.</p>
+
+</body>
+
+</html>

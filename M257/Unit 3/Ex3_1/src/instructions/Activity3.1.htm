@@ -1,0 +1,82 @@
+<html>
+
+<head>
+
+<title>Activity 3.1 - Experimenting with the User class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 3.1 - Experimenting with the <span class="PA">User</span> class</h1>
+<h2>Topic </h2>
+<p>This activity allows you to experiment with objects of class <span class="PA">User</span>. It looks
+at the creation of <span class="PA">User</span> objects, and how methods can be invoked on the objects
+created. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the
+project for this exercise contains: </p>
+<ul >
+<li>the class <span class="PA">UserTest</span>. </li>
+</ul>
+<p>The project also makes use of the class <span class="PA">User</span> defined in a separate
+package, which is imported into the project.</p>
+
+<h2>Tasks </h2>
+<ol>
+  <li>Using the code in <span class="PA">UserTest</span> as a model, add statements to <span class="PA">UserTest</span> to
+  create another new <span class="PA">User</span> object referenced by <span class="PA">maria</span>, set its email address to
+  <span class="PA">ibs27@student.life.ac.uk</span>, retrieve the email address and print it out to
+  verify that the instance variable has been set as intended. </li>
+  <li>Another part of the state of a <span class="PA">User</span> object is held in its instance
+  variable <span class="PA">userID</span>. There are two associated methods, <span class="PA">setUserID</span> and <span class="PA">getUserID</span>,
+  which allow us to make use of this variable. Using these methods, write
+  statements that set the user ID of the object referenced by <span class="PA">maria</span> to
+  <span class="PA">&quot;W169073&quot;</span>, then retrieve the ID and print it out. </li>
+  <li>Add the statements:
+
+<pre>User testUser = new User();
+String testString = testUser.getUserID();
+System.out.println("The user ID address is " + testString);
+</pre>
+<p>What do you predict the output will be when these are executed, and why? Run
+the project to confirm your conjecture. </p></li>
+<li>What do you think will happen if following the statements
+above we add the line:
+<pre>testString.length();</pre>
+and then run the project? </li>
+</ol>
+
+<p>When you have tried to complete the tasks above to your satisfaction, you can
+see sample solutions in the project in the the Solution document file. </p>
+<h2>Instructions </h2>
+<p>Open the class <span class="PA">UserTest</span>, which contains the following sample statements: </p>
+<pre>
+String ema;
+User ivan;
+ivan = new User();
+ivan.setEmailAddress("ivan@nonsuch.com");
+ema = ivan.getEmailAddress();
+System.out.println("The email address is " + ema); </pre>
+<p>When this code is executed, the sequence of events is as follows, line by
+line. </p>
+<ol>
+  <li>A string reference <span class="PA">ema</span> is declared. </li>
+  <li>A variable <span class="PA">ivan</span> of type <span class="PA">User</span> is declared. </li>
+  <li>A <span class="PA">User</span> object is created and <span class="PA">ivan</span> is made to reference it. </li>
+  <li>The <span class="PA">setEmailAddress</span> method is invoked on the object, with the argument <span class="PA">&quot;ivan@nonsuch.com&quot;</span>.
+  This causes the object to set the corresponding instance variable to the given
+  value. </li>
+
+  <li>The <span class="PA">getEmailAddress</span> method is invoked on the <span class="PA">User</span> object. It returns the
+  value of the <span class="PA">emailAddress</span> variable of the object referenced by <span class="PA">ivan</span>, and
+  stores it in <span class="PA">ema</span>. </li>
+  <li>The email address is printed out. </li>
+</ol>
+<p>Based on this example, complete the tasks for this activity.</p>
+
+<H2>Notes</H2>
+<p>In this project we import from the package <span class="PA">user</span>. This will be explained later in this Unit and in Unit 5.</p>
+</body>
+
+</html>

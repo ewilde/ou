@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.4 - Providing the code for the class UserComputers</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.4 - Providing the code for the class <span class="PA">UserComputers</span></h1>
+<p>Here is our sample solution for the class <span class="PA">UserComputers</span>.</p>
+
+<pre>
+import java.util.HashMap;
+ 
+class UserComputers
+{
+   private HashMap&lt;String, String&gt; userTable;
+
+   public UserComputers(int capacity)
+   {
+      userTable = new HashMap&lt;String, String&gt;(capacity);
+   }
+
+   public void addLink(String userName, String computerName)
+   {
+      userTable.put(userName, computerName);
+   }
+
+   public String getComputer(String userName)
+   {
+      return userTable.get(userName);
+   }
+ 
+   public boolean isThereAUser(String userName)
+   {
+      return userTable.containsKey(userName);
+   }
+
+   public boolean isThereAComputer(String computerName)
+   {
+      return userTable.containsValue(computerName);
+   }
+}
+</pre>
+
+
+</body>
+
+</html>

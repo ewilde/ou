@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.3 - Using if statements</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+
+<h1>Discussion of Activity 2.3 - Using <span class="PA">if</span> statements</h1>
+
+
+<p>An example solution is shown below.
+The first condition checks to see if the user ID the user entered from the keyboard,
+stored in the variable <span class="PA">id</span>
+is the same as the value stored in the variable <span class="PA">userID</span>.
+If it is, we can check the entered <span class="PA">code</span> to see if it matches the stored
+<span class="PA"> registrationCode</span>. This second condition is tested by a nested
+<span class="PA">if</span>.
+</p>
+
+<p>We have taken the view that there is no need to check the registration code if the user ID was 
+incorrect, as the registration cannot be accepted.
+</p>
+
+<p>We have not shown code to allow the user to re-enter their details, as we have not yet 
+covered the programming structures you require to do this.
+</p>
+
+
+<pre>
+if (id == userID)
+{
+   if (code == registrationCode)
+   {
+      //Both correct!
+      System.out.println("Your registration is accepted.");
+   }
+   else
+   {
+      //The id was correct but then the code was wrong.
+      System.out.println("Sorry, your registration code was incorrect. Please try  again.");
+   }
+}
+else
+{
+   //The id was wrong.
+   System.out.println("Sorry, your userID was incorrect. Please try again.");
+}
+</pre>
+
+</body>
+
+</html>

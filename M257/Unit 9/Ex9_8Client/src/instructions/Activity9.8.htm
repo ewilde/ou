@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+<title>Activity 9.8 - Developing the full client-server name service</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.8 - Developing the full client-server name service</h1>
+<h2>Topic </h2>
+<p>
+In this activity we try out the name server discussed in section 8.1 of Unit 9,
+using the client code discussed in section 8.2.  This is similar to Activity 9.7
+except that we are using our own client code instead of the <span class="PA">telnet</span> client.
+</p>
+
+<h2>Materials </h2>
+<p>For this activity there are two separate projects, <span class="PA">Ex9_8Server</span> and <span class="PA">Ex9_8Client</span>.
+The instructions for this activity and the Solution document can be accessed
+from both projects.</p>
+<p><b>You should start from the server project if you have not already done this.</b>
+</p>
+
+<p>In addition to the Solution document, the server project
+for this exercise contains two classes, which are complete: </p>
+<ul class="LS">
+  <li><span class="PA">NameServer;</span></li>
+  <li><span class="PA">TestNameServer</span> which runs the server.</li>
+</ul>
+
+<p>In addition to the Solution document, the client project also contains
+two classes, which are complete: </p>
+<ul class="LS">
+  <li><span class="PA">NameClient;</span></li>
+  <li><span class="PA">TestNameClient</span> which runs the client.</li>
+</ul>
+<h2>Task</h2>
+<p>To use the <span class="PA">NameClient</span> class and the <span class="PA">NameServer</span> class
+and observe how they communicate. </p>
+
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>Open the project <span class="PA">Ex9_8Server</span> and run it, to start up the server.  You should get a message indicating that the
+server is starting up.  The server is set to listen on port 3000.</p>
+</li>
+<li>
+<p>Open the project <span class="PA">Ex9_8Client</span> and run it.  For this activity
+you do not need to be connected to the internet, since both the client and the
+server are running on the same computer.  In this case, the client has a
+graphical user interface (GUI).
+</p>
+</li>
+
+<li>
+<p>In the appropriate text box of the client GUI, enter a user name from those defined in
+the <span class="PA">NameServer</span> method <span class="PA">setUpNameDatabase</span>.
+Press the <span class="PA">Go</span> button to send the user name to the server.
+You should see a reply from the server in the other text box, indicating either
+the corresponding e-mail address or a message if the name cannot be found in the
+database.  You can continue entering a user name and receiving a reply as many times
+as you like.  To quit you click on the <span class="PA">Quit</span> button.  As in Activity 9.7,
+this will cause the client to terminate but not the server.
+</p>
+</li>
+<li>
+<p>
+The server continues running even after the client has terminated.  You can start up
+another client by running the project again and then send some more user names to the server.
+It should respond as before. Note that entering <span class="PA">Exit</span> as a username gives no response on the
+user interface, but does close the server connection stream.</p>
+<p>The server runs endlessly and can only be stopped by terminating it from NetBeans.
+    Don't forget to terminate all processes before moving on to something else.
+</p>
+</li>
+
+</ol>
+
+</body>
+
+</html>

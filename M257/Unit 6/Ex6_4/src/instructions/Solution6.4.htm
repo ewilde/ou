@@ -1,0 +1,100 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 6.4 - Constructing a frame containing a range of Swing components</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 6.4 - Constructing a frame containing a range of Swing components</h1>
+<h2>Sample solution </h2>
+<p>Code for class <span class="PA">SwingClass2</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+ 
+class SwingClass2 extends SwingClass
+{
+   public SwingClass2()
+   {
+      super();
+      // Add the menu bar and items.
+      JMenuBar mb = new JMenuBar();
+      JMenu m = new JMenu("Menu 1");
+      m.add(new JMenuItem("MenuItem 1"));
+      m.add(new JMenuItem("MenuItem 2"));
+      mb.add(m);
+      setJMenuBar(mb);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">SwingClass3</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+ 
+public class SwingClass3 extends SwingClass2
+{
+   private JTextArea ta;
+ 
+   public SwingClass3()
+   {
+      super();
+      // Set the layout model for the top panel.
+      topPanel.setLayout(new GridLayout(1,2));
+      // Create the text area.
+      ta = new JTextArea("TextArea",10,50);
+      // Create a JScrollPane around JTextArea.
+      JScrollPane scr = new JScrollPane(ta);
+      // Add the scrollable text area to the top panel.
+      topPanel.add(scr);
+      // Add the MyCanvas item.
+      topPanel.add(new MyCanvas());
+   }
+}
+</pre>
+<p>Code for class <span class="PA">MyCanvas</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+ 
+// The class MyCanvas is defined below.
+public class MyCanvas extends JPanel
+{
+   // We will learn more about graphics in
+   // the next unit.
+   public void paintComponent(Graphics g)
+   {
+      g.drawString("Canvas",20,20);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">SwingClass4</span>:</p>
+<pre>
+import java.awt.*;
+import javax.swing.*;
+ 
+class SwingClass4 extends SwingClass3
+{
+   public SwingClass4()
+   {
+      super();
+      // Add things at the bottom.
+
+      botPanel.add(new JTextField("TextField"));
+      botPanel.add(new JButton("Button"));
+      botPanel.add(new JCheckBox("Checkbox"));
+      JComboBox c = new JComboBox();
+      c.addItem("Choice Item 1");
+      c.addItem("Choice Item 2");
+      c.addItem("Choice Item 3");
+      botPanel.add(c);
+   }
+}
+</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<html>
+<head>
+
+
+<title>Activity 7.4 - Creating a coloured word game</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+
+</head>
+
+<body>
+
+<h1>Activity 7.4 - Creating a coloured word game</h1>
+<h2>Topic </h2>
+<p>This activity looks at fonts and colours. </p>
+
+<p>In the window below colours of the words don't match the colour names. Try to
+go quickly from top left to bottom right saying aloud what the colours of the
+words are (not what the <u>words</u> are, i.e. the first thing you should say is
+'red'). It's very difficult! </p>
+
+<p><img border=0 width=240 height=240
+src="Activity7.4_files/image001.jpg"
+alt= "A window with the words Red, Blue, Yellow and Green randomly ordered in a 3 by 4 grid.
+There are three instances of each word and each instance is displayed using one of the
+four colours but not its own colour. The background of the window is black."></p>
+
+<p>This is known as the <i>Stroop effect</i>, after its discoverer. Your task is to
+write a Java program to display such a window. </p>
+<h2>Task </h2>
+<p>We want you to write the program so that each word occupies a separate panel
+of its own and the panels are then arranged on the content pane of a frame, in a
+grid layout. </p>
+<p>A panel will have two attributes, colour and word, and when it is made
+visible it will display the given word using the given colour. </p>
+<p>When the enclosing frame is made visible the panels it holds will
+automatically be displayed as well, and so the coloured words will appear.</p>
+<h2>Instructions </h2>
+<ol>
+<li><p>Create a new project <span class="PA">MyEx7_4</span> in the Unit 7 folder, naming the main class <span class="PA">myex7_4.CrazyColorsTest</span>.</p></li>
+
+<li><p>Add a class <span class="PA">ColorPanel</span> to the current project. This class should have two instance
+variables to represent the colour and the word, and a two-argument constructor
+<span class="PA">ColorPanel(Color c, String s)</span> that sets these attributes.
+The <span class="PA">paint</span> method in
+<span class="PA">ColorPanel</span> should set the current graphics colour using the colour attribute of
+the panel, set the current font to 18-point bold serif, then use the method
+<span class="PA">drawString(String,int,int)</span>to display the word. The two int arguments determine
+where on the panel the word will be displayed; you will probably need to
+experiment with the numbers to get the position right. </p></li>
+<li><p>Next add a class <span class="PA">CrazyColors</span> that extends <span class="PA">JFrame</span>.
+Its constructor should set
+the title, size and so on in the usual way, then get the content pane and set it
+to a grid layout. </p>
+<p>The constructor should then create 12 instances of <span class="PA">ColorPanel</span>, with suitable
+colours and words for demonstrating the <i>Stroop effect</i>, and add them to the
+content pane. However for testing purposes we suggest you create only one panel
+to start with, adding the others later once you know a panel displays correctly.
+</p></li>
+<li><p>Finally complete <span class="PA">CrazyColorsTest</span> so it creates an instance of <span class="PA">CrazyColors</span> and makes it visible. Run your program to test it. </p></li></ol>
+<p>For our sample solutions see classes <span class="PA">ColorPanel</span>,
+<span class="PA">CrazyColors</span> and <span class="PA">CrazyColorsTest</span> in the Solution file.</p>
+</body>
+
+</html>

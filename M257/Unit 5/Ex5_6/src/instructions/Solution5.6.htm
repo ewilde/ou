@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.6 - E-commerce class hierarchy with abstract classes</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.6 - E-commerce class hierarchy with abstract classes</h1>
+<p>
+Here is our sample solution for the class <span class="PA">Bill</span>. </p>
+<pre>
+import java.util.*;
+
+public class Bill
+{
+   private List&lt;Item&gt; itemList;
+
+   public Bill()
+   {
+      itemList = new ArrayList&lt;Item&gt;();
+   }
+
+   public void addItem(Item item)
+   {
+      itemList.add(item);
+   }
+
+   public void removeItem(Item item)
+   {
+      itemList.remove(item);
+   }
+
+   public void printBill()
+   {
+      int totalAmount = 0;
+      Item item = null;
+      for (int i = 0; i &lt; itemList.size(); i++)
+      {
+         item = itemList.get(i);
+         totalAmount = totalAmount + item.getUnitPrice();
+         System.out.println("Item " + (i + 1) + ": " + 
+            item.getItemName() + " cost " + item.getUnitPrice());
+      }
+      System.out.println("Total amount: " + totalAmount +
+         "\n\nThank you for visiting us.  Please come again.");
+   }
+}</pre>
+
+</body>
+
+</html>

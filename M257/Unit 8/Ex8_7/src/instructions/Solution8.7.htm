@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 8.7 - Testing the storage tank</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 8.7 - Testing the storage tank</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">StorageTank</span>:</p>
+<pre>
+public class StorageTank
+{
+   private int capacity;
+   private int contents;
+
+   public StorageTank(int cap)
+   {
+      capacity = cap;
+   }
+
+   public synchronized void in() throws Exception
+   {
+      while (contents == capacity)  // If the tank is full then wait.
+      {
+         wait();
+      }
+
+      contents++;
+      System.out.println("One unit added - contents now " + contents);
+      notifyAll(); // Signal that the state of the tank has changed.
+   }
+
+   public synchronized void out() throws Exception
+   {
+      while (contents == 0) // If the tank is empty then wait.
+      {
+         wait();
+      }
+
+      contents--;
+      System.out.println("One unit subtracted - contents now " + contents);
+      notifyAll(); // Signal that the state of the tank has changed.
+   }
+}
+</pre>
+
+
+</body>
+
+</html>

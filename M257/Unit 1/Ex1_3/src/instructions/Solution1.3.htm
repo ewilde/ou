@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 1.3 - Using inheritance with a MagicRobot</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 1.3 - Using inheritance with a <span class="PA">MagicRobot</span></h1>
+<h2>Sample solution</h2>
+<pre>
+public class TestRobot
+{
+   public static void main(String[] args)
+   {
+      // Declare a variable to reference a Robot
+      Robot meetoo;
+      // Create a Robot object
+      meetoo = new Robot(7,7);  // Initially at x=7, y=7
+      System.out.println("Initially meetoo is at " + meetoo.getPosition());
+      // Move the Robot named meetoo to the position x =5 and y =3
+      meetoo.moveTo(5,3);
+      System.out.println("Now meetoo is at " + meetoo.getPosition());
+      // Declare a variable to reference a magic robot
+      MagicRobot gandalf;
+      // Create new robot object
+      gandalf = new MagicRobot();
+      System.out.println("Initially gandalf is at " + gandalf.getPosition() +
+                         " and is visible: "        + gandalf.isVisible());
+      gandalf.makeVisible();
+      gandalf.moveNorth();
+      gandalf.moveNorth();
+      System.out.println("Now gandalf is at " + gandalf.getPosition() +
+                         " and is visible: "  + gandalf.isVisible());
+      gandalf.makeInvisible();
+      gandalf.moveTo(3,3);
+      System.out.println("Now gandalf is at " + gandalf.getPosition() +
+                         " and is visible: "  + gandalf.isVisible());
+   }
+}
+</pre>
+<p>The expected output will be:</p>
+<pre>Initially meetoo is at (7, 7)
+Now meetoo is at (5, 3)
+Initially gandalf is at (1, 1) and is visible: false
+Now gandalf is at (1, 3) and is visible: true
+Now gandalf is at (3, 3) and is visible: false
+</pre>
+<p>
+Clearly this is not a very elegant way of indicating the visibility of a
+<span class="PA">MagicRobot</span> object. We would really like to say
+<span class="PA">"and is (not) visible"</span> but
+we have not yet encountered the necessary Java constructs to do this. If
+you already know some Java or similar languages, you may well have done this in
+a more appropriate way.</p>
+
+</body>
+
+</html>

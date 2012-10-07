@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.2 - Experimenting with strings and concatenation</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.2 - Experimenting with strings and concatenation</h1>
+<p>
+Here is an example solution <span class="PA">output</span> method. We have created two strings
+referenced by the variables <span class="PA">printout1</span> and <span class="PA">printout2</span>. The <span class="PA">println</span> statements
+print the strings referenced by those variables. Notice how the quotation
+marks in the second and third lines of output needed to be formed using an
+escape sequence <span class="PA">(\&quot;)</span>. We also included two newline characters to start output on
+a new line where necessary. The newline character is also formed by an escape
+sequence <span class="PA">(\n)</span>.</p>
+<pre>public void output()
+{
+   String name1 = "Sherlock Holmes";
+   String name2 = "Dr. Watson";
+   String number = "221B";
+   String street = "Baker Street.";
+   String printout1; //first line of output
+   String printout2; //remaining lines of output
+   printout1 = name1 + " and " + name2 + " lived at No. " +
+               number + ", " + street;
+   System.out.println(printout1);
+   printout2 = "\"ABC,\ndouble-XYZ,\"\nshe recited.";
+   System.out.println(printout2);
+}</pre>
+
+</body>
+
+</html>

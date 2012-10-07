@@ -1,0 +1,108 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 1.4 - Robot world - inheritance, overriding and overloading</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 1.4 - Robot world - inheritance, overriding and overloading</h1>
+<h2>Sample solution</h2>
+<p>New code for class <span class="PA">SpeedRobot</span>:</p><pre>
+// New version, OVERRIDING previous methods
+public void moveNorth()
+{
+   setY(getY() + getSpeed());
+}
+
+public void moveSouth()
+{
+  setY(getY() - getSpeed());
+}
+
+public void moveEast()
+{
+  setX(getX() + getSpeed());
+}
+
+public void moveWest()
+{
+   setX(getX() - getSpeed());
+}
+</pre>
+
+<p>New code for class <span class="PA">VariableSpeedRobot</span>:</p>
+<pre>
+// Define OVERLOADED methods - not OVERRIDING
+public void moveNorth(int theSpeed)
+{
+    setY(getY() + theSpeed);
+}
+
+public void moveSouth(int theSpeed)
+{
+   setY(getY() - theSpeed);
+}
+
+public void moveEast(int theSpeed)
+{
+   setX(getX() + theSpeed);
+}
+
+public void moveWest(int theSpeed)
+{
+   setX(getX() - theSpeed);
+}
+</pre>
+
+<p>The text output should look like this:</p>
+<pre>
+Initially artoo  is at (1, 1)
+Initially deetoo is at (2, 5)
+Initially meetoo is at (7, 7)
+Now artoo  is at (1, 2)
+Now deetoo is at (3, 4)
+Now meetoo is at (5, 3)
+Initially gandalf is at (1, 1) and is visible: false
+Initially gonzales is at (1, 1)
+Initially sillyWalker is at (1, 1)
+Now gandalf is at (1, 4) and is visible: true
+Now gonzales is at (6, 6)
+Now sillyWalker is at (1, 8) </pre>
+<p>The graphical output should show, for each robot, an image corresponding to the
+robot's type and the name referencing each particular robot.
+It should show each robot object being created and then its position as it
+moves around the grid - only one move takes place at a time. The
+magic robot should be invisible most of the time, but its name is visible
+even when its image is not, so you can still track its progress. Unlike the
+text output, which just indicates the starting and final states of each robot, the
+graphical output shows each individual move.</p>
+<img border=0 width=575 height=530
+src="Solution1.4_files/image001.jpg"
+alt = "A figure showing an 8 by 8 grid, with pictures of various
+robots shown in different locations on the grid. The locations are
+as given in the text output.">
+<p><i>Figure 1 - The expected final state of the Robot Grid</i></p>
+<p>Check that the behaviour of the <span class="PA">SpeedRobot</span> and
+the <span class="PA">VariableSpeedRobot</span> are as you would expect from
+their definitions (in the course text).</p>
+<p>
+You may find that the speed of the graphical display is too fast or too slow for comfort - it
+may depend on how fast your computer can draw the grid and the robot images. You can adjust
+this by adding a statement to the <span class="PA">main</span> method, invoking
+the <span class="PA">setDelayTime</span> method of the grid class. This sets the
+delay (measured in tenths of a second) between the display of each move, for example:</p>
+
+<pre>
+grid.setDelayTime(2); // delay for 0.2 seconds</pre>
+
+<p>
+The best place to insert this is just after the statement that creates the <span class="PA">Grid</span> object.
+Setting the delay time to zero will make the graphical display move very quickly towards displaying only the final state of each robot, as shown in Figure 1 above.
+</p>
+
+</body>
+
+</html>

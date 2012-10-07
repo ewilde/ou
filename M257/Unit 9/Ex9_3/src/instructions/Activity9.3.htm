@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<title>Activity 9.3 - Ping-ing a website</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 9.3 - <span class="PA">Ping</span>-ing a website</h1>
+<h2>Topic </h2>
+<p>In this activity we use a test program called <span class="PA">ping</span> to
+make contact with some web sites and investigate their internet addresses.
+We also use a small Java program to find out the host name and internet
+address of our own computer.
+</p>
+
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this exercise contains one class, which is complete: </p>
+<ul class="LS">
+  <li><span class="PA">HostNameFinder.</span></li>
+
+</ul>
+<h2>Task</h2>
+<p>You are to make contact with various websites using the ping program. Then you are to run the <span class="PA">HostNameFinder</span> class to discover the symbolic name of your own computer and use it to ping yourself.
+</p>
+<h2>Instructions </h2>
+<ol>
+<li>
+<p>You will need to be connected to the Internet before you begin.
+Open a Command Prompt window.
+(On Windows you would typically do this by clicking Start, then Programs, Accessories,
+Command Prompt, but the exact details may vary depending on your operating system.)
+At the prompt type <pre>
+ping www.google.co.uk</pre></p>
+<p>and then press enter. You should see that four packets of data have been sent to the remote web server,
+and with luck four replies have been received!
+</p>
+
+<p>You should see that <span class="PA">ping</span> reports some statistics for the time taken for the data
+to get there and back.  Notice also that it has found out the numerical IP address
+corresponding to the symbolic name <span class="PA">www.google.co.uk</span>.
+If you now try pinging this IP address instead of the name you should find that it works exactly the same as the symbolic equivalent.
+You may also find that when you <span class="PA">ping</span> a particular name the request is actually redirected to a different name.  This is quite common.
+</p>
+</li>
+<li>
+<p>At this point you may like to try pinging some other sites
+and seeing how long the round trip takes. The <span class="PA">ping</span> may not always work;
+sometimes a request can time out.  Some sites do not respond to <span class="PA">ping</span> messages.
+</p>
+</li>
+
+<li>
+<p>Run the project containing the class <span class="PA">HostNameFinder</span>.  The output will display a symbolic name for your computer.
+Now try pinging yourself, by entering <span class="PA">ping</span> followed by the name you have just found, at the command prompt.
+You should find that the return trip takes very little time!
+You will also be able to discover your own numerical IP address
+(and you can try pinging that if you want!)
+</p>
+</li>
+
+</ol>
+
+<h2>Note</h2>
+<p>With some internet connections if the connection is active the name returned by <span class="PA">HostNameFinder</span> does not work and the ping program reports that the request has timed out. If this happens the simplest thing is to ping the symbolic name <span class="PA">localhost</span> instead.</p>
+
+</body>
+
+</html>

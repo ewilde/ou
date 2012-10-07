@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+<title>Activity 10.5 - Using high level interfaces</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 10.5 - Using high level interfaces</h1>
+<h2>Topic </h2>
+<p>This Activity allows you to develop a MIDlet which contains a high level user interface.</p>
+<h2>Materials </h2>
+<p>You will be using the MIDlets <span class="PA">TextBoxExample</span> and <span class="PA">Resources</span> from Unit 10.</p>
+<p>The code of class <span class="PA">TextBoxExample</span> has been added as a text file to this project
+for you to amend.
+</p>
+
+<h2>Task </h2>
+<p>You are going to follow the steps taken in the last activity to create a new project containing your MIDlet.
+You will develop your MIDlet from the <span class="PA">TextBoxExample</span> MIDlet in the unit.</p>
+<p>The new MIDlet will have an extra option to the three given in the unit. This option will be called LOGO and it will
+put a standard message onto the ticker. This message will be stored as a text file - <span class="PA">LogoFile.txt</span> - in the <span class="PA">res</span>
+folder of the MIDlet.</p>
+<p>The advantage of storing the text in the <span class="PA">res </span>folder is that it is easy to change
+the text without having to re-compile the MIDlet itself.</p>
+
+<h2>Instructions </h2>
+<ol>
+  <li><p>Follow the instructions from Activity 4 to create a new project and MIDlet called <span class="PA">TextBoxExample</span>. The package should be named <span class="PA">textboxexample</span>. You can copy the code for the MIDlet from the text file <span class="PA">TextBoxExample.txt</span> provided with this project.
+</p>
+  </li>
+  <li><p>Compile and run the project.</p>
+  </li>
+  <li><p>Now add an extra option to the menu called LOGO. Initially, the text to be used in the
+  ticker should be from a string variable called <span class="PA">logo</span> and should have
+  the text - "The Open University".
+  Re-compile and run.</p>
+  </li>
+  <li><p>Now adapt the new code, which you have just entered so that the text is taken from a file
+  called <span class="PA">logoFile</span> which contains the same text as <span class="PA">logo</span>,
+  stored in the <span class="PA">res</span> folder. You should consult the code for the
+  <span class="PA">Resources</span> MIDlet to see how to modify the code.</p>
+  </li>
+<li>
+<p>Now we need to create the res folder and the text file containing the message. Right-click on the project node and select <span class="PA">New|Java Package...</span> Name the package <span class="PA">res</span> and click Finish. The new package should appear in the Projects window. This package represents the folder into which the text file must go. One way to do it is go into Windows, create the text file <span class="PA">logoFile.txt</span> (note the file name is case-sensitive) and paste it directly into the <span class="PA">res</span> folder, which you will find inside the <span class="PA">src</span> folder for the <span class="PA">TextBoxExample</span> project.</p> 
+
+<p>Alternatively you can right-click on the <span class="PA">res</span> node in the Projects window, select <span class="PA">New|Empty File...</span> and the <span class="PA">New Empty File</span> wizard will appear. (If you cannot see the <span class="PA">Empty File...</span> option on the menu, select <span class="PA">New|File/Folder...</span> and the <span class="PA">New File</span> wizard will appear.  Select <span class="PA">Other</span> under <span class="PA">Categories:</span> and <span class="PA">Empty File</span> under <span class="PA">File Types:</span> then click <span class="PA">Next</span>.) Name the file <span class="PA">logoFile.txt</span>. This will open an empty file in the Edit window and you can type in the text, then save it using <span class="PA">File|Save</span> or Ctrl+S.</p>
+
+</li>
+<li><p>Re-compile and run the modified project.</p></li>
+</ol>
+
+</body>
+
+</html>

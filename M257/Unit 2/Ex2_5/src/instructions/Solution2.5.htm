@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 2.5 - Using arrays</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 2.5 - Using arrays</h1>
+<p>Here is an example solution <span class="PA">selectAPlanet</span> method. We have commented the
+places where we have made changes.
+</p>
+<pre>
+public void selectAPlanet()
+{
+   // We modified the array to add Pluto in ninth position from the Sun
+   // (Its index in the array is 8, which is planets.length)
+
+   String[] planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter",
+                       "Saturn", "Uranus", "Neptune",<span class="highlight">"Pluto"</span>};
+
+   System.out.println("THE SOLAR SYSTEM");
+   Scanner scn = new Scanner(System.in);
+
+   /* notice that the following statement still works,
+    * because it did not assume a particular length of the planets array
+    */
+   System.out.println("Which number planet do you choose(1 - " + planets.length + ")?");
+
+   System.out.println("Type your choice and press ENTER.");
+
+   int choice = scn.nextInt();
+
+   // We added a check that the choice was not beyond the length of the array
+   if (choice &lt; 1 <span class="highlight">|| choice &gt; planets.length</span>)
+   {
+      System.out.println("Sorry, there is no such planet.");
+   }
+   else
+   /* We concatenated the name of the planet to the output string,
+    * adjusting the choice number to the index position of the chosen
+    * planet in the array
+    */
+   {
+      System.out.println("Your chosen planet was " <span class="highlight"> + planets[choice - 1] + "."</span>);
+   }
+}
+
+</pre>
+
+</body>
+
+</html>

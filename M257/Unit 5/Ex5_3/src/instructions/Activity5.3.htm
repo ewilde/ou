@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+<title>Activity 5.3 - Completing the coding of the LinkingInfo class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 5.3 - Completing the coding of the <span class="PA">LinkingInfo</span> class</h1>
+<h2>Topic </h2>
+<p>This activity uses the <span class="PA">ArrayList</span> class. </p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains three classes: </p>
+<ul>
+  <li><span class="PA">ComputerErrorException</span>, a user-defined exception class already written;</li>
+<li><span class="PA">LinkingInfo</span>, which has two incomplete methods;
+  </li>
+  
+  <li><span class="PA">LinkingInfoTest</span> which contains test code. </li>
+</ul>
+<h2>Task </h2>
+<p>An instance of <span class="PA">LinkingInfo</span> contains the name of a computer on a local
+network, together with the names of all the computers to which it is linked. The
+names of the linked computers are held in an <span class="PA">ArrayList</span>
+instance. </p>
+<p>The class has the following methods: </p>
+<ul>
+<li class="PA">String getComputerName()
+  <p>returns the name of the computer. </p>
+</li>
+
+<li class="PA">int getNumberOfLinks()
+ <p>returns the number of computers that are linked to the first computer.
+  </p></li>
+
+<li class = "PA">boolean isLinked(String comp1)
+
+  <p>returns <span class="PA">true</span> if the computer <span class="PA">comp1</span> is linked to the computer documented by
+  this object, otherwise it returns <span class="PA">false</span>. </p></li>
+
+<li class="PA">void addComputer(String comp1)
+
+  <p>adds the name of computer <span class="PA">comp1</span> to the list of
+linked computers. If the name is already in the list a <span class="PA">ComputerErrorException</span>
+exception is thrown with the message &quot;Computer XXX already in links&quot;.
+  </p></li>
+
+<li class="PA">void removeComputer(String comp1)
+
+  <p>removes the computer named <span class="PA">comp1</span> from the
+list of linked computers. If the name is not in the list a <span class="PA">ComputerErrorException</span> exception is thrown with the message &quot;Computer XXX not in
+links&quot;. </p></li>
+
+<li class="PA">void listLinkedComputers()
+  <p>prints a list of the linked computers. </p></li>
+</ul>
+<p>The methods for adding and removing names are incomplete. Your job is to
+write these methods as specified above. </p>
+<h2>Instructions
+</h2>
+
+<p>Open <span class="PA">LinkingInfo</span> and complete the methods <span class="PA">addComputer</span> and
+<span class="PA">removeComputer</span> in the places indicated.
+</p>
+
+<p>Run the project, and check that the output is as you expected</p>
+
+</body>
+
+</html>

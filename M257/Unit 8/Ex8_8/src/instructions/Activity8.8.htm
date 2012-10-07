@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Activity 8.8 - Testing the three game players</title>
+  <link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+<body>
+<h1>Activity 8.8 - Testing the three game players</h1>
+<h2>Topic </h2>
+<p>This activity allows you to explore the difference between <span
+ class="PA">notify</span> and
+<span class="PA">notifyAll</span>. </p>
+<h2>Materials </h2>
+<p>We have provided a program consisting of the following classes: </p>
+<ul>
+  <li><span class="PA">BoardGame</span>, which has a single method
+simulating the rolling of a pair of dice; </li>
+  <li><span class="PA">Player</span>, which extends <span class="PA">Thread</span>
+and simulates a person playing the game; </li>
+  <li><span class="PA">TestBoardGame</span>, which creates a game and
+three players, and starts the player threads off. </li>
+</ul>
+<h2>Task </h2>
+<p>The program has been written so that the three players must take
+turns to
+roll the dice in strict rotation </p>
+<p>player 1, player 2, player 3, player 1, player 2, player 3,...</p>
+<p>This is achieved by synchronization code which uses <span class="PA">wait</span>
+and <span class="PA">notifyAll</span>. The
+purpose of the activity is to investigate the effects of making various
+changes to
+this code. The two main conclusions to be drawn are given in the notes
+at the
+end of the activity. </p>
+<h2>Instructions </h2>
+<ol>
+  <li>
+    <p>Compile and run the program. You should find
+that the players always follow the specified order, e.g. </p>
+    <pre>Player 1 scores 9<br>Player 2 scores 3<br>Player 3 scores 7<br>Player 1 scores 10<br>Player 2 scores 3<br>Player 3 scores 6<br>etc.</pre>
+    <p>When every player has had 100 goes the program finishes. </p>
+  </li>
+  <li>
+    <p>First try changing <span class="PA">notifyAll</span> to <span
+ class="PA">notify</span>
+in the <span class="PA">rollDice</span> method
+of <span class="PA">BoardGame</span>. Now when the program is executed
+it is possible for all three
+threads to become simultaneously blocked, in a similar way to the
+example of the
+three trains discussed in the unit. This may not occur on every run,
+and
+you may need to execute the program a number of times before
+you see it
+happen. </p>
+    <p>When all the threads become blocked the program will still be
+executing and
+you will need to stop it. </p>
+  </li>
+  <li>
+    <p>Change <span class="PA">notify</span> back to <span class="PA">notifyAll</span>.
+Now alter the statement</p>
+    <p class="PS">while (turn != playerID) </p>
+    <p>in <span class="PA">rollDice</span> so that it reads </p>
+    <p class="PS">if (turn != playerID) </p>
+    <p>Re-run the program and observe what happens. The sequence is
+quite erratic,
+e.g. </p>
+    <pre>Player 1 scores 9<br>Player 2 scores 6<br>Player 1 scores 4<br>Player 1 scores 4<br>Player 2 scores 8<br>Player 1 scores 8<br>etc</pre>
+    <p>What's happening here? The explanation is this. The statement</p>
+    <p class="PS">if (turn != playerID) </p>
+    <p>checks to see if the thread is attempting to go out of turn. If
+so, the
+thread is blocked. But then later, when another thread calls <span
+ class="PA">notify</span>
+or <span class="PA">notifyAll</span>,
+the blocked thread may become runnable again. It will then resume
+running at the
+point immediately following <span class="PA">wait</span>. The
+condition <span class="PA">(turn != playerID)</span> is not
+checked again. So the thread that has just been woken up will carry
+happily on,
+oblivious to whether it is going out of turn or not! </p>
+    <p>But when we use </p>
+    <p class="PS">while (turn != playerID) </p>
+    <p>then the call to <span class="PA">wait</span> is inside the
+loop body. So when the thread resumes the
+condition is re-tested, and if it is still not appropriate for this
+particular
+thread to proceed it will block again. </p>
+    <p>In fact threads should always re-test the condition, because
+even in cases
+where it would be safe for a thread to proceed at the moment when it is
+woken
+up, the scheduler may perfectly well allow another thread to run first.
+This
+other thread can change the data, so that by the time the newly-woken
+thread
+runs it may no longer be safe for it to continue after all. </p>
+    <p>You may have noticed earlier when you experimented with using <span
+ class="PA">if</span> instead of
+    <span class="PA">while</span> that the program sometimes froze
+before all the threads had completed
+their 100 goes. </p>
+    <p>This happens when one of the threads finishes before the others.
+Suppose it
+is player 1. Players 2 and 3 are left running on their own. At some
+future point
+it may happen that <span class="PA">turn</span> gets set to 1, and
+both player 2 and player 3 test that
+value and block. Since there are no other threads running there is no
+way <span class="PA">notify</span>
+can be called, and players 2 and 3 will never be released. </p>
+  </li>
+</ol>
+<h2>Notes </h2>
+<ul>
+  <li>When testing to see if a thread should be blocked, we should
+always use <span class="PA">while
+(condition)</span> rather than <span class="PA">if (condition)</span>,
+so that when a blocked thread is made
+runnable again it re-checks the condition before proceeding; </li>
+  <li>We should normally use <span class="PA">notifyAll</span>, which
+will always guarantee that among the woken up threads will be right
+thread. Only use <span class="PA">notify</span> where there is a very
+specific
+reason for only waking up just one thread, and it is not possible for
+this thread to be caught up in testing
+some condition which will make it blocked again, thus not giving other
+threads a chance to run. </li>
+</ul>
+<p>It's possible to end up with unterminated threads here if your code
+doesn't work as planned.&nbsp; Don't forget to stop any threads before
+moving on to another activity! There are several ways to do this. One
+is to use the 'run' bar at the bottom of the NetBeans IDE, below the
+editorand to click on the 'x' symbol next to the bar, as shown in the
+following screen shot: </p>
+<p><img style="width: 288px; height: 59px;"
+ alt="Click on the 'x' to stop the run" src="stopRun.png"><br>
+</p>
+<p>Another way to stop a build or a run of a program is using the <code>Run</code>
+menu and the <code>Stop Build/Run</code> option. <br>
+</p>
+<p>If these methods fail, your best option is to kill the java.exe
+process using your task or process manager. (You run the risk of
+terminating something you did not intend to if there are several java
+processes running.)<br>
+<br>
+</p>
+</body>
+</html>

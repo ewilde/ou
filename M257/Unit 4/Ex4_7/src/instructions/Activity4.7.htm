@@ -1,0 +1,47 @@
+<html>
+
+<head>
+
+<title>Activity 4.7 - Defensive programming</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Activity 4.7 - Defensive programming</h1>
+<h2>Topic </h2>
+<p>In this activity we explore the use of <b>defensive programming</b> techniques as a
+way of preventing run-time exceptions.</p>
+<h2>Materials </h2>
+<p>In addition to the Solution document, the project
+for this activity contains two classes: </p>
+<ul>
+  <li><span class="PA">FixedSizeQueue</span>, which is an incomplete, partial implementation of a very
+  simple queue of integers. It is a partial implementation because it only
+  permits items to be added to the queue, not removed. This is not very
+  practical, but is enough to demonstrate the defensive programming techniques
+  we are interested in here. </li>
+  <li><span class="PA">Main</span>, which, as usual, contains test code. </li>
+</ul>
+<h2>Task </h2>
+<p>The <span class="PA">FixedSizeQueue</span> class supplied does not have any protection against an
+attempt to add an item when the queue is already full. At this stage, it also
+will not compile. </p>
+<h2>Instructions</h2>
+<ol>
+<li>In the class <span class="PA">FixedSizeQueue</span> complete the helper
+method <span class="PA">isFull</span> and
+modify the <span class="PA">add</span> method, so as to prevent an attempt to add an
+item when the queue is full. You should not need to change the test program in
+class <span class="PA">Main</span>. <br><br>When you have made these changes, run the project. You should get a message,
+indicating that the attempt to add too many items has been prevented. <br><br></li>
+
+<li>Now remove the changes to the <span class="PA">add</span> method (commenting them out may be the
+best approach) but leave the code you added to the <span class="PA">isFull</span> method. Run the
+project again. What happens this time?</li>
+
+</ol>
+
+</body>
+
+</html>

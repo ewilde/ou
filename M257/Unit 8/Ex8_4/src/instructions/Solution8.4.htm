@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 8.4 - Running the GoodThread and the BadThread</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 8.4 - Running the <span class="PA">GoodThread</span> and the <span class="PA">BadThread</span></h1>
+<h2>Sample solution </h2>
+
+<p>Code for class <span class="PA">BankAccount:</span></p>
+<pre>
+public class BankAccount
+{
+   private int balance = 0;
+   public synchronized void methodA()
+   {
+      System.out.println("Entering A - the balance is " +  balance);
+      balance++;
+      delay(50);
+      balance--;
+      System.out.println("Exiting A");
+   }
+
+   public synchronized void methodB()  // This method is now synchronized!
+   {
+      System.out.println("Entering B  - the balance is " + balance);
+      balance++;
+      delay(50);
+      balance--;
+      System.out.println("Exiting B");
+   }
+
+   private void delay(int n)
+   {
+      try
+      {
+         Thread.sleep(n);
+      }
+      catch(Exception e)
+      {
+         System.out.println(e);
+      }
+   }
+}
+
+</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 5.3 - Completing the coding of the LinkingInfo class</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 5.3 - Completing the coding of the <span class="PA">LinkingInfo</span> class</h1>
+<p><br>
+Here is our sample solution for the class <span class="PA">LinkingInfo</span>:</p>
+<pre>
+import java.util.ArrayList;
+ 
+public class LinkingInfo
+{
+   private String computer;
+   private ArrayList<String> linkedComputers;
+
+   public LinkingInfo(String computerName, int capacity)
+   {
+      linkedComputers = new ArrayList<String>(capacity);
+      computer = computerName;
+   }
+
+   public LinkingInfo(String computerName)
+   {
+      linkedComputers = new ArrayList<String>();
+      computer = computerName;
+   }
+
+   public String getComputerName()
+   {
+      return computer;
+   }
+
+   public int getNumberOfLinks()
+   {
+      return linkedComputers.size();
+   }
+ 
+   public boolean isLinked(String comp1)
+   {
+      return linkedComputers.contains(comp1);
+   }
+
+   public void addComputer(String comp1)
+      throws ComputerErrorException
+   {
+      if (!this.isLinked(comp1))
+      {
+         linkedComputers.add(comp1);
+      }
+      else
+      {
+         throw new ComputerErrorException("Computer " + comp1 + " already in links.");
+      }
+   }
+
+   public void removeComputer(String comp1)
+      throws ComputerErrorException
+   {
+      if (this.isLinked(comp1))
+      {
+         linkedComputers.remove(comp1);
+      }
+      else
+      {
+         throw new ComputerErrorException("Computer " + comp1 + " not in links.");
+      }
+   }
+
+   public void listLinkedComputers()
+   // Method to print a list of linked computers.
+   {
+      System.out.println("Computers linked to node " + this.getComputerName() + ":");
+      for (int i = 0; i < this.getNumberOfLinks(); i++)
+      {
+         System.out.println(linkedComputers.get(i));
+      }
+      System.out.println("End of list.");
+      System.out.println();
+   }
+}
+</pre>
+
+</body>
+
+</html>

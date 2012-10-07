@@ -1,0 +1,93 @@
+<html>
+
+<head>
+
+<title>Discussion of Activity 6.3 - Simulating a control panel in a lift</title>
+<link rel="stylesheet" type="text/css" href="../../../../m257.css">
+</head>
+
+<body>
+
+<h1>Discussion of Activity 6.3 - Simulating a control panel in a lift</h1>
+<h2>Sample solution</h2>
+<p>Code for class <span class="PA">LiftButtonFrame</span>:</p>
+<pre>import java.awt.*;
+import javax.swing.*;
+
+public class LiftButtonFrame extends JFrame
+{
+   private JPanel top;
+   private JPanel middle;
+   private JPanel bottom;
+   private JButton open;
+   private JButton close;
+   private JButton alarm;
+   private JButton ground;
+   private JButton first;
+   private JButton second;
+   private JButton third;
+   private JTextField directionIndicator;
+   private JTextField floorIndicator;
+
+   public LiftButtonFrame(String title)
+   {
+      setTitle(title);
+      setSize(200,240);
+      setLocation(200,200);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // Construct the panels.
+      top = new JPanel();
+      middle = new JPanel();
+      bottom = new JPanel();
+      middle.setLayout(new GridLayout(2,2));
+
+      //  Construct the buttons and text fields.
+      open = new JButton("&lt; &gt;");
+      close = new JButton("&gt; &lt;");
+      alarm = new JButton("alarm");
+      ground = new JButton("G");
+      first = new JButton("1");
+      second = new JButton("2");
+      third = new JButton("3");
+      directionIndicator = new JTextField(4);
+      floorIndicator = new JTextField(2);
+
+      // Populate the panels.
+      top.add(directionIndicator);
+      top.add(floorIndicator);
+      top.add(alarm);
+      middle.add(third);
+      middle.add(second);
+      middle.add(ground);
+      middle.add(first);
+      bottom.add(open);
+      bottom.add(close);
+
+      // Get the content pane of the frame.
+      Container cp = getContentPane();
+      // Set its layout, then add the panels.
+      cp.setLayout(new GridLayout(3,1));
+      cp.add(top);
+      cp.add(middle);
+      cp.add(bottom);
+   }
+}
+</pre>
+<p>Code for class <span class="PA">LiftButtonFrameTest</span>:</p>
+<pre>public class LiftButtonFrameTest
+{
+   public LiftButtonFrameTest()
+   {
+   }
+
+   public static void main(String[] args)
+   {
+      LiftButtonFrame lbf = new LiftButtonFrame("Lift controls");
+      lbf.setVisible(true);
+   }
+}</pre>
+
+</body>
+
+</html>
