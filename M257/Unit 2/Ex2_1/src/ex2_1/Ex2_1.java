@@ -36,7 +36,7 @@ public class Ex2_1
        * Your target is to achieve a value greater than 3000!
        */
 
-      result = ((A + B) - (C * D)) / E;
+      result = ((A + B) - C) * (D / E);
 
       // The following statement produces the program output
       // including the value stored in the result variable

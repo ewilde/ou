@@ -24,12 +24,21 @@ public class Ex2_4
        *  in the expressions so that each will evaluate to true.
        */
 
-      p = (A < C) && D;
+      p = (A > C) && D;
+      q = (A == B + C) || (B == C);
+      r = (4 <= C) && (A != 16);
+      s = !D || ((A != B) && (4 >= C));
+      t = !((A != B) && (B < C));
+      u = p || ((B == (A - C)) || !D);
+
+      /*
+       *   p = (A < C) && D;
       q = (A != B + C) || (B == C);
       r = (4 < C) && (A != 16);
       s = !D && ((A != B) && (4 >= C));
       t = !((A != B) && (B > C));
       u = p && ((B == (A - C)) || !D);
+       */
 
       System.out.println("The value of p is " + p);
       System.out.println("The value of q is " + q);

@@ -15,12 +15,10 @@ public class Ex2_6
    {
       System.out.println("First task: counting down from " + startingValue + ".");
 
-      /* Insert suitable loop control expressions.
-      for ()
+      for (int i = startingValue; i >= 0; i--)
       {
-      System.out.println(i);
+          System.out.println(i);
       }
-       */
    }
 
    public void totalFromOneTo(int finalValue)
@@ -31,12 +29,11 @@ public class Ex2_6
          "Second task: finding the total of the numbers from 1 to " +
          finalValue + ".");
 
-      /* Insert suitable loop control expressions.
-      for ()
+      for (int i = 1; i <= finalValue; i++)
       {
-         // Insert loop body here.
+         total = total + i;
       }
-       */
+
       System.out.println("The result is " + total + ".");
    }
 
@@ -47,12 +44,17 @@ public class Ex2_6
       System.out.println("Third task: finding the number of squares up to " + 
          limit + ".");
 
-      /* Use a for loop here
-      for ()
+      for (int i = 1; i <= limit; i++)
       {
-         // Insert loop body here.
+         if (i * i <= limit)
+         {
+             count++;
+         }
+         else{
+             break;
+         }
       }
-       */
+
       System.out.println("There are " + count +
          " numbers whose squares are no bigger than " + limit + ".");
    }

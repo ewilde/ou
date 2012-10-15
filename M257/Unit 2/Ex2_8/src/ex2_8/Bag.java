@@ -36,6 +36,7 @@ public class Bag
    //digit toBeRemoved from the bag by one
    public void removeFromBag(int toBeRemoved)
    {
+       bagVals[toBeRemoved]--;
    }
    
    //Complete the method void removeAllFromBag(int toBeRemoved) here
@@ -43,11 +44,15 @@ public class Bag
    //digit toBeRemoved from the bag
    public void removeAllFromBag(int toBeRemoved)
    {
+       this.bagVals[toBeRemoved] = 0;
    }
    
    //Complete the method void emptyBag() here
    public void emptyBag()
    {
+       for (int i = 0; i < this.bagVals.length; i++) {
+           this.bagVals[i] = 0;
+       }
    }
    
    //Complete the method printCounts, which prints out
@@ -55,5 +60,16 @@ public class Bag
    //Make use of the findNum method defined in this class
    public void printCounts()
    {
+       System.out.print('{');
+       for (int i= 0; i < this.bagVals.length; i++) {
+           System.out.print(this.bagVals[i]);
+
+           if (i < this.bagVals.length - 1)
+           {
+               System.out.print(", ");
+           }
+       }
+
+       System.out.println('}');
    }
 }

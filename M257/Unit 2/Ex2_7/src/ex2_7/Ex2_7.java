@@ -29,6 +29,13 @@ class Ex2_7
          For example, when version = 0, the loop prints two
          hash marks. Then print a newline character
        */
+      
+          for (int j = 0; j < classes[version]; j++)
+          {
+              System.out.print('#');
+          }
+
+          System.out.println();            
    }
 
    //This is the method a user calls to plot the graph
@@ -48,14 +55,14 @@ class Ex2_7
       // Here 0 means version 1.0, 1 means version 1.1 and so on
       // 2. You need to insert an appropriate condition in the for loop,
       // replacing the incorrect condition, i < 1
-      for (int i = 0; i < 1 /*2. incorrect condition! */; i++)
+      for (int i = 0; i < labels.length; i++)
       {
          //First we print the label and axis.
          //We use a tab character \t before the axis |
          //so that we can align the axis marks
          //Notice that we do not start a new line in the statement below
          //so that any further printout comes to the right of the |
-         System.out.print( /*3. Add the label here*/"\t|");
+         System.out.print(labels[i] + "\t|");
 
          // Next we draw the corresponding bar, built from # characters.
          // Control variable i arranges for the right number of #'s to be printed.
@@ -63,14 +70,14 @@ class Ex2_7
          printHashMarks(i);
 
          //After each bar is plotted we draw another piece of axis
-         System.out.println("\t|");
+         System.out.println("   \t|");
       }
 
       //When all the bars are printed, we plot the horizontal axis.
       System.out.println(
-         "\t|----|----|----|----|----|----|----|----|----|----|");
+         "   \t|----|----|----|----|----|----|----|----|----|----|");
 
       //Finally we print the legend.
-      System.out.println("\n\t" + legend);
+      System.out.println("   \t" + legend);
    }
 }

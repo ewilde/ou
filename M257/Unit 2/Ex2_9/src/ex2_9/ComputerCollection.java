@@ -31,7 +31,12 @@ public class ComputerCollection
    {
       return numConnected;
    }
-   
+
+   public int getNumOfRemovals()
+   {
+       return this.numOfRemovals;
+   }
+
    public void addComputer(String addedComputer)
    {
       computers[numConnected] = addedComputer;
@@ -69,10 +74,7 @@ public class ComputerCollection
    // or false otherwise
    public boolean isInNetwork(String wantedComputer)
    {
-      boolean found;
-      
-      //assign a value to found, according to the value returned by indexOf
-      return found;
+      return this.indexOf(wantedComputer) > -1;
    }
    
    //This method removes a computer from the collection
@@ -96,6 +98,7 @@ public class ComputerCollection
          
          //2. Add a statement here to keep track of the number of removals
          // in the variable numOfRemovals
+         numOfRemovals ++;
       }
    }
    
